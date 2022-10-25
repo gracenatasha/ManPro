@@ -6,7 +6,7 @@ from datetime import date
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='donor_darah',
+                                         database='donor_darah2',
                                          user='root',
                                          password='')
     if connection.is_connected():
@@ -130,23 +130,23 @@ try:
         for pendonor in id_pendonor: 
             # print("Pendonor: ", pendonor[0])
             # print("mon: ", monetary(str(pendonor[0])))
-            monetary_array.append(frequency(str(pendonor[0])))
+            monetary_array.append(monetary(str(pendonor[0])))
 
-        #get max frequency 
+        #get max monetary 
         monetary_max = 0
         for i in monetary_array: 
             if(i is not None): 
                 if(i > monetary_max): 
                     monetary_max = i
 
-        #get min frequency
+        #get min monetary
         monetary_min = monetary_max
         for i in monetary_array: 
             if(i is not None): 
                 if(i < monetary_min): 
                     monetary_min = i
 
-        #min-max normalization to 0-5 (frequency)
+        #min-max normalization to 0-5 (monetary)
         normalized_monetary_arr = []
         if(monetary_max == monetary_min): #kalo datanya sama, jd gabisa dicari minmax normalization nya
             for i in monetary_array: 
