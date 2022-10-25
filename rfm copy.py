@@ -1,4 +1,4 @@
-# rfm copy.py  
+# rfm.py  
 
 from asyncio.windows_events import NULL
 from tkinter.messagebox import NO
@@ -9,13 +9,15 @@ from datetime import date
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='donor_darah',
+                                         database='donor_darah2',
                                          user='root',
                                          password='')
     if connection.is_connected():
         db_Info = connection.get_server_info()
         
         cursor = connection.cursor()
+        print("connection success")
+
 
         #function recency
         def recency(id_pendonor): 
