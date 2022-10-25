@@ -7,7 +7,7 @@ from datetime import date
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='donor_darah2',
+                                         database='donor_darah',
                                          user='root',
                                          password='')
     if connection.is_connected():

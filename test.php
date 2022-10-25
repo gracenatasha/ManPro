@@ -10,10 +10,10 @@
     <h1>coba php->python dek</h1>
 
     <?php
-    //  $command = escapeshellcmd('rfm copy.py');
-    //  $output = shell_exec($command);
-    //  echo $output;
-    echo exec("rfm.py")
+     $command = escapeshellcmd('rfmcopy.py');
+     $output = shell_exec($command);
+     echo $output;
+    // echo exec("rfmcopy.py")
     ?>
 </body>
 </html>
