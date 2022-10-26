@@ -1,6 +1,3 @@
-# rfm copy.py  
-
-from asyncio.windows_events import NULL
 from tkinter.messagebox import NO
 from xml.etree.ElementTree import tostring
 import mysql.connector
@@ -26,7 +23,6 @@ try:
             if(recent_date is not None): 
                 today = date.today()
                 diff = today - recent_date[0]
-                print(diff.days)
                 return diff.days
             return None
 
@@ -58,8 +54,8 @@ try:
         #RECENCY-----------------------------
         recency_array = []
         for pendonor in id_pendonor: 
-            print("Pendonor: ", pendonor[0])
-            print("recency: ", recency(str(pendonor[0])))
+            # print("Pendonor: ", pendonor[0])
+            # print("recency: ", recency(str(pendonor[0])))
             recency_array.append(recency(str(pendonor[0])))
 
         #get max recency 
@@ -76,7 +72,7 @@ try:
                 if(i < recency_min): 
                     recency_min = i
         
-        print("max: ", recency_max, " min: ", recency_min)
+        # print("max: ", recency_max, " min: ", recency_min)
 
         #min-max normalization to 0-5 (recency)
         normalized_recency_arr = []
@@ -96,8 +92,8 @@ try:
         #FREQUENCY-----------------------------
         frequency_array = []
         for pendonor in id_pendonor: 
-            print("Pendonor: ", pendonor[0])
-            print("freq: ", frequency(str(pendonor[0])))
+            # print("Pendonor: ", pendonor[0])
+            # print("freq: ", frequency(str(pendonor[0])))
             frequency_array.append(frequency(str(pendonor[0])))
 
         #get max frequency 
@@ -126,31 +122,31 @@ try:
                 else: 
                     normalized_frequency_arr.append(0.0)
 
-        print(normalized_frequency_arr)
+        print("freq: ", normalized_frequency_arr)
 
 
         #MONETARY------------------------------------------------------------
         monetary_array = []
         for pendonor in id_pendonor: 
-            print("Pendonor: ", pendonor[0])
-            print("mon: ", monetary(str(pendonor[0])))
-            monetary_array.append(frequency(str(pendonor[0])))
+            # print("Pendonor: ", pendonor[0])
+            # print("mon: ", monetary(str(pendonor[0])))
+            monetary_array.append(monetary(str(pendonor[0])))
 
-        #get max frequency 
+        #get max monetary 
         monetary_max = 0
         for i in monetary_array: 
             if(i is not None): 
                 if(i > monetary_max): 
                     monetary_max = i
 
-        #get min frequency
+        #get min monetary
         monetary_min = monetary_max
         for i in monetary_array: 
             if(i is not None): 
                 if(i < monetary_min): 
                     monetary_min = i
 
-        #min-max normalization to 0-5 (frequency)
+        #min-max normalization to 0-5 (monetary)
         normalized_monetary_arr = []
         if(monetary_max == monetary_min): #kalo datanya sama, jd gabisa dicari minmax normalization nya
             for i in monetary_array: 
@@ -162,7 +158,18 @@ try:
                 else: 
                     normalized_monetary_arr.append(0.0)
 
-        print(normalized_monetary_arr)
+        print("mon: ", normalized_monetary_arr)
+
+
+        #RFM-----------------------------------------
+        rfm_arr = []
+        for i in range(len(monetary_array)): 
+            if(normalized_recency_arr[i] is None): 
+                rfm_arr.append(0)
+            else: 
+                rfm_arr.append(normalized_recency_arr[i]+normalized_frequency_arr[i]+normalized_monetary_arr[i])
+
+        print("rfm: ", rfm_arr)
 
 except Error as e:
     print("Error while connecting to MySQL", e)
