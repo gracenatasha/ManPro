@@ -98,18 +98,37 @@ try:
 
 
         #Buat Graph Frequency
-        freq5 = len(data.where(data['Frequency'] <= 5).dropna())
-        freq5to10 = len(data.where((data['Frequency'] > 5) & (data['Frequency'] <= 10)).dropna())
+        freq5 = len(data.where(data['Frequency'] < 5).dropna())
+        freq5to10 = len(data.where((data['Frequency'] >= 5) & (data['Frequency'] <= 10)).dropna())
         freq10to20 = len(data.where((data['Frequency'] > 10) & (data['Frequency'] <= 20)).dropna())
         freq20to40 = len(data.where((data['Frequency'] > 20) & (data['Frequency'] <= 40)).dropna())
         freq40plus = len(data.where(data['Recency'] > 40).dropna())
-        x_axis = ['<5 kali', '5-10 kali', '10-20 kali', '20-40 kali', '>40 kali']
+        x_axis = ['<5 kali', '5-10 kali', '11-20 kali', '21-40 kali', '>40 kali']
         y_axis = [freq5, freq5to10, freq10to20, freq20to40, freq40plus]
-        rangedata = {'Bulan sejak terakhir mendonorkan darah': x_axis, 'Jumlah Pendonor': y_axis}
+        rangedata = {'Frekuensi pendonoran darah': x_axis, 'Jumlah Pendonor': y_axis}
         df = pd.DataFrame(rangedata)
 
-        fig2 = px.bar(frequency_array)
+        fig2 = px.bar(df, x='Frekuensi pendonoran darah', y='Jumlah Pendonor')
         fig2.write_html('rfmfrequency.html')
+
+        #Buat Graph Monetary
+        mon200 = len(data.where(data['Monetary'] < 200).dropna())
+        mon2to4 = len(data.where((data['Monetary'] >= 200) & (data['Monetary'] <= 400)).dropna())
+        mon4to6 = len(data.where((data['Monetary'] > 400) & (data['Monetary'] <= 600)).dropna())
+        mon6to8 = len(data.where((data['Monetary'] > 600) & (data['Monetary'] <= 800)).dropna())
+        mon800 = len(data.where(data['Monetary'] > 800).dropna())
+
+        x_axis = ['<200cc', '200-400cc', '400-600cc', '600-800cc', '>800cc']
+        y_axis = [freq5, freq5to10, freq10to20, freq20to40, freq40plus]
+        rangedata = {'Total jumlah darah yang pernah didonorkan': x_axis, 'Jumlah Pendonor': y_axis}
+        df = pd.DataFrame(rangedata)
+
+        fig3 = px.bar(df, x='Total jumlah darah yang pernah didonorkan', y='Jumlah Pendonor')
+        fig3.write_html('rfmmonetary.html')
+
+
+
+        
 
 
 
