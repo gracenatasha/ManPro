@@ -13,6 +13,15 @@
      $command = escapeshellcmd('rfmcopy.py');
      $output = shell_exec($command);
      echo $output;
+     $arr = json_decode($output);
+     var_dump($arr);
+    //  $command = escapeshellcmd('r.py');
+    //  $output = shell_exec($command);
+    //  echo $output, "<br>";
+    // //  echo;
+    //  $command = escapeshellcmd('f.py');
+    //  $output = shell_exec($command);
+    //  echo $output;
     // echo exec("rfmcopy.py")
     ?>
 </body>

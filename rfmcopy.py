@@ -3,6 +3,8 @@ from xml.etree.ElementTree import tostring
 import mysql.connector
 from mysql.connector import Error
 from datetime import date
+import json
+
 
 try:
     connection = mysql.connector.connect(host='localhost',
@@ -170,6 +172,13 @@ try:
                 rfm_arr.append(normalized_recency_arr[i]+normalized_frequency_arr[i]+normalized_monetary_arr[i])
 
         print("rfm: ", rfm_arr)
+        # print(json.dumps("rfm: ", rfm_arr)) ga bekerja
+        # print (json.dumps([normalized_recency_arr, normalized_frequency_arr, normalized_frequency_arr, rfm_arr]));
+        # print(json.dumps(["recencynya : ", normalized_recency_arr])) ga bekerja
+        print(json.dumps([normalized_recency_arr]))
+        print(json.dumps([normalized_frequency_arr]))
+
+
 
 except Error as e:
     print("Error while connecting to MySQL", e)
