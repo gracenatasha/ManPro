@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from tkinter.messagebox import NO
 from xml.etree.ElementTree import tostring
 import mysql.connector #pip install mysql-connector-python
