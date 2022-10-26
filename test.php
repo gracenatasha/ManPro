@@ -10,9 +10,9 @@
     <h1>coba php->python dek</h1>
 
     <?php
-    //  $command = escapeshellcmd('rfmcopy.py');
-    //  $output = shell_exec($command);
-    //  echo $output;
+     $command = escapeshellcmd('rfmcopy.py');
+     $output = shell_exec($command);
+     echo $output;
     //  $arr = json_decode($output);
     //  var_dump($arr);
     //  $command = escapeshellcmd('r.py');
@@ -23,9 +23,9 @@
     //  $output = shell_exec($command);
     //  echo $output;
     // echo exec("rfmcopy.py")
-    $command = escapeshellcmd('rfmgraph.py');
-    $output = shell_exec($command);
-    echo $output;
+    // $command = escapeshellcmd('rfmgraph.py');
+    // $output = shell_exec($command);
+    // echo $output;
     ?>
 </body>
 </html>
