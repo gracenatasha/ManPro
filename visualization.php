@@ -14,14 +14,22 @@
 </head>
 
 <?php
-$rec = "";
+/*$rec = "";
 $freq = "";
 $mon = "";
 if (isset($_GET["recency"]) && isset($_GET["frequency"]) && isset($_GET["monetary"])) {
     $rec = $_GET["recency"];
     $freq = $_GET["frequency"];
     $mon = $_GET["monetary"];
+}*/
+
+$page = "";
+if (isset($_GET["page"])) {
+    $page = $_GET["page"];
 }
+
+$command = escapeshellcmd('rfmgraph.py');
+$output = shell_exec($command);
 ?>
 
 <body>
@@ -48,7 +56,7 @@ if (isset($_GET["recency"]) && isset($_GET["frequency"]) && isset($_GET["monetar
 
     <div class="container mt-3">
         <div class="row d-inline-block">
-            <form class="form-inline" action="" method="get">
+            <!--<form class="form-inline" action="" method="get">
                 <label>Recency</label>
                 <input class="form-control ml-2 mr-3" type="number" min="0" max="1" step="any" name="recency" id="recencyValue" placeholder="0.0-1.0">
                 <label>Frequency</label>
@@ -56,26 +64,59 @@ if (isset($_GET["recency"]) && isset($_GET["frequency"]) && isset($_GET["monetar
                 <label>Monetary</label>
                 <input class="form-control ml-2 mr-3" type="number" min="0" max="1" step="any" name="monetary" id="monetaryValue" placeholder="0.0-1.0">
                 <button type="submit" class="btn btn-warning">Generate Reports</button>
-            </form>
+            </form>-->
+
+            <div class="btn-group" role="group">
+                <a href="visualization.php?page=recency" class="<?php if ($page == 'recency' || $page == "") {
+                                                                    echo 'btn btn-primary';
+                                                                } else {
+                                                                    echo 'btn btn-secondary';
+                                                                } ?>">Recency</a>
+                <a href="visualization.php?page=frequency" class="<?php if ($page == 'frequency') {
+                                                                        echo 'btn btn-primary';
+                                                                    } else {
+                                                                        echo 'btn btn-secondary';
+                                                                    } ?>">Frequency</a>
+                <a href="visualization.php?page=monetary" class="<?php if ($page == 'monetary') {
+                                                                        echo 'btn btn-primary';
+                                                                    } else {
+                                                                        echo 'btn btn-secondary';
+                                                                    } ?>">Monetary</a>
+            </div>
         </div>
         <div class="row">
             <div class="jumbotron my-3" id="report">
                 <?php
-                    $response = "";
+                if ($page == "") {
+                    $src = "rfmrecency.html";
+                } else {
+                    $src = "rfm$page.html";
+                }
 
-                    //kalau blm diisi
-                    if ($rec == "" || $freq == "" || $mon == "") {
-                        $response = "Please input RFM weights!";
-                    }
-                    //kalau lebih/kurang dari 1 total weightnya
-                    else if ($rec + $freq + $mon != 1){
-                        $response = "RFM weights must add up to 1";
-                    }
-                    else {
-                        $response = '<center><iframe src="rfmrecency.html" height="800" width="1000" frameBorder="0"></iframe></center>';
-                        //nanti bagian src diganti urlnya diagram yang dari python
-                    }
-                    echo $response;
+                $response = "<center><iframe src='$src' height='800' width='1000' frameBorder='0'></iframe></center>";
+
+                /*if ($page == 'recency' || $page == "") {
+                    $src = 'rfmrecency.html';
+                }
+                else if($page == 'frequency') {
+                    $src = 'rfmfrequency.html';
+                }
+                else 
+
+                //kalau blm diisi
+                if ($rec == "" || $freq == "" || $mon == "") {
+                    $response = "Please input RFM weights!";
+                }
+                //kalau lebih/kurang dari 1 total weightnya
+                else if ($rec + $freq + $mon != 1) {
+                    $response = "RFM weights must add up to 1";
+                } else {
+                    $command = escapeshellcmd('rfmgraph.py');
+                    $output = shell_exec($command);
+                    $response = '<center><iframe src="rfmfrequency.html" height="800" width="1000" frameBorder="0"></iframe></center>';
+                    //nanti bagian src diganti urlnya diagram yang dari python
+                }*/
+                echo $response;
                 ?>
             </div>
         </div>
