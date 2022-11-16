@@ -45,7 +45,7 @@ $output = shell_exec($command);
                     <a class="nav-link" href="#">Event</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Data</a>
+                    <a class="nav-link" href="data.php">Data</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="visualization.php">RFM</a>
