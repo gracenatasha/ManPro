@@ -22,13 +22,13 @@ from sklearn.preprocessing import StandardScaler
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='donor_darah2',
+                                         database='donor_darah4',
                                          user='root',
                                          password='')
     if connection.is_connected():
         db_Info = connection.get_server_info()
 
-        cursor = connection.cursor()
+        cursor = connection.cursor(buffered=True)
 
         # function recency
         def recency(id_pendonor):
@@ -56,12 +56,12 @@ try:
 
         # function monetary
         def monetary(id_pendonor):
-            sql_monetary = "SELECT max(jumlah_darah) FROM donor WHERE id_pendonor="+id_pendonor
+            sql_monetary = "SELECT SUM(jumlah_darah) FROM donor WHERE id_pendonor="+id_pendonor
             cursor.execute(sql_monetary)
             mon = cursor.fetchone()
 
-            if (mon is not None):
-                return mon[0]
+            if (mon is not None and mon[0] is not None):
+                return float(mon[0])
             return 0
 
         # get all id pendonor
@@ -174,6 +174,8 @@ try:
                 if (i < monetary_min):
                     monetary_min = i
 
+        print("MINMAXMON: ", monetary_max, monetary_min)
+
         # min-max normalization to 1-5 (frequency)
         normalized_monetary_arr = []
         if (monetary_max == monetary_min):  # kalo datanya sama, jd gabisa dicari minmax normalization nya
@@ -182,6 +184,7 @@ try:
         else:
             for i in monetary_array:
                 if (i is not None):
+                    # print(i)
                     normalized_monetary_arr.append((i-monetary_min)/(monetary_max - monetary_min)*4+1)
                 else:
                     normalized_monetary_arr.append(1.0)
@@ -194,6 +197,7 @@ try:
             if (normalized_recency_arr[i] is None):
                 rfm_total_arr.append(0)
             else:
+                print("TYPE: ", type(normalized_recency_arr[i]), type(normalized_frequency_arr[i]), type(normalized_monetary_arr), normalized_monetary_arr)
                 rfm_total_arr.append(
                     normalized_recency_arr[i]+normalized_frequency_arr[i]+normalized_monetary_arr[i])
 
@@ -209,33 +213,6 @@ try:
 
 
         #CLUSTERING-------------------------------------------
-
-        #EUCLIDEAN DISTANCE
-        arr_len = len(monetary_array)
-
-        euc = []
-        for i in range(arr_len): 
-            euc.append([])
-            for j in range(arr_len): 
-                print(i, j)
-                print("r: ", pow(normalized_recency_arr[i]-normalized_recency_arr[j], 2))
-                print("f: ", pow(normalized_frequency_arr[i]-normalized_frequency_arr[j], 2))
-                print("m: ", pow(normalized_monetary_arr[i]-normalized_monetary_arr[j], 2))
-                temp = (pow(normalized_recency_arr[i]-normalized_recency_arr[j], 2)+pow(normalized_frequency_arr[i]-normalized_frequency_arr[j], 2)+pow(normalized_monetary_arr[i]-normalized_monetary_arr[j], 2))**0.5
-                euc[i].append(temp)
-                print("euclidean: ", euc[i][j])
-                print(euc)
-
-        print("hasil")
-        for i in range(arr_len): 
-            for j in range(arr_len): 
-                print(euc[i][j], end=" ")
-            print("")
-
-        print(euc)
-
-
-        
         list = []
         for i in range(len(normalized_recency_arr)): 
             list.append([normalized_recency_arr[i], normalized_frequency_arr[i], normalized_monetary_arr[i]])
@@ -277,10 +254,10 @@ try:
             range(1, 11), sse, curve="convex", direction="decreasing"
         )
 
-        print("elbow: ", kl.elbow)
+        # print("elbow: ", kl.elbow)
 
 
-        #CLUSTERING-----------------------------------------
+        #CLUSTERING K-MEANS-----------------------------------------
         kmeans = KMeans(
             init="random",
             n_clusters=kl.elbow,
@@ -300,13 +277,13 @@ try:
         nocluster = kl.elbow
         centroid = kmeans.cluster_centers_
         cluster = []
+        print("len normalized: ", len(normalized_frequency_arr))
         for i in range(len(normalized_frequency_arr)): 
             temp = []
             for j in range(nocluster): 
                 temp.append(euclidean(normalized_recency_arr[i], normalized_frequency_arr[i], normalized_monetary_arr[i], centroid[j][0], centroid[j][1], centroid[j][2]))
             minIndex = temp.index(min(temp))
             cluster.append([minIndex, [normalized_recency_arr[i], normalized_frequency_arr[i], normalized_monetary_arr[i]]])
-
 
         clustered = [] #hasil clustering, tapi masih belum urut index nya (dari data paling bagus ke paling jelek masih acak)
         for i in range(nocluster): 
@@ -316,8 +293,12 @@ try:
                     temp.append(cluster[j][1])
             clustered.append(temp)
 
+        print(len(cluster), len(clustered))
+        print("cluster", cluster)
+        print("ed", clustered)
+        print("CLUSTERING: -----------------------------------------------")
         for i in range(len(clustered)): 
-            print("i: ", i, " ", clustered[i])
+            print("i: ", i, len(clustered[i]), " ", clustered[i])
 
 
         #mengurutkan hasil clustering dari data paling jelek ke paling bagus
@@ -329,9 +310,9 @@ try:
                 temp += clustered[i][j][0] + clustered[i][j][1] + clustered[i][j][2]
                 j_count+=1
             avg.append(temp/j_count)
-        print(avg)
+        print("AVG: ", avg)
         sorted_index = np.argsort(avg)
-        print(sorted_index)
+        print("sorted: ", sorted_index)
         sorted = []
         for i in range(len(sorted_index)): 
             sorted.append(clustered[sorted_index[i]])
@@ -342,6 +323,7 @@ try:
 
 
         #plot hasil
+        print("JUMLAH HASIL: ", len(sorted), "--------------------")
         fig = plt.figure(figsize = (10,10))
         ax = plt.axes(projection='3d')
         ax.grid()
@@ -350,28 +332,41 @@ try:
         f = []
         m = []
         hasil = []
+
         colors = np.array(["red","green","blue","yellow","pink","black","orange","purple","beige","brown","gray","cyan","magenta"])
+        label = np.array(["Lost", "Hibernating", "Can't Lose Them", "At Risk", "About to Sleep", "Needing Attention", "Promising"])
+
+        col = np.random.rand(len(sorted))
+        color = []
         for i in range(len(sorted)): 
             temp = []
             for j in range(len(sorted[i])): 
                 r.append(sorted[i][j][0])
                 f.append(sorted[i][j][1])
                 m.append(sorted[i][j][2])
-            r = np.asarray(r)
-            f = np.asarray(f)
-            m = np.asarray(m)
-            ax.scatter(r, f, m, c = colors[i], s = 50, cmap = 'viridis')
-            r = []
-            f = []
-            m = []
+                color.append(colors[i])
+            # r = np.asarray(r)
+            # f = np.asarray(f)
+            # m = np.asarray(m)
+            print(len(r), len(f), len(m))
+            # ax.scatter(r, f, m, c = colors[i], s = 50, cmap = 'viridis')
+            # r = []
+            # f = []
+            # m = []
+        
+        r = np.asarray(r)
+        f = np.asarray(f)
+        m = np.asarray(m)
+        colors = np.asarray(color)
 
 
-        ax.scatter(r, f, m, c = 'r', s = 50)
+        ax.scatter(r, f, m, c = colors, s = 50, alpha=0.5, label = label[i])
         ax.set_title('RFM Clustering Result')
 
         ax.set_xlabel('R (Recency)', labelpad=20)
         ax.set_ylabel('F (Frequency)', labelpad=20)
         ax.set_zlabel('M (Monetary)', labelpad=20)
+
 
         plt.show()
 
