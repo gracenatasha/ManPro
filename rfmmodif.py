@@ -6,6 +6,7 @@ import mysql.connector
 from mysql.connector import Error
 from datetime import date
 import pandas as pd
+import sys
 
 
 try:
@@ -109,7 +110,7 @@ try:
                 else:
                     normalized_recency_arr.append(1)
 
-        print("recency array: ", normalized_recency_arr)
+        #print("recency array: ", normalized_recency_arr)
 
         # FREQUENCY-----------------------------
         frequency_array = []
@@ -167,7 +168,7 @@ try:
                 freqset.append(1)
             normalized_frequency_arr.append(freqset)
 
-        print("freq arr: ", normalized_frequency_arr)
+        #print("freq arr: ", normalized_frequency_arr)
 
         # MONETARY------------------------------------------------------------
         monetary_array = []
@@ -225,23 +226,53 @@ try:
                 monset.append(1)
             normalized_monetary_arr.append(monset)
 
-        print("mon arr: ", normalized_monetary_arr)
+        #print("mon arr: ", normalized_monetary_arr)
 
-        print('Recency: ', recency_array)
-        print('Frequency: ', frequency_array)
-        print('Monetary: ', monetary_array)
+        #print('Recency: ', recency_array)
+        #print('Frequency: ', frequency_array)
+        #print('Monetary: ', monetary_array)
 
         # RFM dikalikan weight masing"-----------------------------------------
+        # nanti weightnya berubah" berdasarkan input user
         rfm_arr = []
+        
+        if len(sys.argv) <= 1:
+            #print('No arguments')
+            r_weight = f_weight = m_weight = 1/3
+            f1_weight = f2_weight = f3_weight = fall_weight = 0.25
+            m1_weight = m2_weight = m3_weight = mall_weight = 0.25
+        elif len(sys.argv) == 4:
+            #print('3 arguments')
+            r_weight = float(sys.argv[1])
+            f_weight = float(sys.argv[2])
+            m_weight = float(sys.argv[3])
+            f1_weight = f2_weight = f3_weight = fall_weight = 0.25
+            m1_weight = m2_weight = m3_weight = mall_weight = 0.25
+        else:
+            r_weight = float(sys.argv[1])
+            f_weight = float(sys.argv[2])
+            m_weight = float(sys.argv[3])
+            f1_weight = float(sys.argv[4]) #1 year
+            f2_weight = float(sys.argv[5]) #2 year
+            f3_weight = float(sys.argv[6]) #3 year
+            fall_weight = float(sys.argv[7]) #all
+            m1_weight = float(sys.argv[8]) #1 year
+            m2_weight = float(sys.argv[9]) #2 year
+            m3_weight = float(sys.argv[10]) #3 year
+            mall_weight = float(sys.argv[11])
+
+
         for i in range(len(monetary_array)):
             recency_val = normalized_recency_arr[i]
-            frequency_val = 0.25*normalized_frequency_arr[i][0] + 0.25*normalized_frequency_arr[i][1] + 0.25*normalized_frequency_arr[i][2] + 0.25*normalized_frequency_arr[i][3]
-            monetary_val = 0.25*normalized_monetary_arr[i][0] + 0.25*normalized_monetary_arr[i][1] + 0.25*normalized_monetary_arr[i][2] + 0.25*normalized_monetary_arr[i][3]
-            rfm_arr.append(1/3*recency_val + 1/3*frequency_val + 1/3*monetary_val)
 
-        print("rfm: ", rfm_arr)
+            frequency_val = f1_weight*normalized_frequency_arr[i][0] + f2_weight*normalized_frequency_arr[i][1] + f3_weight*normalized_frequency_arr[i][2] + fall_weight*normalized_frequency_arr[i][3]
+            monetary_val = m1_weight*normalized_monetary_arr[i][0] + m2_weight*normalized_monetary_arr[i][1] + m3_weight*normalized_monetary_arr[i][2] + mall_weight*normalized_monetary_arr[i][3]
+            rfm_val = r_weight*recency_val + f_weight*frequency_val + m_weight*monetary_val
+            rfm_arr.append(rfm_val)
 
-        """ # NEW -- Add RFM Columns to Initial DataFrame
+        #print("rfm: ", rfm_arr)
+
+        # NEW -- Add RFM Columns to Initial DataFrame
         df_pendonor.columns = ['ID', 'Nama Pendonor', 'Tanggal Lahir', 'Jenis Kelamin', 'Golongan Darah',
                                'Rhesus', 'Alamat', 'ID Kelurahan Rumah', 'Alamat Kantor', 'ID Kelurahan Kantor', 'No Telepon', 'E-mail']
         df_pendonor['Recency'] = normalized_recency_arr
@@ -250,11 +281,11 @@ try:
         df_pendonor['RFM'] = rfm_arr
         df_pendonor.pop('ID Kelurahan Rumah')
         df_pendonor.pop('ID Kelurahan Kantor')
-        #print(df_pendonor)
+        sorted_pendonor = df_pendonor.sort_values(by='RFM', ascending=False)
 
         # Nyambungin ke PHP/HTML
-        html_table = df_pendonor.to_html(classes='table table-striped') """
-        #print(html_table) #ini yg hrsnya di outputin ke sblh
+        html_table = sorted_pendonor.to_html(classes='table table-striped') 
+        print(html_table) #ini yg hrsnya di outputin ke sblh
         # kalo ga bisa, coba write html to file
         #text_file = open("table.html", "w")
         #text_file.write(html_table)
