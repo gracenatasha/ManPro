@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+
 from cmath import sqrt
 from operator import le
 from tkinter.messagebox import NO
@@ -22,7 +23,7 @@ from sklearn.preprocessing import StandardScaler
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='donor_darah4',
+                                         database='donor_darah5',
                                          user='root',
                                          password='')
     if connection.is_connected():
@@ -249,6 +250,7 @@ try:
         plt.xlabel("Number of Clusters")
         plt.ylabel("SSE")
         # plt.show()
+        plt.savefig('elbow.png')
 
         kl = KneeLocator(
             range(1, 11), sse, curve="convex", direction="decreasing"
@@ -368,7 +370,10 @@ try:
         ax.set_zlabel('M (Monetary)', labelpad=20)
 
 
-        plt.show()
+        # plt.show()
+
+        plt.savefig('clustering.png')
+        
 
 
         # NEW -- Add RFM Columns to Initial DataFrame
@@ -383,12 +388,12 @@ try:
         #print(df_pendonor)
 
         # Nyambungin ke PHP/HTML
-        html_table = df_pendonor.to_html(classes='table table-striped')
-        # print(html_table) #ini yg hrsnya di outputin ke sblh
+        html_table = df_pendonor.to_html(classes='table table-striped rfm_table')
+        print(html_table) #ini yg hrsnya di outputin ke sblh
         # kalo ga bisa, coba write html to file
-        #text_file = open("table.html", "w")
-        #text_file.write(html_table)
-        #text_file.close()
+        text_file = open("table_data.php", "w")
+        text_file.write(html_table)
+        text_file.close()
 
 except Error as e:
     print("Error while connecting to MySQL", e)
