@@ -21,13 +21,13 @@ from yellowbrick.cluster import SilhouetteVisualizer
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='donor_darah',
+                                         database='database',
                                          user='root',
                                          password='')
     if connection.is_connected():
         db_Info = connection.get_server_info()
 
-        cursor = connection.cursor()
+        cursor = connection.cursor(buffered=True)
 
         # function recency
         def recency(id_pendonor):
@@ -369,6 +369,15 @@ try:
                 feature_list.remove(selected_feature)
                 print("Selected new feature {} with score {}". format(selected_feature, high_score))
             return selected_features
+
+        scaler = SS()
+        DNP_authors_standardized = scaler.fit_transform(df_pendonor['Monetary'])
+        df_authors_standardized = pd.DataFrame(DNP_authors_standardized, columns=["word_count_standardized", "modern_translations_standardized", "known_works_standardized", "manuscripts_standardized", "early_editions_standardized", "early_translations_standardized", "modern_editions_standardized", "commentaries_standardized"])
+        df_authors_standardized = df_authors_standardized.set_index(df_pendonor.index)
+        selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=3, n_clusters=3)
+        df_standardized_sliced = df_authors_standardized[selected_features]
+        elbowPlot(range(1,11), df_standardized_sliced)
+
 
         # Nyambungin ke PHP/HTML
         html_table = sorted_pendonor.to_html(classes='table table-striped') 
