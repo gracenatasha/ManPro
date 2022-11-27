@@ -14,6 +14,7 @@ from sklearn.cluster import KMeans
 import numpy as np
 
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 from kneed import KneeLocator
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
@@ -347,35 +348,51 @@ try:
                 f.append(sorted[i][j][1])
                 m.append(sorted[i][j][2])
                 color.append(colors[i])
-            # r = np.asarray(r)
-            # f = np.asarray(f)
-            # m = np.asarray(m)
             print(len(r), len(f), len(m))
-            # ax.scatter(r, f, m, c = colors[i], s = 50, cmap = 'viridis')
-            # r = []
-            # f = []
-            # m = []
         
         r = np.asarray(r)
         f = np.asarray(f)
         m = np.asarray(m)
         colors = np.asarray(color)
 
+        col = []
+        for i in range(len(r)): 
+            col.append(i)
+        col = np.asarray(col)
 
-        ax.scatter(r, f, m, c = colors, s = 50, alpha=0.5, label = label[i])
-        ax.set_title('RFM Clustering Result')
 
-        ax.set_xlabel('R (Recency)', labelpad=20)
-        ax.set_ylabel('F (Frequency)', labelpad=20)
-        ax.set_zlabel('M (Monetary)', labelpad=20)
+        #MATPLOT-----------------------------------------------------------
+        # ax.scatter(r, f, m, c = colors, s = 50, alpha=0.5, label = label[i])
+        # ax.set_title('RFM Clustering Result')
 
+        # ax.set_xlabel('R (Recency)', labelpad=20)
+        # ax.set_ylabel('F (Frequency)', labelpad=20)
+        # ax.set_zlabel('M (Monetary)', labelpad=20)
 
         # plt.show()
+        # plt.savefig('clustering.png')
 
-        plt.savefig('clustering.png')
+        #COBA PLOTLY-------------------------------------------
+        # Helix equation
+
+        fig = go.Figure(data=[go.Scatter3d(
+            x=r,
+            y=f,
+            z=m,
+            mode='markers',
+            marker=dict(
+                size=8,
+                color=col,
+                colorscale='Viridis',   # choose a colorscale
+                opacity=0.8
+            )
+        )])
+
+        # tight layout
+        fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
+        fig.write_html("clustering.html")
+        fig.show()
         
-
-
         # NEW -- Add RFM Columns to Initial DataFrame
         df_pendonor.columns = ['ID', 'Nama Pendonor', 'Tanggal Lahir', 'Jenis Kelamin', 'Golongan Darah',
                                'Rhesus', 'Alamat', 'ID Kelurahan Rumah', 'Alamat Kantor', 'ID Kelurahan Kantor', 'No Telepon', 'E-mail']
@@ -388,12 +405,16 @@ try:
         #print(df_pendonor)
 
         # Nyambungin ke PHP/HTML
-        html_table = df_pendonor.to_html(classes='table table-striped rfm_table')
-        print(html_table) #ini yg hrsnya di outputin ke sblh
+        # new_df = df_pendonor.set_index('ID')
+        html_table = df_pendonor.to_html(classes='table table-striped rfm_table', index=False)
         # kalo ga bisa, coba write html to file
         text_file = open("table_data.php", "w")
         text_file.write(html_table)
         text_file.close()
+
+        # new_df = df_pendonor.set_index('ID')
+        # print(new_df)
+        # print(df_pendonor)
 
 except Error as e:
     print("Error while connecting to MySQL", e)
