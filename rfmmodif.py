@@ -13,10 +13,12 @@ from sklearn.decomposition import PCA # dimensionality reduction
 from sklearn.metrics import silhouette_score # used as a metric to evaluate the cohesion in a cluster
 from sklearn.neighbors import NearestNeighbors # for selecting the optimal eps value when using DBSCAN
 import numpy as np
+
 # plotting libraries
 import matplotlib.pyplot as plt
 import seaborn as sns
 from yellowbrick.cluster import SilhouetteVisualizer
+import plotly.graph_objects as go
 
 
 try:
@@ -293,6 +295,10 @@ try:
         df_pendonor.pop('ID Kelurahan Kantor')
         sorted_pendonor = df_pendonor.sort_values(by='RFM', ascending=False)
 
+        # SILHOUETTE & ELBOW PLOT============================
+
+            #SILHOUETTE 
+
         def silhouettePlot(range_, data):
             half_length = int(len(range_)/2)
             range_list = list(range_)
@@ -306,6 +312,8 @@ try:
             fig.tight_layout()
             fig.show()
             fig.savefig("silhouette_plot.png")
+
+            # ELBOW
 
         def elbowPlot(range_, data, figsize=(10,10)):
             inertia_list = []
@@ -331,6 +339,8 @@ try:
             distances = np.sort(distances, axis=0)
             distances = distances[:,1]
             plt.plot(distances)
+
+            # BUAT NGE KLASIFIKASI FEATURE BERDASARKAN K-MEANS + SILHOUETTE SCORE YANG DI DATASET
 
         def progressiveFeatureSelection(df, n_clusters=3, max_features=4,):
             feature_list = list(df.columns)
@@ -370,18 +380,84 @@ try:
                 print("Selected new feature {} with score {}". format(selected_feature, high_score))
             return selected_features
 
+            # BUAT STANDARDISASI DATA
         scaler = SS()
-        print("before")
-        print(df_pendonor['RFM'])
+        # print("before")
+        # print(df_pendonor['RFM'])
         DNP_authors_standardized = scaler.fit_transform(df_pendonor[['RFM']])
-        print("after")
+        # print("after")
         df_authors_standardized = pd.DataFrame(DNP_authors_standardized, columns=["RFM"])
         df_authors_standardized = df_authors_standardized.set_index(df_pendonor.index)
         selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=1, n_clusters=3)
         df_standardized_sliced = df_authors_standardized[selected_features]
-        elbowPlot(range(1,11), df_standardized_sliced)
-        silhouettePlot(range(3,9), df_standardized_sliced)
+        # elbowPlot(range(1,11), df_standardized_sliced)
+        # silhouettePlot(range(3,9), df_standardized_sliced)
 
+        # clustering
+        kmeans = KMeans(n_clusters=3, random_state=42)
+        cluster_labels = kmeans.fit_predict(df_standardized_sliced)
+        df_standardized_sliced["clusters"] = cluster_labels
+
+        # using PCA to reduce the dimensionality
+        pca = PCA(n_components=2, whiten=False, random_state=42)
+        authors_standardized_pca = pca.fit_transform(df_standardized_sliced)
+        df_authors_standardized_pca = pd.DataFrame(data=authors_standardized_pca, columns=["pc_1", "pc_2"])
+        df_authors_standardized_pca["clusters"] = cluster_labels
+
+        # plotting the clusters with seaborn
+        sns.scatterplot(x="pc_1", y="pc_2", hue="clusters", data=df_authors_standardized_pca)
+
+             #COBA PLOTLY-------------------------------------------(SCATTER)
+             #plot hasil
+      
+
+        # r = []
+        # f = []
+        # m = []
+        # hasil = []
+
+        # colors = np.array(["red","green","blue","yellow","pink","black","orange","purple","beige","brown","gray","cyan","magenta"])
+        # label = np.array(["Lost", "Hibernating", "Can't Lose Them", "At Risk", "About to Sleep", "Needing Attention", "Promising"])
+
+        # col = np.random.rand(len(sorted_pendonor))
+        # color = []
+        # for i in range(len(sorted_pendonor)): 
+        #     temp = []
+        #     for j in range(len(sorted_pendonor[i])): 
+        #         r.append(sorted_pendonor[i][j][0])
+        #         f.append(sorted_pendonor[i][j][1])
+        #         m.append(sorted_pendonor[i][j][2])
+        #         color.append(colors[i])
+        #     print(len(r), len(f), len(m))
+        
+        # r = np.asarray(r)
+        # f = np.asarray(f)
+        # m = np.asarray(m)
+        # colors = np.asarray(color)
+
+        # col = []
+        # for i in range(len(r)): 
+        #     col.append(i)
+        # col = np.asarray(col)
+        # # Helix equation
+
+        # fig = go.Figure(data=[go.Scatter3d(
+        #     x=r,
+        #     y=f,
+        #     z=m,
+        #     mode='markers',
+        #     marker=dict(
+        #         size=8,
+        #         color=col,
+        #         colorscale='Viridis',   # choose a colorscale
+        #         opacity=0.8
+        #     )
+        # )])
+
+        # # tight layout
+        # fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
+        # fig.write_html("clustering_mod.html")
+        # fig.show()
 
         # Nyambungin ke PHP/HTML
         html_table = sorted_pendonor.to_html(classes='table table-striped') 
