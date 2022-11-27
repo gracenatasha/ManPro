@@ -11,11 +11,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <style type="text/css">
+        .btn-primary {
+            background-color: #817582 !important;
+            border-color: #817582 !important;
+        }
+    </style>
 </head>
+
 
 <?php
 $command = escapeshellcmd('rfmmodif.py');
 $rec = $freq = $mon = $freq1 = $freq2 = $freq3 = $freqall = $mon1 = $mon2 = $mon3 = $monall = "";
+include 'links.php';
 
 if (isset($_POST["generate"])) {
     $rec = $_POST["recency"];
@@ -37,132 +45,154 @@ if (isset($_POST["generate"])) {
     $output = shell_exec("/usr/local/bin/python3 $command");
 }
 
+echo "$output";
+
 ?>
 
 <body>
-    <!--NAVBAR-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Donor Darah</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="displayAllEvent.php">Event</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Data</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="visualization.php">RFM</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+    <?php
+    include 'navbar.php';
+    ?>
+    <div>
+        <div class="container-lg mt-5 mx-auto pt-5">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Edit Weights
+            </button>
 
-    <div class="container-lg mt-3 mx-3">
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            Edit Weights
-        </button>
+            <!-- Modal -->
 
-        <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+                    <!--FORM-->
+                    <form action="data.php" method="POST">
+                        <div class="modal-content">
 
-                <!--FORM-->
-                <form action="data.php" method="POST">
-                    <div class="modal-content">
+                            <!--MODAL HEADER-->
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Edit RFM Weights</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
 
-                        <!--MODAL HEADER-->
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit RFM Weights</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
+                            <!--MODAL BODY-->
+                            <div class="modal-body">
+                                <div class="form-group">
 
-                        <!--MODAL BODY-->
-                        <div class="modal-body">
-                            <div class="form-group">
+                                    <div id="accordion">
+                                        <!--RECENCY-->
+                                        <div class="card-header" data-toggle="collapse" data-target="#collapseZero">
+                                            <form class="form-inline">
+                                                <div class="form-group mx-sm-3 mb-2">
+                                                    <label class="mr-3">Recency</label>
+                                                    <input class="form-control" type="number" min="0" max="1" step="0.1" name="recency" id="recencyValue" placeholder="0.0-1.0">
+                                                </div>
+                                            </form>
+                                        </div>
 
-                                <div id="accordion">
-                                    <!--RECENCY-->
-                                    <div class="card-header" data-toggle="collapse" data-target="#collapseZero">
-                                        <form class="form-inline">
+                                        <!--FREQUENCY-->
+                                        <div class="card-header" data-toggle="collapse" data-target="#collapseOne">
                                             <div class="form-group mx-sm-3 mb-2">
-                                                <label class="mr-3">Recency</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="recency" id="recencyValue" placeholder="0.0-1.0">
+                                                <label class="mr-3">Frequency</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="frequency" id="frequencyValue" placeholder="0.0-1.0">
                                             </div>
-                                        </form>
-                                    </div>
-
-                                    <!--FREQUENCY-->
-                                    <div class="card-header" data-toggle="collapse" data-target="#collapseOne">
-                                        <div class="form-group mx-sm-3 mb-2">
-                                            <label class="mr-3">Frequency</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="frequency" id="frequencyValue" placeholder="0.0-1.0">
                                         </div>
-                                    </div>
-                                    <div id="collapseOne" class="collapse" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <label>Past year</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="f1" id="frequency1" placeholder="Past year">
-                                            <label>Past 2 years</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="f2" id="frequency2" placeholder="Past 2 years">
-                                            <label>Past 3 years</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="f3" id="frequency3" placeholder="Past 3 years">
-                                            <label>All</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="fall" id="frequencyAll" placeholder="All">
+                                        <div id="collapseOne" class="collapse" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <label>Past year</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="f1" id="frequency1" placeholder="Past year">
+                                                <label>Past 2 years</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="f2" id="frequency2" placeholder="Past 2 years">
+                                                <label>Past 3 years</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="f3" id="frequency3" placeholder="Past 3 years">
+                                                <label>All</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="fall" id="frequencyAll" placeholder="All">
+                                            </div>
                                         </div>
-                                    </div>
 
 
-                                    <!--MONETARY-->
-                                    <div class="card-header" data-toggle="collapse" data-target="#collapseTwo">
-                                        <div class="form-group mx-sm-3 mb-2">
-                                            <label class="mr-3">Monetary</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="monetary" id="monetaryValue" placeholder="0.0-1.0">
+                                        <!--MONETARY-->
+                                        <div class="card-header" data-toggle="collapse" data-target="#collapseTwo">
+                                            <div class="form-group mx-sm-3 mb-2">
+                                                <label class="mr-3">Monetary</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="monetary" id="monetaryValue" placeholder="0.0-1.0">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                                        <div class="card-body">
-                                            <label>Past year</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="m1" id="monetary1" placeholder="Past year">
-                                            <label>Past 2 years</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="m2" id="monetary2" placeholder="Past 2 years">
-                                            <label>Past 3 years</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="m3" id="monetary3" placeholder="Past 3 years">
-                                            <label>All</label>
-                                            <input class="form-control" type="number" min="0" max="1" step="0.1" name="mall" id="monetaryAll" placeholder="All">
+                                        <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                            <div class="card-body">
+                                                <label>Past year</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="m1" id="monetary1" placeholder="Past year">
+                                                <label>Past 2 years</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="m2" id="monetary2" placeholder="Past 2 years">
+                                                <label>Past 3 years</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="m3" id="monetary3" placeholder="Past 3 years">
+                                                <label>All</label>
+                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="mall" id="monetaryAll" placeholder="All">
+                                            </div>
                                         </div>
-                                    </div>
 
+                                    </div>
                                 </div>
+
+                            </div>
+                            <!--SUBMIT-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <input type="submit" class="btn btn-primary" name="generate" value="Generate Reports"></input>
                             </div>
 
                         </div>
-                        <!--SUBMIT-->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <input type="submit" class="btn btn-primary" name="generate" value="Generate Reports"></input>
-                        </div>
+                    </form>
+                </div>
+            </div>
 
-                    </div>
-                </form>
+        </div>
+
+        </div>
+
+        <div class="container-lg mt-3">
+            <div class="table-responsive">
+                <div style="overflow-x: auto;">
+                    <!-- <table id="example" class="table table-striped" style="width:100%; text-align: center;"> -->
+                    <?php include 'table_data_modif.php'; ?>
+                    <!-- </table> -->
+
+                </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function() {
+                var table = $('.rfm_table').DataTable({
+                    buttons: [{
+                            extend: 'createState',
+                            config: {
+                                creationModal: true,
+                                toggle: {
+                                    columns: {
+                                        search: true,
+                                        visible: true
+                                    },
+                                    length: true,
+                                    order: true,
+                                    paging: true,
+                                    search: true,
+                                }
+                            }
+                        },
+                        'savedStates'
+                    ],
+                    lengthMenu: [
+                        [10, 25, 50, -1],
+                        [10, 25, 50, 'All'],
+                    ],
+                });
 
-
-        <div class="row-lg my-3">
-            <?php
-            echo $output;
-            ?>
-        </div>
-
-    </div>
+                table.buttons().container()
+                    .appendTo('#example_wrapper .col-md-6:eq(0)');
+            });
+        </script>
 </body>
 
 
