@@ -299,104 +299,104 @@ try:
 
             #SILHOUETTE 
 
-        def silhouettePlot(range_, data):
-            half_length = int(len(range_)/2)
-            range_list = list(range_)
-            fig, ax = plt.subplots(half_length, 2, figsize=(15,8))
-            for _ in range_:
-                kmeans = KMeans(n_clusters=_, random_state=42)
-                q, mod = divmod(_ - range_list[0], 2)
-                sv = SilhouetteVisualizer(kmeans, colors="yellowbrick", ax=ax[q][mod])
-                ax[q][mod].set_title("Silhouette Plot with n={} Cluster".format(_))
-                sv.fit(data)
-            fig.tight_layout()
-            fig.show()
-            fig.savefig("silhouette_plot.png")
+        # def silhouettePlot(range_, data):
+        #     half_length = int(len(range_)/2)
+        #     range_list = list(range_)
+        #     fig, ax = plt.subplots(half_length, 2, figsize=(15,8))
+        #     for _ in range_:
+        #         kmeans = KMeans(n_clusters=_, random_state=42)
+        #         q, mod = divmod(_ - range_list[0], 2)
+        #         sv = SilhouetteVisualizer(kmeans, colors="yellowbrick", ax=ax[q][mod])
+        #         ax[q][mod].set_title("Silhouette Plot with n={} Cluster".format(_))
+        #         sv.fit(data)
+        #     fig.tight_layout()
+        #     fig.show()
+        #     fig.savefig("silhouette_plot.png")
 
-            # ELBOW
+        #     # ELBOW
 
-        def elbowPlot(range_, data, figsize=(10,10)):
-            inertia_list = []
-            for n in range_:
-                kmeans = KMeans(n_clusters=n, random_state=42)
-                kmeans.fit(data)
-                inertia_list.append(kmeans.inertia_)
+        # def elbowPlot(range_, data, figsize=(10,10)):
+        #     inertia_list = []
+        #     for n in range_:
+        #         kmeans = KMeans(n_clusters=n, random_state=42)
+        #         kmeans.fit(data)
+        #         inertia_list.append(kmeans.inertia_)
                 
-            # plotting
-            fig = plt.figure(figsize=figsize)
-            ax = fig.add_subplot(111)
-            sns.lineplot(y=inertia_list, x=range_, ax=ax)
-            ax.set_xlabel("Cluster")
-            ax.set_ylabel("Inertia")
-            ax.set_xticks(list(range_))
-            fig.show()
-            fig.savefig("elbow_plot.png")
+        #     # plotting
+        #     fig = plt.figure(figsize=figsize)
+        #     ax = fig.add_subplot(111)
+        #     sns.lineplot(y=inertia_list, x=range_, ax=ax)
+        #     ax.set_xlabel("Cluster")
+        #     ax.set_ylabel("Inertia")
+        #     ax.set_xticks(list(range_))
+        #     fig.show()
+        #     fig.savefig("elbow_plot.png")
 
-        def findOptimalEps(n_neighbors, data):
-            neigh = NearestNeighbors(n_neighbors=n_neighbors)
-            nbrs = neigh.fit(data)
-            distances, indices = nbrs.kneighbors(data)
-            distances = np.sort(distances, axis=0)
-            distances = distances[:,1]
-            plt.plot(distances)
+        # def findOptimalEps(n_neighbors, data):
+        #     neigh = NearestNeighbors(n_neighbors=n_neighbors)
+        #     nbrs = neigh.fit(data)
+        #     distances, indices = nbrs.kneighbors(data)
+        #     distances = np.sort(distances, axis=0)
+        #     distances = distances[:,1]
+        #     plt.plot(distances)
 
-            # BUAT NGE KLASIFIKASI FEATURE BERDASARKAN K-MEANS + SILHOUETTE SCORE YANG DI DATASET
+        #     # BUAT NGE KLASIFIKASI FEATURE BERDASARKAN K-MEANS + SILHOUETTE SCORE YANG DI DATASET
 
-        def progressiveFeatureSelection(df, n_clusters=3, max_features=4,):
-            feature_list = list(df.columns)
-            selected_features = list()
-            # select starting feature
-            initial_feature = ""
-            high_score = 0
-            for feature in feature_list:
-                kmeans = KMeans(n_clusters=n_clusters, random_state=42)
-                data_ = df[feature]
-                labels = kmeans.fit_predict(data_.to_frame())
-                score_ = silhouette_score(data_.to_frame(), labels)
-                print("Proposed new feature {} with score {}". format(feature, score_))
-                if score_ >= high_score:
-                    initial_feature = feature
-                    high_score = score_
-            print("The initial feature is {} with a silhouette score of {}.".format(initial_feature, high_score))
-            feature_list.remove(initial_feature)
-            selected_features.append(initial_feature)
-            for _ in range(max_features-1):
-                high_score = 0
-                selected_feature = ""
-                print("Starting selection {}...".format(_))
-                for feature in feature_list:
-                    selection_ = selected_features.copy()
-                    selection_.append(feature)
-                    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
-                    data_ = df[selection_]
-                    labels = kmeans.fit_predict(data_)
-                    score_ = silhouette_score(data_, labels)
-                    print("Proposed new feature {} with score {}". format(feature, score_))
-                    if score_ > high_score:
-                        selected_feature = feature
-                        high_score = score_
-                selected_features.append(selected_feature)
-                feature_list.remove(selected_feature)
-                print("Selected new feature {} with score {}". format(selected_feature, high_score))
-            return selected_features
+        # def progressiveFeatureSelection(df, n_clusters=3, max_features=4,):
+        #     feature_list = list(df.columns)
+        #     selected_features = list()
+        #     # select starting feature
+        #     initial_feature = ""
+        #     high_score = 0
+        #     for feature in feature_list:
+        #         kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+        #         data_ = df[feature]
+        #         labels = kmeans.fit_predict(data_.to_frame())
+        #         score_ = silhouette_score(data_.to_frame(), labels)
+        #         print("Proposed new feature {} with score {}". format(feature, score_))
+        #         if score_ >= high_score:
+        #             initial_feature = feature
+        #             high_score = score_
+        #     print("The initial feature is {} with a silhouette score of {}.".format(initial_feature, high_score))
+        #     feature_list.remove(initial_feature)
+        #     selected_features.append(initial_feature)
+        #     for _ in range(max_features-1):
+        #         high_score = 0
+        #         selected_feature = ""
+        #         print("Starting selection {}...".format(_))
+        #         for feature in feature_list:
+        #             selection_ = selected_features.copy()
+        #             selection_.append(feature)
+        #             kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+        #             data_ = df[selection_]
+        #             labels = kmeans.fit_predict(data_)
+        #             score_ = silhouette_score(data_, labels)
+        #             print("Proposed new feature {} with score {}". format(feature, score_))
+        #             if score_ > high_score:
+        #                 selected_feature = feature
+        #                 high_score = score_
+        #         selected_features.append(selected_feature)
+        #         feature_list.remove(selected_feature)
+        #         print("Selected new feature {} with score {}". format(selected_feature, high_score))
+        #     return selected_features
 
-            # BUAT STANDARDISASI DATA
-        scaler = SS()
-        # print("before")
-        # print(df_pendonor['RFM'])
-        DNP_authors_standardized = scaler.fit_transform(df_pendonor[['RFM']])
-        # print("after")
-        df_authors_standardized = pd.DataFrame(DNP_authors_standardized, columns=["RFM"])
-        df_authors_standardized = df_authors_standardized.set_index(df_pendonor.index)
-        selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=1, n_clusters=3)
-        df_standardized_sliced = df_authors_standardized[selected_features]
+        #     # BUAT STANDARDISASI DATA
+        # scaler = SS()
+        # # print("before")
+        # # print(df_pendonor['RFM'])
+        # DNP_authors_standardized = scaler.fit_transform(df_pendonor[['RFM']])
+        # # print("after")
+        # df_authors_standardized = pd.DataFrame(DNP_authors_standardized, columns=["RFM"])
+        # df_authors_standardized = df_authors_standardized.set_index(df_pendonor.index)
+        # selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=1, n_clusters=3)
+        # df_standardized_sliced = df_authors_standardized[selected_features]
         # elbowPlot(range(1,11), df_standardized_sliced)
         # silhouettePlot(range(3,9), df_standardized_sliced)
 
-        # clustering
-        kmeans = KMeans(n_clusters=3, random_state=42)
-        cluster_labels = kmeans.fit_predict(df_standardized_sliced)
-        df_standardized_sliced["clusters"] = cluster_labels
+        # # clustering
+        # kmeans = KMeans(n_clusters=3, random_state=42)
+        # cluster_labels = kmeans.fit_predict(df_standardized_sliced)
+        # df_standardized_sliced["clusters"] = cluster_labels
 
         # using PCA to reduce the dimensionality
         pca = PCA(n_components=2, whiten=False, random_state=42)
@@ -459,13 +459,13 @@ try:
         # fig.write_html("clustering_mod.html")
         # fig.show()
 
-        # Nyambungin ke PHP/HTML
-        html_table = sorted_pendonor.to_html(classes='table table-striped') 
-        # print(html_table) #ini yg hrsnya di outputin ke sblh
+       # Nyambungin ke PHP/HTML
+        html_table = df_pendonor.to_html(classes='table table-striped rfm_table', index=False)
+        #print(html_table) #ini yg hrsnya di outputin ke sblh
         # kalo ga bisa, coba write html to file
-        #text_file = open("table.html", "w")
-        #text_file.write(html_table)
-        #text_file.close()
+        text_file = open("table_data_modif.php", "w")
+        text_file.write(html_table)
+        text_file.close()
 
 except Error as e:
     print("Error while connecting to MySQL", e)
