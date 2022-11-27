@@ -371,17 +371,21 @@ try:
             return selected_features
 
         scaler = SS()
-        DNP_authors_standardized = scaler.fit_transform(df_pendonor['Monetary'])
-        df_authors_standardized = pd.DataFrame(DNP_authors_standardized, columns=["word_count_standardized", "modern_translations_standardized", "known_works_standardized", "manuscripts_standardized", "early_editions_standardized", "early_translations_standardized", "modern_editions_standardized", "commentaries_standardized"])
+        print("before")
+        print(df_pendonor['RFM'])
+        DNP_authors_standardized = scaler.fit_transform(df_pendonor[['RFM']])
+        print("after")
+        df_authors_standardized = pd.DataFrame(DNP_authors_standardized, columns=["RFM"])
         df_authors_standardized = df_authors_standardized.set_index(df_pendonor.index)
-        selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=3, n_clusters=3)
+        selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=1, n_clusters=3)
         df_standardized_sliced = df_authors_standardized[selected_features]
         elbowPlot(range(1,11), df_standardized_sliced)
+        silhouettePlot(range(3,9), df_standardized_sliced)
 
 
         # Nyambungin ke PHP/HTML
         html_table = sorted_pendonor.to_html(classes='table table-striped') 
-        print(html_table) #ini yg hrsnya di outputin ke sblh
+        # print(html_table) #ini yg hrsnya di outputin ke sblh
         # kalo ga bisa, coba write html to file
         #text_file = open("table.html", "w")
         #text_file.write(html_table)
