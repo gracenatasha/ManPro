@@ -45,8 +45,6 @@ if (isset($_POST["generate"])) {
     $output = shell_exec("/usr/local/bin/python3 $command");
 }
 
-echo "$output";
-
 ?>
 
 <body>
@@ -87,7 +85,7 @@ echo "$output";
                                             <form class="form-inline">
                                                 <div class="form-group mx-sm-3 mb-2">
                                                     <label class="mr-3">Recency</label>
-                                                    <input class="form-control" type="number" min="0" max="1" step="0.1" name="recency" id="recencyValue" placeholder="0.0-1.0">
+                                                    <input class="form-control" type="number" min="0" max="1" step="0.01" name="recency" id="recencyValue" placeholder="0.0-1.0" value="<?php echo $rec ?>">
                                                 </div>
                                             </form>
                                         </div>
@@ -96,19 +94,19 @@ echo "$output";
                                         <div class="card-header" data-toggle="collapse" data-target="#collapseOne">
                                             <div class="form-group mx-sm-3 mb-2">
                                                 <label class="mr-3">Frequency</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="frequency" id="frequencyValue" placeholder="0.0-1.0">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="frequency" id="frequencyValue" placeholder="0.0-1.0" value="<?php echo $freq ?>">
                                             </div>
                                         </div>
                                         <div id="collapseOne" class="collapse" data-parent="#accordion">
                                             <div class="card-body">
                                                 <label>Past year</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="f1" id="frequency1" placeholder="Past year">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f1" id="frequency1" placeholder="Past year" value="<?php echo $freq1 ?>">
                                                 <label>Past 2 years</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="f2" id="frequency2" placeholder="Past 2 years">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f2" id="frequency2" placeholder="Past 2 years" value="<?php echo $freq2 ?>">
                                                 <label>Past 3 years</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="f3" id="frequency3" placeholder="Past 3 years">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f3" id="frequency3" placeholder="Past 3 years" value="<?php echo $freq3 ?>">
                                                 <label>All</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="fall" id="frequencyAll" placeholder="All">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="fall" id="frequencyAll" placeholder="All" value="<?php echo $freqall ?>">
                                             </div>
                                         </div>
 
@@ -117,19 +115,19 @@ echo "$output";
                                         <div class="card-header" data-toggle="collapse" data-target="#collapseTwo">
                                             <div class="form-group mx-sm-3 mb-2">
                                                 <label class="mr-3">Monetary</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="monetary" id="monetaryValue" placeholder="0.0-1.0">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="monetary" id="monetaryValue" placeholder="0.0-1.0" value="<?php echo $mon ?>">
                                             </div>
                                         </div>
                                         <div id="collapseTwo" class="collapse" data-parent="#accordion">
                                             <div class="card-body">
                                                 <label>Past year</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="m1" id="monetary1" placeholder="Past year">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m1" id="monetary1" placeholder="Past year" value="<?php echo $mon1 ?>">
                                                 <label>Past 2 years</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="m2" id="monetary2" placeholder="Past 2 years">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m2" id="monetary2" placeholder="Past 2 years" value="<?php echo $mon2 ?>">
                                                 <label>Past 3 years</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="m3" id="monetary3" placeholder="Past 3 years">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m3" id="monetary3" placeholder="Past 3 years" value="<?php echo $mon3 ?>">
                                                 <label>All</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.1" name="mall" id="monetaryAll" placeholder="All">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="mall" id="monetaryAll" placeholder="All" value="<?php echo $monall ?>">
                                             </div>
                                         </div>
 
