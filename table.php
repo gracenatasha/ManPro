@@ -22,7 +22,7 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap5.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
+
         <title>RFM</title>
         <style>
             body{
@@ -48,6 +48,12 @@
                 word-break: break-all;
                 overflow: hidden;
             }
+            @media (min-width: 992px){
+                .container, .container-lg, .container-md, .container-sm {
+                    max-width: 1400px !important;
+                }
+            }
+            
         </style>
     </head>
     <body>
@@ -55,15 +61,20 @@
         <div class="container">
             <div class="table-responsive">
             <div style="overflow-x: auto;">
-                <!-- <table id="example" class="table table-striped" style="width:100%; text-align: center;"> -->
-                    <?php include 'table_data.php'; ?>
-                <!-- </table> -->
-                
+                <?php include 'table_data.php'; ?>                
             </div>
             </div>
         </div>
         <script>
             $(document).ready(function() {
+                $('.rfm_table tbody').append($(".rfm_table tbody tr:last").clone());
+                $('.rfm_table tbody tr:last :checkbox').attr('checked',false);
+                $('.rfm_table tbody tr:last td:first').html($('#row').val());
+
+                $('.rfm_table tr').append($("<td>"));
+                $('.rfm_table thead tr>td:last').html($('#col').val());
+                $('.rfm_table tbody tr').each(function(){$(this).children('td:last').append($('<input type="checkbox">'))});
+
                 var table = $('.rfm_table').DataTable({
                     buttons:[
                         {
