@@ -399,13 +399,13 @@ try:
         # df_standardized_sliced["clusters"] = cluster_labels
 
         # using PCA to reduce the dimensionality
-        pca = PCA(n_components=2, whiten=False, random_state=42)
-        authors_standardized_pca = pca.fit_transform(df_standardized_sliced)
-        df_authors_standardized_pca = pd.DataFrame(data=authors_standardized_pca, columns=["pc_1", "pc_2"])
-        df_authors_standardized_pca["clusters"] = cluster_labels
+        # pca = PCA(n_components=2, whiten=False, random_state=42)
+        # authors_standardized_pca = pca.fit_transform(df_standardized_sliced)
+        # df_authors_standardized_pca = pd.DataFrame(data=authors_standardized_pca, columns=["pc_1", "pc_2"])
+        # df_authors_standardized_pca["clusters"] = cluster_labels
 
-        # plotting the clusters with seaborn
-        sns.scatterplot(x="pc_1", y="pc_2", hue="clusters", data=df_authors_standardized_pca)
+        # # plotting the clusters with seaborn
+        # sns.scatterplot(x="pc_1", y="pc_2", hue="clusters", data=df_authors_standardized_pca)
 
              #COBA PLOTLY-------------------------------------------(SCATTER)
              #plot hasil
