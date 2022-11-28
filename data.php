@@ -156,10 +156,13 @@ if (isset($_POST["generate"])) {
                     <!-- <table id="example" class="table table-striped" style="width:100%; text-align: center;"> -->
                     <?php include 'table_data_modif.php'; ?>
                     <!-- </table> -->
-
                 </div>
             </div>
         </div>
+        <div class="container-lg mt-3 px-auto">
+            <img src="silhouette_plot.png" alt="" width="500px">
+        </div>
+
         <script>
             $(document).ready(function() {
                 var table = $('.rfm_table').DataTable({
