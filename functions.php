@@ -48,3 +48,32 @@ function registrasi($data)
 
     return mysqli_affected_rows($conn);
 }
+
+//cari
+function cari($keyword){
+    $query = "SELECT * FROM event
+                WHERE 
+                nama_event LIKE '%$keyword%' OR
+                id_event LIKE '%$keyword%'
+            ";
+    
+    return query($query);
+}
+
+//tambah
+function tambah($data)
+{
+    global $conn;
+
+    $jumlah_darah = htmlspecialchars($data["jumlah_darah"]);
+    $id_pendonor = htmlspecialchars($data["id_pendonor"]);
+    $id_event = htmlspecialchars($data["id_event"]);
+
+    $sql = "INSERT INTO donor
+				VALUES
+			(NULL, $jumlah_darah, $id_pendonor, $id_event)";
+
+    mysqli_query($conn, $sql);
+
+    return mysqli_affected_rows($conn);
+}
