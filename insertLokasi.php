@@ -1,6 +1,7 @@
 <?php
     //start session
     session_start();
+    include 'links.php';
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +11,7 @@
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="style.css">
 
         <title>Backend | Add Lokasi</title>
     </head>
@@ -17,6 +19,7 @@
 
         <?php 
             require_once "connection.php";
+            include 'navbar.php';
 
             $simpanKelurahan = "SELECT * FROM kelurahan"; #untuk execute 
             $hasilKelurahan = $conn->query($simpanKelurahan); #simpan hasil query
@@ -30,7 +33,7 @@
             <form action="inserting_lokasi.php" method="post">
                 <!--insert nama lokasi-->
                 <label for="namaLokasi">Nama Lokasi: </label> 
-                <input type="text" name="namaLokasi">
+                <input type="text" class="form-control" name="namaLokasi">
                 <br>
                 <br>
                 <!--insert kota-->

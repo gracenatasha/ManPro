@@ -1,20 +1,23 @@
 <?php
 include 'connection.php';
+include 'links.php';
 session_start();
 $_SESSION['eventId'] = $_GET['eventId'];
 ?>
 <html>
     <head>
-    <style>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <style>
         #hrEventDetails {
             border: 1.5px solid;
             border-radius: 10px;
             background: black;
         }
-    </style>
+    </style> -->
     </head>
     <body>
         <?php
+            include 'navbar.php';
             $sql = mysqli_query($conn, "SELECT * FROM event WHERE id_event = '{$_SESSION['eventId']}'");
             $hasil = $sql->fetch_assoc();
             ?>
@@ -31,7 +34,7 @@ $_SESSION['eventId'] = $_GET['eventId'];
                         echo '<h3>Time&#9200;  </h3></div>';
                         echo '<div class="row"><p>'.$hasil['waktu_mulai_event'].'  -  '.$hasil['waktu_akhir_event'].'</p></div><br>';
                         //ambil lokasi id dari table event untuk tahu nama lokasi
-                        $idLokasi = $hasil['id_lokasi_event'];
+                        $idLokasi = $hasil['id_lokasi']; #ganti bentar
                         $lokasi = mysqli_query($conn,"SELECT * FROM lokasi WHERE id_lokasi =$idLokasi");
                         $hasilLokasi = $lokasi->fetch_assoc();
                         echo '<div class="row"><h3>Address</h3></div>';
@@ -68,11 +71,11 @@ $_SESSION['eventId'] = $_GET['eventId'];
                 </div> -->
                 <br>
                 <div class="row">
-                    <a type="button" class="btn btn-primary" href="broadcast.php">Sent Broadcast</a>
+                    <div class="col mx-4">
+                        <a type="button" class="btn btn-primary" href="broadcast.php">Sent Broadcast</a>
+                        <a class="btn" href="displayAllEvent.php">Back</a>
                     <!-- <a type="button" class="btn btn-secondary" href="insertevent.php">Duplicate</a> -->
-                </div>
-                <div class="row">
-                    <a href="displayAllEvent.php">back</a>
+                    </div>
                 </div>
             </div>
 
