@@ -57,23 +57,28 @@
         </style>
     </head>
     <body>
-        <?php include 'navbar.php';?>
+    <?php include 'navbar.php';?>
         <div class="container">
             <div class="table-responsive">
             <div style="overflow-x: auto;">
-                <?php include 'table_data.php'; ?>                
+            <form action="index.php" method="post">
+                    <?php include 'table_data.php'; ?>
+                <input type="submit" class="btn btn-success" name="submit" value="broadcast" id="btn_broadcast">
+                </form>
             </div>
             </div>
         </div>
         <script>
             $(document).ready(function() {
+                
+
                 $('.rfm_table tbody').append($(".rfm_table tbody tr:last").clone());
                 $('.rfm_table tbody tr:last :checkbox').attr('checked',false);
                 $('.rfm_table tbody tr:last td:first').html($('#row').val());
 
                 $('.rfm_table tr').append($("<td>"));
                 $('.rfm_table thead tr>td:last').html($('#col').val());
-                $('.rfm_table tbody tr').each(function(){$(this).children('td:last').append($('<input type="checkbox">'))});
+                $('.rfm_table tbody tr').each(function(){$(this).children('td:last').append($('<input type="checkbox" class="checkbox" name="check_list[]" value="">'))});
 
                 var table = $('.rfm_table').DataTable({
                     buttons:[
@@ -100,10 +105,20 @@
                         [10, 25, 50, 'All'],
                     ],
                 });
-            
-                table.buttons().container()
-                    .appendTo( '#example_wrapper .col-md-6:eq(0)' );
+                table.buttons().container().appendTo( '#example_wrapper .col-md-6:eq(0)');
             });
+
+            $("#btn_broadcast").click(function(){
+                var checkboxes = $(".checkbox");
+                // loop over them all
+                for (var i=0; i<checkboxes.length; i++) {
+                    // And stick the checked ones onto an array...
+                    if (checkboxes[i].checked) {
+                        checkboxes[i].value = checkboxes[i].parentElement.parentElement.cells[0].innerHTML
+                    }
+                }
+            });
+            
         </script>
     </body>
 </html>
