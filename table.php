@@ -114,7 +114,7 @@
                 for (var i=0; i<checkboxes.length; i++) {
                     // And stick the checked ones onto an array...
                     if (checkboxes[i].checked) {
-                        checkboxes[i].value = checkboxes[i].parentElement.parentElement.cells[1].innerHTML
+                        checkboxes[i].value = checkboxes[i].parentElement.parentElement.cells[0].innerHTML
                     }
                 }
             });
