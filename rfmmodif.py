@@ -466,16 +466,17 @@ try:
 
         # silhouette index
 
-        obs = np.concatenate( (np.random.randn(100, 2) , 20 + np.random.randn(300, 2) , -15+np.random.randn(200, 2)))
+        obs = np.concatenate( (np.random.randn(100, 2), 20 + np.random.randn(300, 2), -15+np.random.randn(200, 2)))
         silhouette_score_values=list()
         
         NumberOfClusters=range(2,12)
-        print("cobacoba")
+        # print("cobacoba")
         
         for i in NumberOfClusters:
             
-            # classifier=cluster.KMeans(i,init='k-means++', n_init=10, max_iter=20, tol=0.0001, verbose=0, random_state=42, copy_x=True)
-            classifier=kmeans
+            classifier=cluster.KMeans(i,init='k-means++', n_init=10, max_iter=20, tol=0.0001, verbose=0, random_state=42, copy_x=True)
+            # classifier=kmeans
+            classifier.fit(obs)
             labels= classifier.predict(obs)
             print ("Number Of Clusters:")
             print (i)
