@@ -20,6 +20,11 @@ import seaborn as sns
 from yellowbrick.cluster import SilhouetteVisualizer
 import plotly.graph_objects as go
 
+# silhouette index
+from sklearn import cluster
+import sklearn
+ 
+
 
 try:
     connection = mysql.connector.connect(host='localhost',
