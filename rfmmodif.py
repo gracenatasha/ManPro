@@ -22,7 +22,7 @@ import plotly.graph_objects as go
 
 # silhouette index
 from sklearn import cluster
-import sklearn
+
  
 
 
@@ -395,8 +395,8 @@ try:
         df_authors_standardized = df_authors_standardized.set_index(df_pendonor.index)
         selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=1, n_clusters=3)
         df_standardized_sliced = df_authors_standardized[selected_features]
-        elbowPlot(range(1,11), df_standardized_sliced)
-        silhouettePlot(range(3,9), df_standardized_sliced)
+        # elbowPlot(range(1,11), df_standardized_sliced)
+        # silhouettePlot(range(3,9), df_standardized_sliced)
 
         # clustering
         kmeans = KMeans(n_clusters=3, random_state=42)
@@ -463,6 +463,35 @@ try:
         # fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
         # fig.write_html("clustering_mod.html")
         # fig.show()
+
+        # silhouette index
+
+        obs = np.concatenate( (np.random.randn(100, 2) , 20 + np.random.randn(300, 2) , -15+np.random.randn(200, 2)))
+        silhouette_score_values=list()
+        
+        NumberOfClusters=range(2,12)
+        print("cobacoba")
+        
+        for i in NumberOfClusters:
+            
+            # classifier=cluster.KMeans(i,init='k-means++', n_init=10, max_iter=20, tol=0.0001, verbose=0, random_state=42, copy_x=True)
+            classifier=kmeans
+            labels= classifier.predict(obs)
+            print ("Number Of Clusters:")
+            print (i)
+            print ("Silhouette score value")
+            print (silhouette_score(obs,labels,metric='euclidean', sample_size=None, random_state=42))
+            silhouette_score_values.append(silhouette_score(obs,labels ,metric='euclidean', sample_size=None, random_state=42))
+        
+        plt.plot(NumberOfClusters, silhouette_score_values)
+        plt.title("Silhouette score values vs Numbers of Clusters ")
+        plt.xlabel("k")
+        plt.ylabel("silhouette_score")
+        plt.show()
+        
+        Optimal_NumberOf_Components=NumberOfClusters[silhouette_score_values.index(max(silhouette_score_values))]
+        print ("Optimal number of components is:")
+        print (Optimal_NumberOf_Components)
 
        # Nyambungin ke PHP/HTML
         html_table = df_pendonor.to_html(classes='table table-striped rfm_table', index=False)
