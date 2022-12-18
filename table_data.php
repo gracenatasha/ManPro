@@ -1,7 +1,6 @@
 <table border="1" class="dataframe table table-striped rfm_table">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>ID</th>
       <th>Nama Pendonor</th>
       <th>Tanggal Lahir</th>
@@ -20,7 +19,6 @@
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>1</td>
       <td>KELLY</td>
       <td>2002-11-24</td>
@@ -31,13 +29,12 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>15.000000</td>
+      <td>14.491010</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>2</td>
       <td>BILLY</td>
       <td>2000-10-01</td>
@@ -48,13 +45,12 @@
       <td>haha</td>
       <td>08221835555</td>
       <td>hahaha</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.0</td>
       <td>2.0</td>
-      <td>9.000000</td>
+      <td>8.491010</td>
     </tr>
     <tr>
-      <th>2</th>
       <td>3</td>
       <td>GRACE</td>
       <td>2017-09-11</td>
@@ -65,13 +61,12 @@
       <td>hihi</td>
       <td>08221855555</td>
       <td>hihi@gmail.com</td>
-      <td>4.822339</td>
+      <td>4.432573</td>
       <td>1.3</td>
       <td>1.3</td>
-      <td>7.422339</td>
+      <td>7.032573</td>
     </tr>
     <tr>
-      <th>3</th>
       <td>4</td>
       <td>REGINA</td>
       <td>2001-08-01</td>
@@ -82,13 +77,12 @@
       <td>hoho</td>
       <td>08221827373</td>
       <td>hoho</td>
-      <td>1.000000</td>
+      <td>3.175311</td>
       <td>2.7</td>
       <td>2.7</td>
-      <td>6.400000</td>
+      <td>8.575311</td>
     </tr>
     <tr>
-      <th>4</th>
       <td>5</td>
       <td>TIFFANY</td>
       <td>2002-11-24</td>
@@ -99,13 +93,12 @@
       <td>--</td>
       <td>08221847373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.0</td>
       <td>2.0</td>
-      <td>9.000000</td>
+      <td>8.491010</td>
     </tr>
     <tr>
-      <th>5</th>
       <td>6</td>
       <td>GOLDY</td>
       <td>2022-10-01</td>
@@ -116,13 +109,12 @@
       <td>haha</td>
       <td>08221865555</td>
       <td>hahaha</td>
-      <td>4.713009</td>
+      <td>4.396611</td>
       <td>3.8</td>
       <td>3.8</td>
-      <td>12.313009</td>
+      <td>11.996611</td>
     </tr>
     <tr>
-      <th>6</th>
       <td>7</td>
       <td>JOHN</td>
       <td>2017-10-11</td>
@@ -133,13 +125,12 @@
       <td>hihi</td>
       <td>08221855557</td>
       <td>hihi@gmail.com</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.5</td>
       <td>2.5</td>
-      <td>10.000000</td>
+      <td>9.491010</td>
     </tr>
     <tr>
-      <th>7</th>
       <td>8</td>
       <td>MICHAEL</td>
       <td>2022-10-01</td>
@@ -150,13 +141,12 @@
       <td>hoho</td>
       <td>08221821373</td>
       <td>hoho</td>
-      <td>3.944547</td>
+      <td>4.143845</td>
       <td>1.6</td>
       <td>1.6</td>
-      <td>7.144547</td>
+      <td>7.343845</td>
     </tr>
     <tr>
-      <th>8</th>
       <td>9</td>
       <td>BAMBANG</td>
       <td>2002-11-24</td>
@@ -167,13 +157,12 @@
       <td>--</td>
       <td>08121827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>3.2</td>
       <td>3.2</td>
-      <td>11.400000</td>
+      <td>10.891010</td>
     </tr>
     <tr>
-      <th>9</th>
       <td>10</td>
       <td>AGUS</td>
       <td>2022-10-01</td>
@@ -184,13 +173,12 @@
       <td>haha</td>
       <td>08121855555</td>
       <td>hahaha</td>
-      <td>4.232589</td>
+      <td>4.238589</td>
       <td>1.9</td>
       <td>1.9</td>
-      <td>8.032589</td>
+      <td>8.038589</td>
     </tr>
     <tr>
-      <th>10</th>
       <td>11</td>
       <td>RYAN</td>
       <td>2002-11-24</td>
@@ -201,13 +189,12 @@
       <td>--</td>
       <td>08220827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>15.000000</td>
+      <td>14.491010</td>
     </tr>
     <tr>
-      <th>11</th>
       <td>12</td>
       <td>CATHERINE</td>
       <td>2022-10-01</td>
@@ -218,13 +205,12 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.0</td>
       <td>2.0</td>
-      <td>9.000000</td>
+      <td>8.491010</td>
     </tr>
     <tr>
-      <th>12</th>
       <td>13</td>
       <td>LALA</td>
       <td>2017-10-11</td>
@@ -235,13 +221,12 @@
       <td>hihi</td>
       <td>08221855555</td>
       <td>hihi@gmail.com</td>
-      <td>4.822339</td>
+      <td>4.432573</td>
       <td>1.3</td>
       <td>1.3</td>
-      <td>7.422339</td>
+      <td>7.032573</td>
     </tr>
     <tr>
-      <th>13</th>
       <td>14</td>
       <td>LULU</td>
       <td>2022-10-01</td>
@@ -252,13 +237,12 @@
       <td>hoho</td>
       <td>08221827373</td>
       <td>hoho</td>
-      <td>1.000000</td>
+      <td>3.175311</td>
       <td>2.7</td>
       <td>2.7</td>
-      <td>6.400000</td>
+      <td>8.575311</td>
     </tr>
     <tr>
-      <th>14</th>
       <td>15</td>
       <td>LILI</td>
       <td>2002-11-24</td>
@@ -269,13 +253,12 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.0</td>
       <td>2.0</td>
-      <td>9.000000</td>
+      <td>8.491010</td>
     </tr>
     <tr>
-      <th>15</th>
       <td>16</td>
       <td>LIA</td>
       <td>2022-10-01</td>
@@ -286,13 +269,12 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>4.713009</td>
+      <td>4.396611</td>
       <td>3.8</td>
       <td>3.8</td>
-      <td>12.313009</td>
+      <td>11.996611</td>
     </tr>
     <tr>
-      <th>16</th>
       <td>17</td>
       <td>BUDI</td>
       <td>2017-10-11</td>
@@ -303,13 +285,12 @@
       <td>hihi</td>
       <td>08221855555</td>
       <td>hihi@gmail.com</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.5</td>
       <td>2.5</td>
-      <td>10.000000</td>
+      <td>9.491010</td>
     </tr>
     <tr>
-      <th>17</th>
       <td>18</td>
       <td>GISELE</td>
       <td>2022-10-01</td>
@@ -320,13 +301,12 @@
       <td>hoho</td>
       <td>08221827373</td>
       <td>hoho</td>
-      <td>3.944547</td>
+      <td>4.143845</td>
       <td>1.6</td>
       <td>1.6</td>
-      <td>7.144547</td>
+      <td>7.343845</td>
     </tr>
     <tr>
-      <th>18</th>
       <td>19</td>
       <td>NICOLE</td>
       <td>2002-11-24</td>
@@ -337,13 +317,12 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>3.2</td>
       <td>3.2</td>
-      <td>11.400000</td>
+      <td>10.891010</td>
     </tr>
     <tr>
-      <th>19</th>
       <td>20</td>
       <td>CUAN</td>
       <td>2022-10-01</td>
@@ -354,13 +333,12 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>4.232589</td>
+      <td>4.238589</td>
       <td>1.9</td>
       <td>1.9</td>
-      <td>8.032589</td>
+      <td>8.038589</td>
     </tr>
     <tr>
-      <th>20</th>
       <td>21</td>
       <td>FELIA</td>
       <td>2002-11-24</td>
@@ -371,13 +349,12 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>15.000000</td>
+      <td>14.491010</td>
     </tr>
     <tr>
-      <th>21</th>
       <td>22</td>
       <td>RACHEL</td>
       <td>2022-10-01</td>
@@ -388,13 +365,12 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.0</td>
       <td>2.0</td>
-      <td>9.000000</td>
+      <td>8.491010</td>
     </tr>
     <tr>
-      <th>22</th>
       <td>23</td>
       <td>MONICA</td>
       <td>2017-10-11</td>
@@ -405,13 +381,12 @@
       <td>hihi</td>
       <td>08221855555</td>
       <td>hihi@gmail.com</td>
-      <td>4.822339</td>
+      <td>4.432573</td>
       <td>1.3</td>
       <td>1.3</td>
-      <td>7.422339</td>
+      <td>7.032573</td>
     </tr>
     <tr>
-      <th>23</th>
       <td>24</td>
       <td>TED</td>
       <td>2022-10-01</td>
@@ -422,13 +397,12 @@
       <td>hoho</td>
       <td>08221827373</td>
       <td>hoho</td>
-      <td>1.000000</td>
+      <td>3.175311</td>
       <td>2.7</td>
       <td>2.7</td>
-      <td>6.400000</td>
+      <td>8.575311</td>
     </tr>
     <tr>
-      <th>24</th>
       <td>25</td>
       <td>JOE</td>
       <td>2002-11-24</td>
@@ -439,13 +413,12 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.0</td>
       <td>2.0</td>
-      <td>9.000000</td>
+      <td>8.491010</td>
     </tr>
     <tr>
-      <th>25</th>
       <td>26</td>
       <td>FLORENCES</td>
       <td>2022-10-01</td>
@@ -456,13 +429,12 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>4.713009</td>
+      <td>4.396611</td>
       <td>3.8</td>
       <td>3.8</td>
-      <td>12.313009</td>
+      <td>11.996611</td>
     </tr>
     <tr>
-      <th>26</th>
       <td>27</td>
       <td>NATASHA</td>
       <td>2017-10-11</td>
@@ -473,13 +445,12 @@
       <td>hihi</td>
       <td>08221855555</td>
       <td>hihi@gmail.com</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.5</td>
       <td>2.5</td>
-      <td>10.000000</td>
+      <td>9.491010</td>
     </tr>
     <tr>
-      <th>27</th>
       <td>28</td>
       <td>RICKY</td>
       <td>2022-10-01</td>
@@ -490,13 +461,12 @@
       <td>hoho</td>
       <td>08221827373</td>
       <td>hoho</td>
-      <td>3.944547</td>
+      <td>4.143845</td>
       <td>1.6</td>
       <td>1.6</td>
-      <td>7.144547</td>
+      <td>7.343845</td>
     </tr>
     <tr>
-      <th>28</th>
       <td>29</td>
       <td>DANIEL</td>
       <td>2002-11-24</td>
@@ -507,13 +477,12 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>3.2</td>
       <td>3.2</td>
-      <td>11.400000</td>
+      <td>10.891010</td>
     </tr>
     <tr>
-      <th>29</th>
       <td>30</td>
       <td>JEFF</td>
       <td>2022-10-01</td>
@@ -524,13 +493,12 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>4.232589</td>
+      <td>4.238589</td>
       <td>1.9</td>
       <td>1.9</td>
-      <td>8.032589</td>
+      <td>8.038589</td>
     </tr>
     <tr>
-      <th>30</th>
       <td>31</td>
       <td>TIM</td>
       <td>2002-11-24</td>
@@ -541,13 +509,12 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>5.0</td>
       <td>5.0</td>
-      <td>15.000000</td>
+      <td>14.491010</td>
     </tr>
     <tr>
-      <th>31</th>
       <td>32</td>
       <td>TOM</td>
       <td>2022-10-01</td>
@@ -558,13 +525,12 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.0</td>
       <td>2.0</td>
-      <td>9.000000</td>
+      <td>8.491010</td>
     </tr>
     <tr>
-      <th>32</th>
       <td>33</td>
       <td>DARREN</td>
       <td>2017-10-11</td>
@@ -575,13 +541,12 @@
       <td>hihi</td>
       <td>08221855555</td>
       <td>hihi@gmail.com</td>
-      <td>4.822339</td>
+      <td>4.432573</td>
       <td>1.3</td>
       <td>1.3</td>
-      <td>7.422339</td>
+      <td>7.032573</td>
     </tr>
     <tr>
-      <th>33</th>
       <td>34</td>
       <td>KEN</td>
       <td>2022-10-01</td>
@@ -592,13 +557,12 @@
       <td>hoho</td>
       <td>08221827373</td>
       <td>hoho</td>
-      <td>1.000000</td>
+      <td>3.175311</td>
       <td>2.7</td>
       <td>2.7</td>
-      <td>6.400000</td>
+      <td>8.575311</td>
     </tr>
     <tr>
-      <th>34</th>
       <td>35</td>
       <td>BARBIE</td>
       <td>2002-11-24</td>
@@ -609,13 +573,12 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.0</td>
       <td>2.0</td>
-      <td>9.000000</td>
+      <td>8.491010</td>
     </tr>
     <tr>
-      <th>35</th>
       <td>36</td>
       <td>MILEY</td>
       <td>2022-10-01</td>
@@ -626,13 +589,12 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>4.713009</td>
+      <td>4.396611</td>
       <td>3.8</td>
       <td>3.8</td>
-      <td>12.313009</td>
+      <td>11.996611</td>
     </tr>
     <tr>
-      <th>36</th>
       <td>37</td>
       <td>JUSTIN</td>
       <td>2017-10-11</td>
@@ -643,13 +605,12 @@
       <td>hihi</td>
       <td>08221855555</td>
       <td>hihi@gmail.com</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>2.5</td>
       <td>2.5</td>
-      <td>10.000000</td>
+      <td>9.491010</td>
     </tr>
     <tr>
-      <th>37</th>
       <td>38</td>
       <td>HAILEY</td>
       <td>2022-10-01</td>
@@ -660,13 +621,12 @@
       <td>hoho</td>
       <td>08221827373</td>
       <td>hoho</td>
-      <td>3.944547</td>
+      <td>4.143845</td>
       <td>1.6</td>
       <td>1.6</td>
-      <td>7.144547</td>
+      <td>7.343845</td>
     </tr>
     <tr>
-      <th>38</th>
       <td>39</td>
       <td>KEANU</td>
       <td>2002-11-24</td>
@@ -677,16 +637,15 @@
       <td>--</td>
       <td>08221827373</td>
       <td>kkkk</td>
-      <td>5.000000</td>
+      <td>4.491010</td>
       <td>3.2</td>
       <td>3.2</td>
-      <td>11.400000</td>
+      <td>10.891010</td>
     </tr>
     <tr>
-      <th>39</th>
       <td>40</td>
       <td>MIKE</td>
-      <td>2002-10-01</td>
+      <td>2022-10-01</td>
       <td>L</td>
       <td>B</td>
       <td>-</td>
@@ -694,520 +653,2282 @@
       <td>haha</td>
       <td>08221855555</td>
       <td>hahaha</td>
-      <td>4.232589</td>
+      <td>4.238589</td>
       <td>1.9</td>
       <td>1.9</td>
-      <td>8.032589</td>
+      <td>8.038589</td>
     </tr>
     <tr>
-      <th>40</th>
       <td>41</td>
-      <td>HELENA</td>
-      <td>1993-10-01</td>
+      <td>FELI</td>
+      <td>2000-01-02</td>
       <td>P</td>
-      <td>AB</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
+      <td>B</td>
+      <td>-</td>
       <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>haha</td>
+      <td>08221812555</td>
+      <td>hahih</td>
+      <td>4.789073</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.789073</td>
     </tr>
     <tr>
-      <th>41</th>
       <td>42</td>
-      <td>ABIGAIL</td>
-      <td>2003-09-30</td>
-      <td>P</td>
+      <td>BRIAN</td>
+      <td>2001-02-03</td>
+      <td>L</td>
       <td>O</td>
-      <td>-</td>
-      <td>hahahahaahha</td>
+      <td>+</td>
+      <td>haahaahha</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>08224735555</td>
+      <td>haheha</td>
+      <td>4.957469</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.357469</td>
     </tr>
     <tr>
-      <th>42</th>
       <td>43</td>
-      <td>RIZKY</td>
-      <td>1997-11-12</td>
-      <td>L</td>
-      <td>0</td>
+      <td>MICHELLE</td>
+      <td>2002-03-04</td>
+      <td>P</td>
+      <td>O</td>
       <td>-</td>
-      <td>hahahahaahha</td>
+      <td>haahaha</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
+      <td>08222375555</td>
+      <td>eahaha</td>
       <td>1.000000</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>3.000000</td>
     </tr>
     <tr>
-      <th>43</th>
       <td>44</td>
-      <td>ARCOS</td>
-      <td>1988-04-02</td>
+      <td>KODRI</td>
+      <td>2003-04-05</td>
       <td>L</td>
       <td>A</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>-</td>
+      <td>hahahaahha</td>
+      <td>--</td>
+      <td>08221809855</td>
+      <td>rahaha</td>
+      <td>4.368603</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.568603</td>
     </tr>
     <tr>
-      <th>44</th>
       <td>45</td>
-      <td>FONNY</td>
-      <td>1992-02-03</td>
+      <td>KAREN</td>
+      <td>2005-05-06</td>
       <td>P</td>
-      <td>O</td>
+      <td>AB</td>
       <td>-</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>hahaaahha</td>
+      <td>--</td>
+      <td>08221647555</td>
+      <td>gahaha</td>
+      <td>4.452282</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.852282</td>
     </tr>
     <tr>
-      <th>45</th>
       <td>46</td>
-      <td>HOSEO</td>
-      <td>1995-05-17</td>
+      <td>JOKO</td>
+      <td>1999-06-07</td>
       <td>L</td>
       <td>O</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>--</td>
+      <td>08221904555</td>
+      <td>kahaha</td>
+      <td>4.536307</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.936307</td>
     </tr>
     <tr>
-      <th>46</th>
       <td>47</td>
-      <td>PRISKILA</td>
-      <td>2004-04-16</td>
-      <td>P</td>
+      <td>TARUB</td>
+      <td>1998-07-08</td>
+      <td>L</td>
       <td>A</td>
       <td>-</td>
-      <td>hahahahaahha</td>
+      <td>hahaahha</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.263485</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.463485</td>
     </tr>
     <tr>
-      <th>47</th>
       <td>48</td>
-      <td>REBECCA</td>
-      <td>2001-03-15</td>
-      <td>P</td>
-      <td>B</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
+      <td>SANGKURIANG</td>
+      <td>1997-08-09</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>082238655515</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
     </tr>
     <tr>
-      <th>48</th>
       <td>49</td>
-      <td>WISNU</td>
-      <td>2000-02-14</td>
-      <td>L</td>
-      <td>AB</td>
+      <td>NYAI</td>
+      <td>1996-09-10</td>
+      <td>P</td>
+      <td>B</td>
       <td>-</td>
-      <td>hahahahaahha</td>
+      <td>hahahaahhh</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
     </tr>
     <tr>
-      <th>49</th>
       <td>50</td>
-      <td>HITO</td>
-      <td>2002-01-10</td>
-      <td>L</td>
+      <td>RORO</td>
+      <td>1995-10-11</td>
+      <td>P</td>
       <td>O</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.810166</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.810166</td>
     </tr>
     <tr>
-      <th>50</th>
       <td>51</td>
-      <td>JUAN</td>
-      <td>1990-06-20</td>
+      <td>DIMAS</td>
+      <td>1994-11-12</td>
       <td>L</td>
       <td>AB</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.599931</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.999931</td>
     </tr>
     <tr>
-      <th>51</th>
       <td>52</td>
-      <td>CHRISTOPER</td>
-      <td>2003-07-30</td>
+      <td>ADI</td>
+      <td>1993-12-13</td>
       <td>L</td>
-      <td>B</td>
+      <td>A</td>
       <td>-</td>
-      <td>hahahahaahha</td>
+      <td>hahhahha</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.515906</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.115906</td>
     </tr>
     <tr>
-      <th>52</th>
       <td>53</td>
-      <td>BOY</td>
-      <td>1999-08-10</td>
-      <td>L</td>
-      <td>A</td>
-      <td>-</td>
-      <td>hahahahaahha</td>
+      <td>PEPPA</td>
+      <td>1990-12-14</td>
+      <td>P</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahaahha</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>08221763255</td>
+      <td>bahaha</td>
+      <td>4.978907</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.978907</td>
     </tr>
     <tr>
-      <th>53</th>
       <td>54</td>
-      <td>JANE</td>
-      <td>2004-09-21</td>
-      <td>P</td>
-      <td>O</td>
+      <td>BEMA</td>
+      <td>1991-08-15</td>
+      <td>L</td>
+      <td>AB</td>
       <td>+</td>
-      <td>hahahahaahha</td>
+      <td>hahahahha</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>08223871455</td>
+      <td>sahaha</td>
+      <td>4.978907</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>8.178907</td>
     </tr>
     <tr>
-      <th>54</th>
       <td>55</td>
-      <td>RIO</td>
-      <td>2002-10-31</td>
+      <td>BIMA</td>
+      <td>1992-09-16</td>
       <td>L</td>
       <td>B</td>
       <td>+</td>
-      <td>hahahahaahha</td>
+      <td>hahahaahhh</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>082218552303</td>
+      <td>qahaha</td>
+      <td>4.515906</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.115906</td>
     </tr>
     <tr>
-      <th>55</th>
       <td>56</td>
-      <td>RUMI</td>
-      <td>1991-11-01</td>
+      <td>BOBO</td>
+      <td>1993-10-17</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.157676</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.357676</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>BOHDI</td>
+      <td>1994-11-18</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.599931</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.799931</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>ARTHUR</td>
+      <td>1983-12-19</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.894882</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.694882</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>TESSIA</td>
+      <td>1988-07-20</td>
+      <td>P</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.683956</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.683956</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>HELEN</td>
+      <td>1977-08-21</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>+</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.157676</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>8.157676</td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>REIN</td>
+      <td>1986-09-22</td>
+      <td>L</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.894882</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.694882</td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>REYN</td>
+      <td>1975-10-23</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.157676</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>6.757676</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>RAINER</td>
+      <td>1964-11-24</td>
       <td>L</td>
       <td>AB</td>
       <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>1.273859</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>4.273859</td>
     </tr>
     <tr>
-      <th>56</th>
-      <td>57</td>
-      <td>TANIA</td>
-      <td>1992-01-01</td>
+      <td>64</td>
+      <td>KEVIN</td>
+      <td>1976-12-25</td>
+      <td>L</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.157676</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.157676</td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>NANA</td>
+      <td>1988-07-26</td>
+      <td>P</td>
+      <td>B</td>
+      <td>+</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.978907</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>8.178907</td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>LIA</td>
+      <td>1979-08-27</td>
+      <td>P</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>1.273859</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>4.073859</td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>CECIL</td>
+      <td>1977-09-28</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.178769</td>
+      <td>1.8</td>
+      <td>1.8</td>
+      <td>7.778769</td>
+    </tr>
+    <tr>
+      <td>68</td>
+      <td>VIVI</td>
+      <td>1965-10-29</td>
       <td>P</td>
       <td>O</td>
       <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.178769</td>
+      <td>2.1</td>
+      <td>2.1</td>
+      <td>8.378769</td>
     </tr>
     <tr>
-      <th>57</th>
-      <td>58</td>
-      <td>AYU</td>
-      <td>1993-03-02</td>
-      <td>P</td>
-      <td>A</td>
-      <td>-</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>58</th>
-      <td>59</td>
-      <td>GION</td>
-      <td>1994-05-03</td>
-      <td>L</td>
-      <td>A</td>
-      <td>-</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>59</th>
-      <td>60</td>
-      <td>HAFIZ</td>
-      <td>1995-07-05</td>
-      <td>L</td>
-      <td>AB</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>60</th>
-      <td>61</td>
-      <td>YASMIN</td>
-      <td>1985-09-05</td>
-      <td>P</td>
-      <td>0</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>61</th>
-      <td>62</td>
-      <td>ROSNY</td>
-      <td>1988-11-10</td>
-      <td>P</td>
-      <td>B</td>
-      <td>-</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>62</th>
-      <td>63</td>
-      <td>CHINTIA</td>
-      <td>1986-10-15</td>
-      <td>P</td>
-      <td>B</td>
-      <td>-</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>64</td>
-      <td>ARYA</td>
-      <td>1989-08-20</td>
-      <td>L</td>
-      <td>0</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>65</td>
-      <td>RADIT</td>
-      <td>1987-12-25</td>
-      <td>L</td>
-      <td>A</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>66</td>
-      <td>KARTIKA</td>
-      <td>1980-01-06</td>
-      <td>P</td>
-      <td>A</td>
-      <td>-</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>67</td>
-      <td>NATHANIA</td>
-      <td>1981-02-12</td>
-      <td>P</td>
-      <td>AB</td>
-      <td>+</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>68</td>
-      <td>ANGEL</td>
-      <td>1982-06-24</td>
-      <td>P</td>
-      <td>0</td>
-      <td>-</td>
-      <td>hahahahaahha</td>
-      <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
-      <td>1.000000</td>
-      <td>1.0</td>
-      <td>1.0</td>
-      <td>3.000000</td>
-    </tr>
-    <tr>
-      <th>68</th>
       <td>69</td>
-      <td>YOLANDA</td>
-      <td>1983-07-30</td>
+      <td>VEVE</td>
+      <td>1984-11-30</td>
       <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.894882</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.694882</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>KIVIER</td>
+      <td>1973-12-13</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.178769</td>
+      <td>1.7</td>
+      <td>1.7</td>
+      <td>7.578769</td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>CHIKA</td>
+      <td>1978-07-08</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221763255</td>
+      <td>bahaha</td>
+      <td>1.252766</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>3.852766</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>SENO</td>
+      <td>1967-08-09</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>+</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223871455</td>
+      <td>sahaha</td>
+      <td>1.232365</td>
+      <td>1.7</td>
+      <td>1.7</td>
+      <td>4.632365</td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>RENO</td>
+      <td>1986-09-10</td>
+      <td>L</td>
       <td>B</td>
       <td>+</td>
-      <td>hahahahaahha</td>
+      <td>hahahaahhh</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
+      <td>082218552303</td>
+      <td>qahaha</td>
+      <td>4.894882</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>8.094882</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>BRUNO</td>
+      <td>1995-10-11</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.810166</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.810166</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>DODO</td>
+      <td>1994-11-12</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.599931</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.999931</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>KITO</td>
+      <td>1993-12-13</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.157676</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.357676</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>VINA</td>
+      <td>1998-07-08</td>
+      <td>P</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.263485</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.463485</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>KANA</td>
+      <td>1997-08-09</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>BEN</td>
+      <td>1996-09-10</td>
+      <td>L</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>MAYNARD</td>
+      <td>1995-10-11</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.810166</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.610166</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>CHRIS</td>
+      <td>1994-11-12</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.642116</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.042116</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>CAESAR</td>
+      <td>1993-12-13</td>
+      <td>L</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.157676</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.357676</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>BRENDA</td>
+      <td>1998-07-08</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.263485</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.463485</td>
+    </tr>
+    <tr>
+      <td>84</td>
+      <td>BONI</td>
+      <td>1997-08-09</td>
+      <td>P</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>LINA</td>
+      <td>1996-09-10</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>EVELYN</td>
+      <td>1995-10-11</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.578492</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.178492</td>
+    </tr>
+    <tr>
+      <td>87</td>
+      <td>SANA</td>
+      <td>1994-11-12</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>+</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.642116</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.042116</td>
+    </tr>
+    <tr>
+      <td>88</td>
+      <td>RENA</td>
+      <td>1993-12-13</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.157676</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.357676</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>VENA</td>
+      <td>1998-07-08</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221763255</td>
+      <td>bahaha</td>
+      <td>4.263485</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.463485</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>JENO</td>
+      <td>1997-08-09</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223871455</td>
+      <td>sahaha</td>
+      <td>4.726487</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.726487</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>JAVIER</td>
+      <td>1996-09-10</td>
+      <td>L</td>
+      <td>B</td>
+      <td>+</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218552303</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>DONO</td>
+      <td>1995-10-11</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.768672</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.568672</td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>KASINO</td>
+      <td>1994-11-12</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.726487</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.326487</td>
+    </tr>
+    <tr>
+      <td>94</td>
+      <td>ENDRO</td>
+      <td>1993-12-13</td>
+      <td>L</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>5.000000</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.600000</td>
+    </tr>
+    <tr>
+      <td>95</td>
+      <td>SUSI</td>
+      <td>1998-07-08</td>
+      <td>P</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.599931</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.999931</td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>LILI</td>
+      <td>1997-08-09</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>INDRA</td>
+      <td>1996-09-10</td>
+      <td>L</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>SURYA</td>
+      <td>1995-10-11</td>
+      <td>L</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.578492</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.978492</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>RAFI</td>
+      <td>1994-11-12</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
       <td>1.000000</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>3.000000</td>
     </tr>
     <tr>
-      <th>69</th>
-      <td>70</td>
-      <td>VENY</td>
-      <td>1984-11-07</td>
+      <td>100</td>
+      <td>ASTRO</td>
+      <td>1993-12-13</td>
+      <td>L</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>5.000000</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.800000</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>MIRNA</td>
+      <td>1998-07-08</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.936376</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.536376</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>PETRA</td>
+      <td>1997-08-09</td>
+      <td>P</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>FIO</td>
+      <td>1996-09-10</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.726487</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.326487</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>VIO</td>
+      <td>1995-10-11</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.578492</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.978492</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>VIA</td>
+      <td>1994-11-12</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.726487</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.326487</td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>GINA</td>
+      <td>1993-12-13</td>
+      <td>P</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>5.000000</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.800000</td>
+    </tr>
+    <tr>
+      <td>107</td>
+      <td>KIKI</td>
+      <td>1998-07-08</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221763255</td>
+      <td>bahaha</td>
+      <td>4.936376</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.536376</td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>BONBON</td>
+      <td>1997-08-09</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>+</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223871455</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>TINTIN</td>
+      <td>1996-09-10</td>
+      <td>L</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218552303</td>
+      <td>qahaha</td>
+      <td>4.726487</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.326487</td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td>ANTON</td>
+      <td>1995-10-11</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.662863</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.662863</td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td>KRASNI</td>
+      <td>1994-11-12</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.726487</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.326487</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>FERRY</td>
+      <td>1993-12-13</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>5.000000</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>8.000000</td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>AUDREY</td>
+      <td>1998-07-08</td>
       <td>P</td>
       <td>A</td>
       <td>-</td>
-      <td>hahahahaahha</td>
+      <td>hahaahha</td>
       <td>haha</td>
-      <td>08221855555</td>
-      <td>hahaha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.936376</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.736376</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>VERO</td>
+      <td>1997-08-09</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>PANJI</td>
+      <td>1996-09-10</td>
+      <td>L</td>
+      <td>B</td>
+      <td>+</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>ANJI</td>
+      <td>1995-10-11</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.662863</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.662863</td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>PETRUS</td>
+      <td>1994-11-12</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.726487</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.126487</td>
+    </tr>
+    <tr>
+      <td>118</td>
+      <td>SIMON</td>
+      <td>1993-12-13</td>
+      <td>L</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>5.000000</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>8.000000</td>
+    </tr>
+    <tr>
+      <td>119</td>
+      <td>ELISA</td>
+      <td>1998-07-08</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.936376</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.736376</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>ELIA</td>
+      <td>1997-08-09</td>
+      <td>P</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>ELSA</td>
+      <td>1996-09-10</td>
+      <td>P</td>
+      <td>B</td>
+      <td>+</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>ERZA</td>
+      <td>1995-10-20</td>
+      <td>P</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.662863</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>7.862863</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>HILDA</td>
+      <td>1994-11-25</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
       <td>1.000000</td>
       <td>1.0</td>
       <td>1.0</td>
       <td>3.000000</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>INA</td>
+      <td>1993-12-30</td>
+      <td>P</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>5.000000</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>8.200000</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>RAFAEL</td>
+      <td>1994-11-08</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.642116</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.042116</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>ASTA</td>
+      <td>2006-03-14</td>
+      <td>L</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>5.000000</td>
+      <td>1.9</td>
+      <td>1.9</td>
+      <td>8.800000</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>MARNI</td>
+      <td>1998-07-05</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.936376</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.736376</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>RANI</td>
+      <td>1997-08-09</td>
+      <td>P</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>FARA</td>
+      <td>1996-09-10</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>FLORIN</td>
+      <td>1995-10-20</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.494813</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.094813</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>VIVIAN</td>
+      <td>2003-04-17</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.368603</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.568603</td>
+    </tr>
+    <tr>
+      <td>132</td>
+      <td>GIGI</td>
+      <td>2003-02-12</td>
+      <td>P</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.368603</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.568603</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>KENDAL</td>
+      <td>1998-07-01</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221763255</td>
+      <td>bahaha</td>
+      <td>4.936376</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.736376</td>
+    </tr>
+    <tr>
+      <td>134</td>
+      <td>BARNABAS</td>
+      <td>2002-08-09</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>+</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223871455</td>
+      <td>sahaha</td>
+      <td>4.978907</td>
+      <td>1.7</td>
+      <td>1.7</td>
+      <td>8.378907</td>
+    </tr>
+    <tr>
+      <td>135</td>
+      <td>TADEUS</td>
+      <td>2000-09-10</td>
+      <td>L</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218552303</td>
+      <td>qahaha</td>
+      <td>4.789073</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.589073</td>
+    </tr>
+    <tr>
+      <td>136</td>
+      <td>AKON</td>
+      <td>2003-10-11</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.368603</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.568603</td>
+    </tr>
+    <tr>
+      <td>137</td>
+      <td>KIM</td>
+      <td>2004-11-12</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>+</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.789073</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.389073</td>
+    </tr>
+    <tr>
+      <td>138</td>
+      <td>MANCA</td>
+      <td>2005-05-21</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.662863</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.462863</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>AUBREY</td>
+      <td>1998-07-08</td>
+      <td>P</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.936376</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.536376</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>VERA</td>
+      <td>1997-08-09</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>SANJI</td>
+      <td>1996-09-10</td>
+      <td>L</td>
+      <td>B</td>
+      <td>+</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>142</td>
+      <td>BANDI</td>
+      <td>1995-10-01</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.494813</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.094813</td>
+    </tr>
+    <tr>
+      <td>143</td>
+      <td>BERTRAN</td>
+      <td>1994-11-17</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.642116</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.042116</td>
+    </tr>
+    <tr>
+      <td>144</td>
+      <td>MORIS</td>
+      <td>2005-07-03</td>
+      <td>L</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.662863</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.462863</td>
+    </tr>
+    <tr>
+      <td>145</td>
+      <td>BELLA</td>
+      <td>1998-07-18</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.936376</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.536376</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>ELI</td>
+      <td>1995-06-03</td>
+      <td>P</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.768672</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.768672</td>
+    </tr>
+    <tr>
+      <td>147</td>
+      <td>ANNA</td>
+      <td>1996-09-30</td>
+      <td>P</td>
+      <td>B</td>
+      <td>+</td>
+      <td>hahahaahhh</td>
+      <td>haha</td>
+      <td>082218555203</td>
+      <td>qahaha</td>
+      <td>4.221300</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>6.421300</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>EZRA</td>
+      <td>1995-10-21</td>
+      <td>P</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahaahahh</td>
+      <td>--</td>
+      <td>08221855595</td>
+      <td>rahaha</td>
+      <td>4.768672</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.768672</td>
+    </tr>
+    <tr>
+      <td>149</td>
+      <td>NABILA</td>
+      <td>1994-11-02</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>haahahha</td>
+      <td>--</td>
+      <td>08221855025</td>
+      <td>tahaha</td>
+      <td>4.642116</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.042116</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>SENA</td>
+      <td>2002-03-06</td>
+      <td>P</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahhahha</td>
+      <td>haha</td>
+      <td>082218555944</td>
+      <td>yahaha</td>
+      <td>4.831259</td>
+      <td>1.7</td>
+      <td>1.7</td>
+      <td>8.231259</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>BENITA</td>
+      <td>2000-01-02</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaha</td>
+      <td>haha</td>
+      <td>08221812555</td>
+      <td>hahih</td>
+      <td>4.789073</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.589073</td>
+    </tr>
+    <tr>
+      <td>152</td>
+      <td>BELARUS</td>
+      <td>2001-02-03</td>
+      <td>L</td>
+      <td>O</td>
+      <td>+</td>
+      <td>haahaahha</td>
+      <td>haha</td>
+      <td>08224735555</td>
+      <td>haheha</td>
+      <td>4.957469</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.357469</td>
+    </tr>
+    <tr>
+      <td>153</td>
+      <td>BELINDA</td>
+      <td>2002-10-24</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>haahaha</td>
+      <td>haha</td>
+      <td>08222375555</td>
+      <td>eahaha</td>
+      <td>4.831259</td>
+      <td>1.7</td>
+      <td>1.7</td>
+      <td>8.231259</td>
+    </tr>
+    <tr>
+      <td>154</td>
+      <td>BRAN</td>
+      <td>2003-03-25</td>
+      <td>L</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahahaahha</td>
+      <td>--</td>
+      <td>08221809855</td>
+      <td>rahaha</td>
+      <td>4.852697</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.852697</td>
+    </tr>
+    <tr>
+      <td>155</td>
+      <td>KESIA</td>
+      <td>2005-02-16</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahaaahha</td>
+      <td>--</td>
+      <td>08221647555</td>
+      <td>gahaha</td>
+      <td>4.768672</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.768672</td>
+    </tr>
+    <tr>
+      <td>156</td>
+      <td>PATRICK</td>
+      <td>1999-12-17</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>--</td>
+      <td>08221904555</td>
+      <td>kahaha</td>
+      <td>4.536307</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.936307</td>
+    </tr>
+    <tr>
+      <td>157</td>
+      <td>NICO</td>
+      <td>1998-07-08</td>
+      <td>L</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.473721</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.873721</td>
+    </tr>
+    <tr>
+      <td>158</td>
+      <td>BRAD</td>
+      <td>1997-08-09</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.705048</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.105048</td>
+    </tr>
+    <tr>
+      <td>159</td>
+      <td>VERINA</td>
+      <td>2000-01-02</td>
+      <td>P</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaha</td>
+      <td>haha</td>
+      <td>08221812555</td>
+      <td>hahih</td>
+      <td>4.789073</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>7.989073</td>
+    </tr>
+    <tr>
+      <td>160</td>
+      <td>LUVIAN</td>
+      <td>2001-02-03</td>
+      <td>L</td>
+      <td>O</td>
+      <td>+</td>
+      <td>haahaahha</td>
+      <td>haha</td>
+      <td>08224735555</td>
+      <td>haheha</td>
+      <td>4.957469</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>7.357469</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>MICHEN</td>
+      <td>2002-03-13</td>
+      <td>P</td>
+      <td>O</td>
+      <td>-</td>
+      <td>haahaha</td>
+      <td>haha</td>
+      <td>08222375555</td>
+      <td>eahaha</td>
+      <td>4.831259</td>
+      <td>1.7</td>
+      <td>1.7</td>
+      <td>8.231259</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>GRANT</td>
+      <td>2003-06-15</td>
+      <td>L</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahahaahha</td>
+      <td>--</td>
+      <td>08221809855</td>
+      <td>rahaha</td>
+      <td>4.852697</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>7.452697</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>VINNY</td>
+      <td>2005-05-30</td>
+      <td>P</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahaaahha</td>
+      <td>--</td>
+      <td>08221647555</td>
+      <td>gahaha</td>
+      <td>4.852697</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>8.052697</td>
+    </tr>
+    <tr>
+      <td>164</td>
+      <td>VONZI</td>
+      <td>2005-01-18</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>--</td>
+      <td>08221904555</td>
+      <td>kahaha</td>
+      <td>4.852697</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.852697</td>
+    </tr>
+    <tr>
+      <td>165</td>
+      <td>LOUIS</td>
+      <td>2003-04-29</td>
+      <td>L</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.452282</td>
+      <td>1.2</td>
+      <td>1.2</td>
+      <td>6.852282</td>
+    </tr>
+    <tr>
+      <td>166</td>
+      <td>YEREMIA</td>
+      <td>2000-12-19</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>08223865555</td>
+      <td>sahaha</td>
+      <td>4.726487</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>7.526487</td>
+    </tr>
+    <tr>
+      <td>167</td>
+      <td>KAKA</td>
+      <td>1970-01-02</td>
+      <td>L</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaha</td>
+      <td>haha</td>
+      <td>08221812555</td>
+      <td>hahih</td>
+      <td>1.273859</td>
+      <td>1.7</td>
+      <td>1.7</td>
+      <td>4.673859</td>
+    </tr>
+    <tr>
+      <td>168</td>
+      <td>RONAL</td>
+      <td>1971-02-03</td>
+      <td>L</td>
+      <td>O</td>
+      <td>+</td>
+      <td>haahaahha</td>
+      <td>haha</td>
+      <td>08224735555</td>
+      <td>haheha</td>
+      <td>4.178769</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>7.378769</td>
+    </tr>
+    <tr>
+      <td>169</td>
+      <td>KIRO</td>
+      <td>1972-03-04</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>haahaha</td>
+      <td>haha</td>
+      <td>08222375555</td>
+      <td>eahaha</td>
+      <td>4.178769</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>7.178769</td>
+    </tr>
+    <tr>
+      <td>170</td>
+      <td>VICO</td>
+      <td>1977-04-05</td>
+      <td>L</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahahaahha</td>
+      <td>--</td>
+      <td>08221809855</td>
+      <td>rahaha</td>
+      <td>4.157676</td>
+      <td>1.6</td>
+      <td>1.6</td>
+      <td>7.357676</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>VICTOR</td>
+      <td>1975-05-06</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>+</td>
+      <td>hahaaahha</td>
+      <td>--</td>
+      <td>08221647555</td>
+      <td>gahaha</td>
+      <td>4.157676</td>
+      <td>1.8</td>
+      <td>1.8</td>
+      <td>7.757676</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>BINTORO</td>
+      <td>1979-06-07</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>--</td>
+      <td>08221904555</td>
+      <td>kahaha</td>
+      <td>1.273859</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>4.273859</td>
+    </tr>
+    <tr>
+      <td>173</td>
+      <td>BEJO</td>
+      <td>1968-07-08</td>
+      <td>L</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>4.136929</td>
+      <td>1.9</td>
+      <td>1.9</td>
+      <td>7.936929</td>
+    </tr>
+    <tr>
+      <td>174</td>
+      <td>YUDI</td>
+      <td>1977-11-29</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>082238655515</td>
+      <td>sahaha</td>
+      <td>4.726487</td>
+      <td>2.1</td>
+      <td>2.1</td>
+      <td>8.926487</td>
+    </tr>
+    <tr>
+      <td>175</td>
+      <td>RONI</td>
+      <td>1980-01-02</td>
+      <td>L</td>
+      <td>B</td>
+      <td>-</td>
+      <td>hahaha</td>
+      <td>haha</td>
+      <td>08221812555</td>
+      <td>hahih</td>
+      <td>1.337483</td>
+      <td>1.3</td>
+      <td>1.3</td>
+      <td>3.937483</td>
+    </tr>
+    <tr>
+      <td>176</td>
+      <td>PRI</td>
+      <td>1967-02-03</td>
+      <td>L</td>
+      <td>O</td>
+      <td>+</td>
+      <td>haahaahha</td>
+      <td>haha</td>
+      <td>08224735555</td>
+      <td>haheha</td>
+      <td>4.136929</td>
+      <td>1.9</td>
+      <td>1.9</td>
+      <td>7.936929</td>
+    </tr>
+    <tr>
+      <td>177</td>
+      <td>YANTO</td>
+      <td>1976-03-04</td>
+      <td>L</td>
+      <td>O</td>
+      <td>-</td>
+      <td>haahaha</td>
+      <td>haha</td>
+      <td>08222375555</td>
+      <td>eahaha</td>
+      <td>1.252766</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>4.252766</td>
+    </tr>
+    <tr>
+      <td>178</td>
+      <td>SUMANTO</td>
+      <td>1978-04-05</td>
+      <td>L</td>
+      <td>A</td>
+      <td>+</td>
+      <td>hahahaahha</td>
+      <td>--</td>
+      <td>08221809855</td>
+      <td>rahaha</td>
+      <td>1.294952</td>
+      <td>1.7</td>
+      <td>1.7</td>
+      <td>4.694952</td>
+    </tr>
+    <tr>
+      <td>179</td>
+      <td>BAMBANG</td>
+      <td>1978-05-06</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahaaahha</td>
+      <td>--</td>
+      <td>08221647555</td>
+      <td>gahaha</td>
+      <td>1.252766</td>
+      <td>1.4</td>
+      <td>1.4</td>
+      <td>4.052766</td>
+    </tr>
+    <tr>
+      <td>180</td>
+      <td>HARIYANTO</td>
+      <td>1978-06-07</td>
+      <td>L</td>
+      <td>O</td>
+      <td>+</td>
+      <td>hahaahha</td>
+      <td>--</td>
+      <td>08221904555</td>
+      <td>kahaha</td>
+      <td>1.252766</td>
+      <td>1.5</td>
+      <td>1.5</td>
+      <td>4.252766</td>
+    </tr>
+    <tr>
+      <td>181</td>
+      <td>SUYATNO</td>
+      <td>1978-07-08</td>
+      <td>L</td>
+      <td>A</td>
+      <td>-</td>
+      <td>hahaahha</td>
+      <td>haha</td>
+      <td>08221726555</td>
+      <td>bahaha</td>
+      <td>1.000000</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>3.200000</td>
+    </tr>
+    <tr>
+      <td>182</td>
+      <td>SUPARNO</td>
+      <td>1978-08-09</td>
+      <td>L</td>
+      <td>AB</td>
+      <td>-</td>
+      <td>hahahahha</td>
+      <td>haha</td>
+      <td>082238655515</td>
+      <td>sahaha</td>
+      <td>1.000000</td>
+      <td>1.1</td>
+      <td>1.1</td>
+      <td>3.200000</td>
     </tr>
   </tbody>
 </table>

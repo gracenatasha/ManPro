@@ -397,6 +397,7 @@ try:
         df_standardized_sliced = df_authors_standardized[selected_features]
         # elbowPlot(range(1,11), df_standardized_sliced)
         # silhouettePlot(range(3,9), df_standardized_sliced)
+        print(df_pendonor["RFM"])
 
         # clustering
         kmeans = KMeans(n_clusters=3, random_state=42)
@@ -466,22 +467,23 @@ try:
 
         # silhouette index
 
-        obs = np.concatenate( (np.random.randn(100, 2), 20 + np.random.randn(300, 2), -15+np.random.randn(200, 2)))
+        # obs = np.concatenate((df_pendonor["RFM"]))
         silhouette_score_values=list()
+        obs = df_pendonor["RFM"]
         
         NumberOfClusters=range(2,12)
-        # print("cobacoba")
-        
+        # # print("cobacoba")
+        print(obs)
         for i in NumberOfClusters:
             
             classifier=cluster.KMeans(i,init='k-means++', n_init=10, max_iter=20, tol=0.0001, verbose=0, random_state=42, copy_x=True)
             # classifier=kmeans
             classifier.fit(obs)
-            labels= classifier.predict(obs)
-            print ("Number Of Clusters:")
-            print (i)
-            print ("Silhouette score value")
-            print (silhouette_score(obs,labels,metric='euclidean', sample_size=None, random_state=42))
+            labels= classifier.predict([obs])
+            # print ("Number Of Clusters:")
+            # print (i)
+            # print ("Silhouette score value")
+            # print (silhouette_score(obs,labels,metric='euclidean', sample_size=None, random_state=42))
             silhouette_score_values.append(silhouette_score(obs,labels ,metric='euclidean', sample_size=None, random_state=42))
         
         plt.plot(NumberOfClusters, silhouette_score_values)
