@@ -14,17 +14,17 @@ from sklearn.cluster import KMeans
 import numpy as np
 
 import matplotlib.pyplot as plt
-import plotly.graph_objects as go
 from kneed import KneeLocator
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
+import sys
 
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='database',
+                                         database='donor_darah',
                                          user='root',
                                          password='')
     if connection.is_connected():
@@ -114,7 +114,7 @@ try:
         else:
             for i in recency_array:
                 if (i is not None):
-                    normalized_recency_arr.append(6-((i-recency_min)/(recency_max - recency_min)*4+1))
+                    normalized_recency_arr.append(round(6-((i-recency_min)/(recency_max - recency_min)*4+1), 3)) #di round jadi 3 decimal places
                 else:
                     normalized_recency_arr.append(1.0)
 
@@ -149,7 +149,7 @@ try:
         else:
             for i in frequency_array:
                 if (i is not None):
-                    normalized_frequency_arr.append((i-frequency_min)/(frequency_max - frequency_min)*4+1)
+                    normalized_frequency_arr.append(round((i-frequency_min)/(frequency_max - frequency_min)*4+1, 3))
                 else:
                     normalized_frequency_arr.append(1.0)
 
@@ -187,7 +187,7 @@ try:
             for i in monetary_array:
                 if (i is not None):
                     # print(i)
-                    normalized_monetary_arr.append((i-monetary_min)/(monetary_max - monetary_min)*4+1)
+                    normalized_monetary_arr.append(round((i-monetary_min)/(monetary_max - monetary_min)*4+1), 3)
                 else:
                     normalized_monetary_arr.append(1.0)
 
@@ -201,7 +201,7 @@ try:
             else:
                 print("TYPE: ", type(normalized_recency_arr[i]), type(normalized_frequency_arr[i]), type(normalized_monetary_arr), normalized_monetary_arr)
                 rfm_total_arr.append(
-                    normalized_recency_arr[i]+normalized_frequency_arr[i]+normalized_monetary_arr[i])
+                    float(sys.argv[1])*normalized_recency_arr[i]+float(sys.argv[2])*normalized_frequency_arr[i]+float(sys.argv[3])*normalized_monetary_arr[i])
 
         print("rfm total: ", rfm_total_arr)
 
@@ -348,51 +348,35 @@ try:
                 f.append(sorted[i][j][1])
                 m.append(sorted[i][j][2])
                 color.append(colors[i])
+            # r = np.asarray(r)
+            # f = np.asarray(f)
+            # m = np.asarray(m)
             print(len(r), len(f), len(m))
+            # ax.scatter(r, f, m, c = colors[i], s = 50, cmap = 'viridis')
+            # r = []
+            # f = []
+            # m = []
         
         r = np.asarray(r)
         f = np.asarray(f)
         m = np.asarray(m)
         colors = np.asarray(color)
 
-        col = []
-        for i in range(len(r)): 
-            col.append(i)
-        col = np.asarray(col)
 
+        ax.scatter(r, f, m, c = colors, s = 50, alpha=0.5, label = label[i])
+        ax.set_title('RFM Clustering Result')
 
-        #MATPLOT-----------------------------------------------------------
-        # ax.scatter(r, f, m, c = colors, s = 50, alpha=0.5, label = label[i])
-        # ax.set_title('RFM Clustering Result')
+        ax.set_xlabel('R (Recency)', labelpad=20)
+        ax.set_ylabel('F (Frequency)', labelpad=20)
+        ax.set_zlabel('M (Monetary)', labelpad=20)
 
-        # ax.set_xlabel('R (Recency)', labelpad=20)
-        # ax.set_ylabel('F (Frequency)', labelpad=20)
-        # ax.set_zlabel('M (Monetary)', labelpad=20)
 
         # plt.show()
-        # plt.savefig('clustering.png')
 
-        #COBA PLOTLY-------------------------------------------
-        # Helix equation
-
-        fig = go.Figure(data=[go.Scatter3d(
-            x=r,
-            y=f,
-            z=m,
-            mode='markers',
-            marker=dict(
-                size=8,
-                color=col,
-                colorscale='Viridis',   # choose a colorscale
-                opacity=0.8
-            )
-        )])
-
-        # tight layout
-        fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
-        fig.write_html("clustering.html")
-        fig.show()
+        plt.savefig('clustering.png')
         
+
+
         # NEW -- Add RFM Columns to Initial DataFrame
         df_pendonor.columns = ['ID', 'Nama Pendonor', 'Tanggal Lahir', 'Jenis Kelamin', 'Golongan Darah',
                                'Rhesus', 'Alamat', 'ID Kelurahan Rumah', 'Alamat Kantor', 'ID Kelurahan Kantor', 'No Telepon', 'E-mail']
@@ -405,16 +389,12 @@ try:
         #print(df_pendonor)
 
         # Nyambungin ke PHP/HTML
-        # new_df = df_pendonor.set_index('ID')
         html_table = df_pendonor.to_html(classes='table table-striped rfm_table', index=False)
+        print(html_table) #ini yg hrsnya di outputin ke sblh
         # kalo ga bisa, coba write html to file
         text_file = open("table_data.php", "w")
         text_file.write(html_table)
         text_file.close()
-
-        # new_df = df_pendonor.set_index('ID')
-        # print(new_df)
-        # print(df_pendonor)
 
 except Error as e:
     print("Error while connecting to MySQL", e)

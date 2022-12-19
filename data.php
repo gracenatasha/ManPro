@@ -11,37 +11,51 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <style type="text/css">
-        .btn-primary {
-            background-color: #817582 !important;
-            border-color: #817582 !important;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 
 
 <?php
+session_start();
+
 $command = escapeshellcmd('rfmmodif.py');
+//$_SESSION["rec"] = $_SESSION["freq"] = $_SESSION["mon"] = $_SESSION["freq1"] = $_SESSION["freq2"] = $_SESSION["freq3"] = $_SESSION["freqall"] = $_SESSION["mon1"] = $_SESSION["mon2"] = $_SESSION["mon3"] = $_SESSION["monall"] = "";
 $rec = $freq = $mon = $freq1 = $freq2 = $freq3 = $freqall = $mon1 = $mon2 = $mon3 = $monall = "";
 include 'links.php';
 
 if (isset($_POST["generate"])) {
-    $rec = $_POST["recency"];
-    $freq = $_POST["frequency"];
-    $mon = $_POST["monetary"];
-    $freq1 = $_POST["f1"];
-    $freq2 = $_POST["f2"];
-    $freq3 = $_POST["f3"];
-    $freqall = $_POST["fall"];
-    $mon1 = $_POST["m1"];
-    $mon2 = $_POST["m2"];
-    $mon3 = $_POST["m3"];
-    $monall = $_POST["mall"];
-    //echo "Rec: " . $rec . " Freq: " . $freq . " Mon: " . $mon;
-    //echo "Freq1: " . $freq1 . " Freq2: " . $freq2 . " Freq 3: " . $freq3 . " Freq All: " . $freqall;
-    //echo "Mon1: " . $mon1 . " Mon2: " . $mon2 . " Mon 3: " . $mon3 . " Mon All: " . $monall;
+    $rec = $_SESSION["rec"] = $_POST["recency"];
+    $freq = $_SESSION["freq"] = $_POST["frequency"];
+    $mon = $_SESSION["mon"] = $_POST["monetary"];
+    $freq1 = $_SESSION["freq1"] = $_POST["f1"];
+    $freq2 = $_SESSION["freq2"] = $_POST["f2"];
+    $freq3 = $_SESSION["freq3"] = $_POST["f3"];
+    $freqall = $_SESSION["freqall"] = $_POST["fall"];
+    $mon1 = $_SESSION["mon1"] = $_POST["m1"];
+    $mon2 = $_SESSION["mon2"] = $_POST["m2"];
+    $mon3 = $_SESSION["mon3"] = $_POST["m3"];
+    $monall = $_SESSION["monall"] = $_POST["mall"];
+    /*echo "Rec: " . $rec . " Freq: " . $freq . " Mon: " . $mon;
+    echo "Freq1: " . $freq1 . " Freq2: " . $freq2 . " Freq 3: " . $freq3 . " Freq All: " . $freqall;
+    echo "Mon1: " . $mon1 . " Mon2: " . $mon2 . " Mon 3: " . $mon3 . " Mon All: " . $monall;
+    echo "Rec = ".$_SESSION["rec"];*/
     $output = shell_exec("/usr/local/bin/python3 $command $rec $freq $mon $freq1 $freq2 $freq3 $freqall $mon1 $mon2 $mon3 $monall");
-} else {
+} elseif (isset($_SESSION["rec"])) {
+    $rec = $_SESSION["rec"];
+    $freq = $_SESSION["freq"];
+    $mon = $_SESSION["mon"];
+    $freq1 = $_SESSION["freq1"];
+    $freq2 = $_SESSION["freq2"];
+    $freq3 = $_SESSION["freq3"];
+    $freqall = $_SESSION["freqall"];
+    $mon1 = $_SESSION["mon1"];
+    $mon2 = $_SESSION["mon2"];
+    $mon3 = $_SESSION["mon3"];
+    $monall = $_SESSION["monall"];
+    $output = shell_exec("/usr/local/bin/python3 $command $rec $freq $mon $freq1 $freq2 $freq3 $freqall $mon1 $mon2 $mon3 $monall");
+} 
+else {
     $output = shell_exec("/usr/local/bin/python3 $command");
 }
 
@@ -85,7 +99,7 @@ if (isset($_POST["generate"])) {
                                             <form class="form-inline">
                                                 <div class="form-group mx-sm-3 mb-2">
                                                     <label class="mr-3">Recency</label>
-                                                    <input class="form-control" type="number" min="0" max="1" step="0.01" name="recency" id="recencyValue" placeholder="0.0-1.0" value="<?php echo $rec ?>">
+                                                    <input class="form-control" type="number" min="0" max="1" step="0.01" name="recency" id="recencyValue" placeholder="0.0-1.0" value="<?php echo $_SESSION["rec"] ?>">
                                                 </div>
                                             </form>
                                         </div>
@@ -94,19 +108,19 @@ if (isset($_POST["generate"])) {
                                         <div class="card-header" data-toggle="collapse" data-target="#collapseOne">
                                             <div class="form-group mx-sm-3 mb-2">
                                                 <label class="mr-3">Frequency</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="frequency" id="frequencyValue" placeholder="0.0-1.0" value="<?php echo $freq ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="frequency" id="frequencyValue" placeholder="0.0-1.0" value="<?php echo $_SESSION["freq"] ?>">
                                             </div>
                                         </div>
                                         <div id="collapseOne" class="collapse" data-parent="#accordion">
                                             <div class="card-body">
                                                 <label>Past year</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f1" id="frequency1" placeholder="Past year" value="<?php echo $freq1 ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f1" id="frequency1" placeholder="Past year" value="<?php echo $_SESSION["freq1"] ?>">
                                                 <label>Past 2 years</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f2" id="frequency2" placeholder="Past 2 years" value="<?php echo $freq2 ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f2" id="frequency2" placeholder="Past 2 years" value="<?php echo $_SESSION["freq2"] ?>">
                                                 <label>Past 3 years</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f3" id="frequency3" placeholder="Past 3 years" value="<?php echo $freq3 ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="f3" id="frequency3" placeholder="Past 3 years" value="<?php echo $_SESSION["freq3"] ?>">
                                                 <label>All</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="fall" id="frequencyAll" placeholder="All" value="<?php echo $freqall ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="fall" id="frequencyAll" placeholder="All" value="<?php echo $_SESSION["freqall"] ?>">
                                             </div>
                                         </div>
 
@@ -115,19 +129,19 @@ if (isset($_POST["generate"])) {
                                         <div class="card-header" data-toggle="collapse" data-target="#collapseTwo">
                                             <div class="form-group mx-sm-3 mb-2">
                                                 <label class="mr-3">Monetary</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="monetary" id="monetaryValue" placeholder="0.0-1.0" value="<?php echo $mon ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="monetary" id="monetaryValue" placeholder="0.0-1.0" value="<?php echo $_SESSION["mon"] ?>">
                                             </div>
                                         </div>
                                         <div id="collapseTwo" class="collapse" data-parent="#accordion">
                                             <div class="card-body">
                                                 <label>Past year</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m1" id="monetary1" placeholder="Past year" value="<?php echo $mon1 ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m1" id="monetary1" placeholder="Past year" value="<?php echo $_SESSION["mon1"] ?>">
                                                 <label>Past 2 years</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m2" id="monetary2" placeholder="Past 2 years" value="<?php echo $mon2 ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m2" id="monetary2" placeholder="Past 2 years" value="<?php echo $_SESSION["mon2"] ?>">
                                                 <label>Past 3 years</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m3" id="monetary3" placeholder="Past 3 years" value="<?php echo $mon3 ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="m3" id="monetary3" placeholder="Past 3 years" value="<?php echo $_SESSION["mon3"] ?>">
                                                 <label>All</label>
-                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="mall" id="monetaryAll" placeholder="All" value="<?php echo $monall ?>">
+                                                <input class="form-control" type="number" min="0" max="1" step="0.01" name="mall" id="monetaryAll" placeholder="All" value="<?php echo $_SESSION["monall"] ?>">
                                             </div>
                                         </div>
 
@@ -148,52 +162,53 @@ if (isset($_POST["generate"])) {
 
         </div>
 
-        </div>
+    </div>
 
-        <div class="container-lg mt-3">
-            <div class="table-responsive">
-                <div style="overflow-x: auto;">
-                    <!-- <table id="example" class="table table-striped" style="width:100%; text-align: center;"> -->
-                    <?php include 'table_data_modif.php'; ?>
-                    <!-- </table> -->
-                </div>
+    <div class="container-lg mt-3">
+        <div class="table-responsive">
+            <div style="overflow-x: auto;">
+                <!-- <table id="example" class="table table-striped" style="width:100%; text-align: center;"> -->
+                <?php include 'table_data_modif.php'; ?>
+                <!-- </table> -->
             </div>
         </div>
-        <div class="container-lg mt-3 px-auto">
-            <img src="silhouette_plot.png" alt="" width="500px">
-        </div>
+    </div>
+    <div class="container-lg mt-3 px-auto float-center">
+        <?php echo "Weights =  Rec: " . $_SESSION["rec"] . " Freq: " . $_SESSION["freq"] . " Mon: " . $_SESSION["mon"] ?>
+        <!--<img src="silhouette_plot.png" alt="" width="800px"> NANTI TUNGGU SILHOUETTE INDEX-->
+    </div>
 
-        <script>
-            $(document).ready(function() {
-                var table = $('.rfm_table').DataTable({
-                    buttons: [{
-                            extend: 'createState',
-                            config: {
-                                creationModal: true,
-                                toggle: {
-                                    columns: {
-                                        search: true,
-                                        visible: true
-                                    },
-                                    length: true,
-                                    order: true,
-                                    paging: true,
+    <script>
+        $(document).ready(function() {
+            var table = $('.rfm_table').DataTable({
+                buttons: [{
+                        extend: 'createState',
+                        config: {
+                            creationModal: true,
+                            toggle: {
+                                columns: {
                                     search: true,
-                                }
+                                    visible: true
+                                },
+                                length: true,
+                                order: true,
+                                paging: true,
+                                search: true,
                             }
-                        },
-                        'savedStates'
-                    ],
-                    lengthMenu: [
-                        [10, 25, 50, -1],
-                        [10, 25, 50, 'All'],
-                    ],
-                });
-
-                table.buttons().container()
-                    .appendTo('#example_wrapper .col-md-6:eq(0)');
+                        }
+                    },
+                    'savedStates'
+                ],
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All'],
+                ],
             });
-        </script>
+
+            table.buttons().container()
+                .appendTo('#example_wrapper .col-md-6:eq(0)');
+        });
+    </script>
 </body>
 
 
