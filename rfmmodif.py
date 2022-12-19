@@ -469,21 +469,24 @@ try:
 
         # obs = np.concatenate((df_pendonor["RFM"]))
         silhouette_score_values=list()
-        obs = df_pendonor["RFM"]
+        new_rfm_arr = np.reshape((df_pendonor["RFM"]), (1, 13, 13))
+        # new_rfm_arr = np.reshape(-1, 4)
+        obs = new_rfm_arr
         
+        silhouette_score_values=list()
         NumberOfClusters=range(2,12)
         # # print("cobacoba")
         print(obs)
         for i in NumberOfClusters:
             
             classifier=cluster.KMeans(i,init='k-means++', n_init=10, max_iter=20, tol=0.0001, verbose=0, random_state=42, copy_x=True)
-            # classifier=kmeans
+            classifier=kmeans
             classifier.fit(obs)
             labels= classifier.predict([obs])
-            # print ("Number Of Clusters:")
-            # print (i)
-            # print ("Silhouette score value")
-            # print (silhouette_score(obs,labels,metric='euclidean', sample_size=None, random_state=42))
+            print ("Number Of Clusters:")
+            print (i)
+            print ("Silhouette score value")
+            print (silhouette_score(obs,labels,metric='euclidean', sample_size=None, random_state=42))
             silhouette_score_values.append(silhouette_score(obs,labels ,metric='euclidean', sample_size=None, random_state=42))
         
         plt.plot(NumberOfClusters, silhouette_score_values)
