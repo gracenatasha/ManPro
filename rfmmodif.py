@@ -22,6 +22,7 @@ import plotly.graph_objects as go
 
 # silhouette index
 from sklearn import cluster
+from statistics import mean
 
  
 
@@ -125,7 +126,7 @@ try:
                 if (i is not None):
                     normalized_recency_arr.append(round(6-((i-recency_min)/(recency_max - recency_min)*4+1)))
                 else:
-                    normalized_recency_arr.append(1)
+                    normalized_recency_arr.append(1.0)
 
         #print("recency array: ", normalized_recency_arr)
 
@@ -161,6 +162,33 @@ try:
                 frequency3_min = i[2]
             if (i[3] < frequencyall_min):
                 frequencyall_min = i[3]
+          
+        # SILHOUETTE INDEX 
+        freq_sil_var = []
+        for i in frequency_array:
+            total = 0
+            freqsil = []
+            if (i[0] > 0 and frequency1_max != frequency1_min):
+                freqsil.append(round((i[0]-frequency1_min)/(frequency1_max - frequency1_min)*4+1)*0.25)
+            else:
+                freqsil.append(1*0.25)
+            if (i[1] > 0 and frequency2_max != frequency2_min):
+                freqsil.append(round((i[1]-frequency2_min)/(frequency2_max - frequency2_min)*4+1)*0.25)
+            else:
+                freqsil.append(1*0.25)
+            if (i[2] > 0 and frequency3_max != frequency3_min):
+                freqsil.append(round((i[2]-frequency3_min)/(frequency3_max - frequency3_min)*4+1)*0.25)
+            else:
+                freqsil.append(1*0.25)
+            if (i[3] > 0 and frequencyall_max != frequencyall_min):
+                freqsil.append(round((i[3]-frequencyall_min)/(frequencyall_max - frequencyall_min)*4+1)*0.25)
+            else:
+                freqsil.append(1*0.25)
+            # print(freqsil)
+            for i in range(0, len(freqsil)):
+                total = total + freqsil[i]
+            # print(total)
+            freq_sil_var.append(total)
 
 
         # min-max normalization to 1-5 (frequency)
@@ -220,6 +248,36 @@ try:
             if (i[3] < monetaryall_min):
                 monetaryall_min = i[3]
 
+        # min-max normalization to 1-5 (monetary)
+        mon_sil_var = []
+        for i in monetary_array:
+            total = 0
+            monsil = []
+            if (i[0] > 0 and monetary1_max != monetary1_min):
+                monsil.append(round((i[0]-monetary1_min)/(monetary1_max - monetary1_min)*4+1)*0.25)
+            else:
+                monsil.append(1*0.25)
+            if (i[1] > 0 and monetary2_max != monetary2_min):
+                monsil.append(round((i[1]-monetary2_min)/(monetary2_max - monetary2_min)*4+1)*0.25)
+            else:
+                monsil.append(1*0.25)
+            if (i[2] > 0 and monetary3_max != monetary3_min):
+                monsil.append(round((i[2]-monetary3_min)/(monetary3_max - monetary3_min)*4+1)*0.25)
+            else:
+                monsil.append(1*0.25)
+            if (i[3] > 0 and monetaryall_max != monetaryall_min):
+                monsil.append(round((i[3]-monetaryall_min)/(monetaryall_max - monetaryall_min)*4+1)*0.25)
+            else:
+                monsil.append(1*0.25)
+            # print(monsil)
+            # print(type(monsil))
+            for i in range(0, len(monsil)):
+                total = total + monsil[i]
+            # sum(monset)
+            # print(total)
+            # print(type(total))
+            # print(type(monsil))
+            mon_sil_var.append(total)      
 
         # min-max normalization to 1-5 (monetary)
         normalized_monetary_arr = []
@@ -418,7 +476,7 @@ try:
           #CLUSTERING-------------------------------------------
         list = []
         for i in range(len(normalized_recency_arr)): 
-            list.append([normalized_recency_arr[i], normalized_frequency_arr[i], normalized_monetary_arr[i]])
+            list.append([normalized_recency_arr[i], freq_sil_var[i], mon_sil_var[i]])
 
 
         data = np.asarray(list)
