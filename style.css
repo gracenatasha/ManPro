@@ -1,66 +1,66 @@
-            body {
-                background-color: #F0F0F0;
-            }
+body {
+    background-color: #F0F0F0;
+}
 
-            .container {
-                margin: 100px auto;
-            }
+.container {
+    margin: 100px auto;
+}
 
-            .table-striped {
-                background-color: white;
-            }
+.table-striped {
+    background-color: white;
+}
 
-            .center {
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-                width: 70%;
-            }
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 70%;
+}
 
-            .table td {
-                /* max-width: 120px; */
-                white-space: normal;
-                /* text-overflow: ellipsis; */
-                word-break: break-all;
-                overflow: hidden;
-            }
+.table td {
+    /* max-width: 120px; */
+    white-space: normal;
+    /* text-overflow: ellipsis; */
+    word-break: break-all;
+    overflow: hidden;
+}
 
-            .btn-primary {
-                background-color: #817582 !important;
-                border-color: #817582 !important;
-            }
+.btn-primary {
+    background-color: #880002 !important;
+    border-color: #5c0002 !important;
+}
 
-            @media (min-width: 992px) {
+@media (min-width: 992px) {
 
-                .container,
-                .container-lg,
-                .container-md,
-                .container-sm {
-                    max-width: 1400px !important;
-                }
-            }
+    .container,
+    .container-lg,
+    .container-md,
+    .container-sm {
+        max-width: 1400px !important;
+    }
+}
 
-            .pagination>li>a {
-                background-color: white;
-                color: #817582;
-            }
+.pagination>li>a {
+    background-color: white;
+    color: #d5b2b2;
+}
 
-            .pagination>li>a:focus,
-            .pagination>li>a:hover,
-            .pagination>li>span:focus,
-            .pagination>li>span:hover {
-                color: #5a5a5a;
-                background-color: #eee;
-                border-color: #ddd;
-            }
+.pagination>li>a:focus,
+.pagination>li>a:hover,
+.pagination>li>span:focus,
+.pagination>li>span:hover {
+    color: #d5b2b2;
+    background-color: #eee;
+    border-color: #ddd;
+}
 
-            .pagination>.active>a {
-                color: white;
-                background-color: #817582 !Important;
-                border: solid 1px #817582 !Important;
-            }
+.pagination>.active>a {
+    color: white;
+    background-color: #880002 !important;
+    border: solid 1px #880002 !important;
+}
 
-            .pagination>.active>a:hover {
-                background-color: #817582 !Important;
-                border: solid 1px #817582;
-            }
+.pagination>.active>a:hover {
+    background-color: #880002 !important;
+    border: solid 1px #880002;
+}
