@@ -413,91 +413,40 @@ try:
         # plotting the clusters with seaborn
         sns.scatterplot(x="pc_1", y="pc_2", hue="clusters", data=df_authors_standardized_pca)
 
-             #COBA PLOTLY-------------------------------------------(SCATTER)
-             #plot hasil
-      
-
-        # r = []
-        # f = []
-        # m = []
-        # hasil = []
-
-        # colors = np.array(["red","green","blue","yellow","pink","black","orange","purple","beige","brown","gray","cyan","magenta"])
-        # label = np.array(["Lost", "Hibernating", "Can't Lose Them", "At Risk", "About to Sleep", "Needing Attention", "Promising"])
-
-        # col = np.random.rand(len(sorted_pendonor))
-        # color = []
-        # for i in range(len(sorted_pendonor)): 
-        #     temp = []
-        #     for j in range(len(sorted_pendonor[i])): 
-        #         r.append(sorted_pendonor[i][j][0])
-        #         f.append(sorted_pendonor[i][j][1])
-        #         m.append(sorted_pendonor[i][j][2])
-        #         color.append(colors[i])
-        #     print(len(r), len(f), len(m))
-        
-        # r = np.asarray(r)
-        # f = np.asarray(f)
-        # m = np.asarray(m)
-        # colors = np.asarray(color)
-
-        # col = []
-        # for i in range(len(r)): 
-        #     col.append(i)
-        # col = np.asarray(col)
-        # # Helix equation
-
-        # fig = go.Figure(data=[go.Scatter3d(
-        #     x=r,
-        #     y=f,
-        #     z=m,
-        #     mode='markers',
-        #     marker=dict(
-        #         size=8,
-        #         color=col,
-        #         colorscale='Viridis',   # choose a colorscale
-        #         opacity=0.8
-        #     )
-        # )])
-
-        # # tight layout
-        # fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
-        # fig.write_html("clustering_mod.html")
-        # fig.show()
-
         # silhouette index
 
-        # obs = np.concatenate((df_pendonor["RFM"]))
-        silhouette_score_values=list()
-        new_rfm_arr = np.reshape((df_pendonor["RFM"]), (1, 13, 13))
-        # new_rfm_arr = np.reshape(-1, 4)
-        obs = new_rfm_arr
+          #CLUSTERING-------------------------------------------
+        list = []
+        for i in range(len(normalized_recency_arr)): 
+            list.append([normalized_recency_arr[i], normalized_frequency_arr[i], normalized_monetary_arr[i]])
+
+
+        data = np.asarray(list)
+        #silhouette index
+        # obs = np.concatenate( (np.random.randn(100, 2) , 20 + np.random.randn(300, 2) , -15+np.random.randn(200, 2)))
+        obs = data
+        # print("obs: ", obs)
+        silhouette_score_values=[]
         
-        silhouette_score_values=list()
-        NumberOfClusters=range(2,12)
-        # # print("cobacoba")
-        print(obs)
+        NumberOfClusters=range(2,11)
+        plt.clf()
         for i in NumberOfClusters:
-            
             classifier=cluster.KMeans(i,init='k-means++', n_init=10, max_iter=20, tol=0.0001, verbose=0, random_state=42, copy_x=True)
-            classifier=kmeans
             classifier.fit(obs)
-            labels= classifier.predict([obs])
-            print ("Number Of Clusters:")
-            print (i)
-            print ("Silhouette score value")
-            print (silhouette_score(obs,labels,metric='euclidean', sample_size=None, random_state=42))
+            labels= classifier.predict(obs)
             silhouette_score_values.append(silhouette_score(obs,labels ,metric='euclidean', sample_size=None, random_state=42))
-        
         plt.plot(NumberOfClusters, silhouette_score_values)
-        plt.title("Silhouette score values vs Numbers of Clusters ")
-        plt.xlabel("k")
-        plt.ylabel("silhouette_score")
-        plt.show()
-        
-        Optimal_NumberOf_Components=NumberOfClusters[silhouette_score_values.index(max(silhouette_score_values))]
-        print ("Optimal number of components is:")
-        print (Optimal_NumberOf_Components)
+        plt.title("Silhouette Score")
+        plt.xlabel("Number of Clusters")
+        plt.ylabel("Silhouette Score Values")
+        plt.savefig('silhouette2.png')
+
+        # preds = kmeans.fit_predict(data)
+        # kmeans.fit(data)
+        # centers = kmeans.cluster_centers_
+        # score = silhouette_score(data, preds)
+        # # print("For n_clusters = {}, silhouette score is {})".format(k, score))
+        # print(score)
 
        # Nyambungin ke PHP/HTML
         html_table = df_pendonor.to_html(classes='table table-striped rfm_table', index=False)
