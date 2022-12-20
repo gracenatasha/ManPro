@@ -37,10 +37,17 @@ $lokasi = query("SELECT * FROM lokasi")[1];
     <div class="container">
         <h1 style="text-align: center;"><span id="ourEvent"> &nbsp; E V E N T &nbsp;</span></h1>
         <br>
-        <a type="button" class="btn btn-primary" id="createEventButton" href="insertevent.php">+ Create Event</a>
+        <div class="row justify-content-center">
+            <div class="col-4 col-md-3 col-lg-2">
+                <a href="insertevent.php">
+                    <button class="btn btn-dark mx-auto" type="button" id="createEventButton" style="width: 100%;">+ Create Event</button>
+                </a>
+            </div>
+        </div>
+        <!-- <a type="button" class="btn btn-primary" id="createEventButton" href="insertevent.php">+ Create Event</a> -->
 
         <br>
-        <div class="card my-3" style="width: 18rem;">
+        <div class="card my-3 mx-auto" style="width: 18rem;">
             <div class="card-body">
                 <form action="" method="post">
 
