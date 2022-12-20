@@ -60,7 +60,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="dropbtn" aria-current="page" href="displayAllEvent.php">Home</a>
+            <a class="dropbtn" aria-current="page" href="cariEvent.php">Home</a>
           </li> 
           <li class="nav-item">
             <a class="dropbtn" href="table.php">RFM</a>
