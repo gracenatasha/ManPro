@@ -12,15 +12,24 @@
         <link rel="icon" type="image/png" href="" sizes="20">
         <title>RFM</title>
         <style>
-            body{
-                /* background-color: #F0F0F0; */
+            #btn_detail{
+                /* position: fixed; */
             }
         </style>
     </head>
     <body>
         <?php include 'navbar.php';?>
-        <div class="container mt-5">
+        <div class="container mt-3">
+            <h1 style="text-align: center;">HASIL CLUSTERING RFM</h1>
+            <div class="row justify-content-center" style="margin-bottom: 50px;">
+                <div class="col-4 col-md-3 col-lg-2">
+                    <a href="rfm_detil.php">
+                        <button class="btn btn-dark mx-auto" type="button" id="btn_detail" style="width: 100%;">Details</button>
+                    </a>
+                </div>
+            </div>
             <?php include 'clustering.html';?>
+            
         </div>
         <script>
         </script>
