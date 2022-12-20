@@ -10,21 +10,23 @@ from mysql.connector import Error
 from datetime import date
 import pandas as pd
 
+from sklearn import cluster
 from sklearn.cluster import KMeans
 import numpy as np
+import seaborn as sns
 
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 from kneed import KneeLocator
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
-import sys
 
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='donor_darah',
+                                         database='donor_darah5',
                                          user='root',
                                          password='')
     if connection.is_connected():
@@ -70,15 +72,12 @@ try:
         sql_id_pendonor = "SELECT id_pendonor FROM `pendonor`"
         cursor.execute(sql_id_pendonor)
         id_pendonor = cursor.fetchall()  # isinya ID PENDONOR
-        # print(id_pendonor)
 
         all_id = []
 
         # RECENCY-----------------------------
         recency_array = []
         for pendonor in id_pendonor:
-            # print("Pendonor: ", pendonor[0])
-            # print("recency: ", recency(str(pendonor[0])))
             recency_array.append(recency(str(pendonor[0])))
             all_id.append(pendonor[0])
 
@@ -88,7 +87,6 @@ try:
         cursor.execute(sql_pendonor)
         data_pendonor = cursor.fetchall()
         df_pendonor = pd.DataFrame(data_pendonor)
-        # print(df_pendonor)
 
         # get max recency
         recency_max = 0
@@ -104,8 +102,6 @@ try:
                 if (i < recency_min):
                     recency_min = i
 
-        # print("max: ", recency_max, " min: ", recency_min)
-
         # min-max normalization to 1-5 (recency)
         normalized_recency_arr = []
         if (recency_max == recency_min):
@@ -114,17 +110,14 @@ try:
         else:
             for i in recency_array:
                 if (i is not None):
-                    normalized_recency_arr.append(round(6-((i-recency_min)/(recency_max - recency_min)*4+1), 3)) #di round jadi 3 decimal places
+                    normalized_recency_arr.append(6-((i-recency_min)/(recency_max - recency_min)*4+1))
                 else:
                     normalized_recency_arr.append(1.0)
 
-        print("recency array: ", normalized_recency_arr)
 
         # FREQUENCY-----------------------------
         frequency_array = []
         for pendonor in id_pendonor:
-            # print("Pendonor: ", pendonor[0])
-            # print("freq: ", frequency(str(pendonor[0])))
             frequency_array.append(frequency(str(pendonor[0])))
 
         # get max frequency
@@ -149,17 +142,13 @@ try:
         else:
             for i in frequency_array:
                 if (i is not None):
-                    normalized_frequency_arr.append(round((i-frequency_min)/(frequency_max - frequency_min)*4+1, 3))
+                    normalized_frequency_arr.append((i-frequency_min)/(frequency_max - frequency_min)*4+1)
                 else:
                     normalized_frequency_arr.append(1.0)
-
-        print("freq arr: ", normalized_frequency_arr)
 
         # MONETARY------------------------------------------------------------
         monetary_array = []
         for pendonor in id_pendonor:
-            # print("Pendonor: ", pendonor[0])
-            # print("mon: ", monetary(str(pendonor[0])))
             monetary_array.append(monetary(str(pendonor[0])))
 
         # get max frequency
@@ -176,7 +165,6 @@ try:
                 if (i < monetary_min):
                     monetary_min = i
 
-        print("MINMAXMON: ", monetary_max, monetary_min)
 
         # min-max normalization to 1-5 (frequency)
         normalized_monetary_arr = []
@@ -186,12 +174,10 @@ try:
         else:
             for i in monetary_array:
                 if (i is not None):
-                    # print(i)
-                    normalized_monetary_arr.append(round((i-monetary_min)/(monetary_max - monetary_min)*4+1), 3)
+                    normalized_monetary_arr.append((i-monetary_min)/(monetary_max - monetary_min)*4+1)
                 else:
                     normalized_monetary_arr.append(1.0)
 
-        print("mon: ", normalized_monetary_arr)
 
         # RFM TOTAL-----------------------------------------
         rfm_total_arr = []
@@ -199,19 +185,14 @@ try:
             if (normalized_recency_arr[i] is None):
                 rfm_total_arr.append(0)
             else:
-                print("TYPE: ", type(normalized_recency_arr[i]), type(normalized_frequency_arr[i]), type(normalized_monetary_arr), normalized_monetary_arr)
                 rfm_total_arr.append(
-                    float(sys.argv[1])*normalized_recency_arr[i]+float(sys.argv[2])*normalized_frequency_arr[i]+float(sys.argv[3])*normalized_monetary_arr[i])
-
-        print("rfm total: ", rfm_total_arr)
+                    normalized_recency_arr[i]+normalized_frequency_arr[i]+normalized_monetary_arr[i])
 
 
         #RFM------------------------------------------
         rfm_arr = []
         for i in range(len(monetary_array)): 
             rfm_arr.append(int(normalized_recency_arr[i]*100 + normalized_frequency_arr[i]*10 + normalized_monetary_arr[i]))
-
-        print("rfm: ", rfm_arr)
 
 
         #CLUSTERING-------------------------------------------
@@ -221,7 +202,6 @@ try:
 
 
         data = np.asarray(list)
-        print(data)
 
         features, true_labels = make_blobs(
             n_samples=200,
@@ -244,6 +224,8 @@ try:
             kmeans.fit(data)
             sse.append(kmeans.inertia_)
 
+            
+
         #plot hasil elbow
         plt.style.use("fivethirtyeight")
         plt.plot(range(1, 11), sse)
@@ -251,13 +233,41 @@ try:
         plt.xlabel("Number of Clusters")
         plt.ylabel("SSE")
         # plt.show()
+        plt.title("Elbow Score")
         plt.savefig('elbow.png')
-
         kl = KneeLocator(
             range(1, 11), sse, curve="convex", direction="decreasing"
         )
+        
+        
+        #silhouette index
+        # obs = np.concatenate( (np.random.randn(100, 2) , 20 + np.random.randn(300, 2) , -15+np.random.randn(200, 2)))
+        obs = data
+        # print("obs: ", obs)
+        silhouette_score_values=[]
+        
+        NumberOfClusters=range(2,11)
+        plt.clf()
+        for i in NumberOfClusters:
+            classifier=cluster.KMeans(i,init='k-means++', n_init=10, max_iter=20, tol=0.0001, verbose=0, random_state=42, copy_x=True)
+            classifier.fit(obs)
+            labels= classifier.predict(obs)
+            silhouette_score_values.append(silhouette_score(obs,labels ,metric='euclidean', sample_size=None, random_state=42))
+        plt.plot(NumberOfClusters, silhouette_score_values)
+        plt.title("Silhouette Score")
+        plt.xlabel("Number of Clusters")
+        plt.ylabel("Silhouette Score Values")
+        plt.savefig('silhouette.png')
 
-        # print("elbow: ", kl.elbow)
+        
+        Optimal_NumberOf_Components=NumberOfClusters[silhouette_score_values.index(max(silhouette_score_values))]
+
+        preds = kmeans.fit_predict(data)
+        kmeans.fit(data)
+        centers = kmeans.cluster_centers_
+        score = silhouette_score(data, preds)
+        # print("For n_clusters = {}, silhouette score is {})".format(k, score))
+        print(score)
 
 
         #CLUSTERING K-MEANS-----------------------------------------
@@ -268,10 +278,7 @@ try:
             max_iter=300,
             random_state=42
         )
-        print(kmeans.fit(data))
-        kmeans.inertia_
-        print("cluster centers: ", kmeans.cluster_centers_) #center nya
-        print("iteration: ", kmeans.n_iter_)
+        # kmeans.inertia_
 
         def euclidean(r1, f1, m1, r2, f2, m2):
             temp = (pow(r1-r2, 2)+pow(f1-f2, 2)+pow(m1-m2, 2))**0.5
@@ -280,7 +287,6 @@ try:
         nocluster = kl.elbow
         centroid = kmeans.cluster_centers_
         cluster = []
-        print("len normalized: ", len(normalized_frequency_arr))
         for i in range(len(normalized_frequency_arr)): 
             temp = []
             for j in range(nocluster): 
@@ -296,13 +302,6 @@ try:
                     temp.append(cluster[j][1])
             clustered.append(temp)
 
-        print(len(cluster), len(clustered))
-        print("cluster", cluster)
-        print("ed", clustered)
-        print("CLUSTERING: -----------------------------------------------")
-        for i in range(len(clustered)): 
-            print("i: ", i, len(clustered[i]), " ", clustered[i])
-
 
         #mengurutkan hasil clustering dari data paling jelek ke paling bagus
         avg = []
@@ -313,20 +312,17 @@ try:
                 temp += clustered[i][j][0] + clustered[i][j][1] + clustered[i][j][2]
                 j_count+=1
             avg.append(temp/j_count)
-        print("AVG: ", avg)
         sorted_index = np.argsort(avg)
-        print("sorted: ", sorted_index)
         sorted = []
         for i in range(len(sorted_index)): 
             sorted.append(clustered[sorted_index[i]])
 
         # hasil: dari paling jelek (index 0) - paling bagus (index n)
-        for i in range(len(sorted)): 
-            print("i: ", i, " ", sorted[i])
+        # for i in range(len(sorted)): 
+        #     print("i: ", i, " ", sorted[i])
 
 
         #plot hasil
-        print("JUMLAH HASIL: ", len(sorted), "--------------------")
         fig = plt.figure(figsize = (10,10))
         ax = plt.axes(projection='3d')
         ax.grid()
@@ -348,35 +344,51 @@ try:
                 f.append(sorted[i][j][1])
                 m.append(sorted[i][j][2])
                 color.append(colors[i])
-            # r = np.asarray(r)
-            # f = np.asarray(f)
-            # m = np.asarray(m)
-            print(len(r), len(f), len(m))
-            # ax.scatter(r, f, m, c = colors[i], s = 50, cmap = 'viridis')
-            # r = []
-            # f = []
-            # m = []
+            # print(len(r), len(f), len(m))
         
         r = np.asarray(r)
         f = np.asarray(f)
         m = np.asarray(m)
         colors = np.asarray(color)
 
+        col = []
+        for i in range(len(r)): 
+            col.append(i)
+        col = np.asarray(col)
 
-        ax.scatter(r, f, m, c = colors, s = 50, alpha=0.5, label = label[i])
-        ax.set_title('RFM Clustering Result')
 
-        ax.set_xlabel('R (Recency)', labelpad=20)
-        ax.set_ylabel('F (Frequency)', labelpad=20)
-        ax.set_zlabel('M (Monetary)', labelpad=20)
+        #MATPLOT-----------------------------------------------------------
+        # ax.scatter(r, f, m, c = colors, s = 50, alpha=0.5, label = label[i])
+        # ax.set_title('RFM Clustering Result')
 
+        # ax.set_xlabel('R (Recency)', labelpad=20)
+        # ax.set_ylabel('F (Frequency)', labelpad=20)
+        # ax.set_zlabel('M (Monetary)', labelpad=20)
 
         # plt.show()
+        # plt.savefig('clustering.png')
 
-        plt.savefig('clustering.png')
+        #COBA PLOTLY-------------------------------------------
+        # Helix equation
+
+        fig = go.Figure(data=[go.Scatter3d(
+            x=r,
+            y=f,
+            z=m,
+            mode='markers',
+            marker=dict(
+                size=8,
+                color=col,
+                colorscale='Viridis',   # choose a colorscale
+                opacity=0.8
+            )
+        )])
+
+        # tight layout
+        fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
+        fig.write_html("clustering.html")
+        fig.show()
         
-
-
         # NEW -- Add RFM Columns to Initial DataFrame
         df_pendonor.columns = ['ID', 'Nama Pendonor', 'Tanggal Lahir', 'Jenis Kelamin', 'Golongan Darah',
                                'Rhesus', 'Alamat', 'ID Kelurahan Rumah', 'Alamat Kantor', 'ID Kelurahan Kantor', 'No Telepon', 'E-mail']
@@ -389,12 +401,16 @@ try:
         #print(df_pendonor)
 
         # Nyambungin ke PHP/HTML
+        # new_df = df_pendonor.set_index('ID')
         html_table = df_pendonor.to_html(classes='table table-striped rfm_table', index=False)
-        print(html_table) #ini yg hrsnya di outputin ke sblh
         # kalo ga bisa, coba write html to file
         text_file = open("table_data.php", "w")
         text_file.write(html_table)
         text_file.close()
+
+        # new_df = df_pendonor.set_index('ID')
+        # print(new_df)
+        # print(df_pendonor)
 
 except Error as e:
     print("Error while connecting to MySQL", e)
