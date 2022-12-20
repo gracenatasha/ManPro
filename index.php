@@ -27,7 +27,7 @@
         <label for="Email">Email:</label>
         <br>
     <?php
-        include 'connection.php';
+        include 'connect.php';
 
         if (isset($_POST['submit'])){
              if(!empty($_POST['check_list'])){
@@ -46,12 +46,11 @@
         }
     ?>
         <br>
-        Subject
-        <input type="text" name="subject" style="width:400px;" value=""> <br>
+        Subject <input type="text" name="subject" value=""> <br>
         <br>
-        <textarea name="message" cols="51" rows="5"></textarea>
-        <br>
-        <button type="submit" class="btn btn-primary" name="submit" value="">send</button>
+        Message <input type="text" name="message" value=""> <br>
+        <button type="submit" name="submit" value="">send</button>
+        <!-- <input class="btn btn-success" type="submit" name="send" value="send"> -->
     </form>
     </div>
 </body>
