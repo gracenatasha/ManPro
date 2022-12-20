@@ -1,6 +1,6 @@
 <style>
     .navbar{
-        background-color: #817582;
+        background-color: #880015;
         font-size: large;
         color: white;
         white-space: nowrap;
@@ -52,8 +52,8 @@
    }
 
 </style>
-<nav class="navbar navbar-expand-xl navbar-light px-3 fixed-top" style="width: 100%;">
-<!-- <img src="http://bem.petra.ac.id/spetrakuler/assets/images/Logo.png" width="auto" height="35" class="d-inline-block align-top" alt=""> -->
+<nav class="navbar navbar-expand-xl navbar-light px-3" style="width: 100%;">
+<img src="assets/pmi_logo.png" width="auto" height="40" class="d-inline-block align-top" alt="">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
