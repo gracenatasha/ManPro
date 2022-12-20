@@ -453,8 +453,8 @@ try:
         df_authors_standardized = df_authors_standardized.set_index(df_pendonor.index)
         selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=1, n_clusters=3)
         df_standardized_sliced = df_authors_standardized[selected_features]
-        # elbowPlot(range(1,11), df_standardized_sliced)
-        # silhouettePlot(range(3,9), df_standardized_sliced)
+        elbowPlot(range(1,11), df_standardized_sliced)
+        silhouettePlot(range(3,9), df_standardized_sliced)
         print(df_pendonor["RFM"])
 
         # clustering
