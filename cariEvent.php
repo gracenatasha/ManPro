@@ -32,7 +32,12 @@ $lokasi = query("SELECT * FROM lokasi")[1];
 <body>
     <?php include 'navbar.php'; ?>
     <br><br><br>
+    <div class="container">
+        <h1 style="text-align: center;"><span id="ourEvent"> &nbsp; E V E N T &nbsp;</span></h1>
+    <br>
+            <a type="button" class="btn btn-primary" id="createEventButton" href="insertevent.php">+ Create Event</a>
 
+        <br>
     <div class="card" style="width: 18rem;">
         <div class="card-body">
             <form action="" method="post">
@@ -104,6 +109,7 @@ $lokasi = query("SELECT * FROM lokasi")[1];
                 <?php $i++; ?>
             <?php } ?>
         </table>
+    </div>
     </div>
 
     <script src="jquery-3.1.1.min.js"></script>
