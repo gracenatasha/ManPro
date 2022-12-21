@@ -21,9 +21,9 @@
     </head>
     <body>
         <?php include 'navbar.php';?>
-        <div class="container mt-5">
+        <div class="container">
             <h1 style="text-align: center">DETIL RFM</h1>
-            <div class="row mt-5">
+            <div class="row mt-5 justify-content-center">
                 <div class="col-6">
                     <div class="row">
                         <h3>Elbow Method</h3>
@@ -34,6 +34,15 @@
                     </div>
                 </div>
                 <div class="col-6">
+                    <div class="row">
+                        <h3>Silhouette Index</h3>
+                        <p>Untuk menentukan jumlah cluster</p>
+                    </div>
+                    <div class="row">
+                        <img src="silhouette.png" style="width: 100%; ">
+                    </div>
+                </div>
+                <div class="col-6 mt-3">
                     <h3>Silhouette Coefficient</h3>
                     <p><?php echo $output?></p>
                 </div>
