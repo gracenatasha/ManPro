@@ -13,7 +13,7 @@ include 'links.php'
     <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="style.css">
-
+    <title>Backend | Add Event</title>
 </head>
 
 <body style="font-family: 'Poppins', sans-serif; font-size: 20px;">
@@ -26,11 +26,17 @@ include 'links.php'
 
 
     <!-- Content -->
-    <div class="container">
-        <div class="content" style=" padding-top: 12px; padding-bottom: 8px;">
-            <h1 style="text-align: center;font-family: 'Poppins', sans-serif; font-size: xx-large;"><b>ADD EVENT</b></h1>
-            <br>
-            <hr>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+            <div class="card">
+
+            <div class="card-header text-center">
+                ADD EVENT
+            </div>
+
+            <div class="card-body">
+     
             <br>
             <form class="form-group" action="inserting_event.php" method="post">
                 <!--insert nama event-->
@@ -85,6 +91,8 @@ include 'links.php'
                 <input class="btn btn-primary" type="submit" value="Add">
             </form>
         </div>
+            </div>
+            </div>
     </div>
 
     <script>
