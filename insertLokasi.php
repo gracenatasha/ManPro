@@ -1,102 +1,160 @@
 <?php
-//start session
-session_start();
-include 'links.php'
-?>
+    include 'links.php';
+    require 'functions.php';
+    if (isset($_POST["btnAdd"])) {
+            if (addLokasi($_POST) > 0) {
+                echo "<script>
+                        alert('new location added!');
+                        document.location.href = 'insertevent.php';
+                        </script>";
+                
+            } else {
+                echo mysqli_error($conn);
+            }
+    }
+    if (isset($_POST['data_json']) && $_POST['data_json'] == 'kecamatan') {
+        $id_kota = mysqli_real_escape_string($conn, $_POST['id_kota']);
+        $get_kecamatan = mysqli_query($conn, "SELECT id_kecamatan, nama_kecamatan FROM kecamatan WHERE id_kota = '$id_kota' ORDER BY id_kecamatan ASC");
+    
+        while ($kecamatan = mysqli_fetch_object($get_kecamatan))
+            echo '<option value="' . $kecamatan->id_kecamatan . '">' . $kecamatan->nama_kecamatan . '</option>';
+    
+        exit;
+    }
+    
+    if (isset($_POST['data_json']) && $_POST['data_json'] == 'kelurahan') {
+        $id_kecamatan = mysqli_real_escape_string($conn, $_POST['id_kecamatan']);
+        $get_kelurahan = mysqli_query($conn, "SELECT id_kelurahan, nama_kelurahan FROM kelurahan WHERE id_kecamatan = '$id_kecamatan ' ORDER BY id_kelurahan ASC");
+    
+        while ($kelurahan = mysqli_fetch_object($get_kelurahan))
+            echo '<option value="' . $kelurahan->id_kelurahan . '">' . $kelurahan->nama_kelurahan . '</option>';
+    
+        exit;
+    }
+    
+    
+    ?>
 
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css'>
+    <link rel='stylesheet' href=https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css>
+        <title>Backend | Add Lokasi</title>
+    </head>
+    <body style="font-family: 'Poppins', sans-serif; font-size: 20px;">
 
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Backend | Add Event</title>
-</head>
-
-<body style="font-family: 'Poppins', sans-serif; font-size: 20px;">
-    <?php
-    require_once "connection.php";
-
-    $simpanLokasi = "SELECT * FROM lokasi"; #untuk execute 
-    $hasilLokasi = $conn->query($simpanLokasi); #simpan hasil query
-    ?>
-
-
-    <!-- Content -->
-    <div class="container mt-5">
+        <!-- Content -->
+        <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-            <div class="card">
+                <div class="card">
 
-            <div class="card-header text-center">
-                ADD EVENT
-            </div>
+                    <div class="card-header text-center">
+                        ADD LOCATION
+                    </div>
 
-            <div class="card-body">
+                    <div class="card-body">
+                         
+
+                        <form method="post" action="">
+                <label for="namaLokasi">Nama Lokasi: </label> 
+                <input type="text" name="namaLokasi">
+                <br>
+                <br>
+                <!--insert kota -->
+                <label for="kota" class="form-label">Kota</label>
+                            <div class="input-group mb-3">
+
+                                <?php
+
+                                $data_kota = mysqli_query($conn, "SELECT id_kota, nama_kota FROM kota ORDER BY id_kota ASC");
+
+                                ?>
+
+                                <select class="form-select" name="kota" id="kota-select">
+
+                                    <option value="">Pilih Kota</option>
+
+                                    <?php while ($kot = mysqli_fetch_object($data_kota)) : ?>
+
+                                        <option value="<?= htmlspecialchars($kot->id_kota) ?>"><?= htmlspecialchars($kot->nama_kota) ?></option>
+
+                                    <?php endwhile ?>
+                                </select>
+
+                            </div>
+
+                            <!-- KECAMATAN -->
+                            <label for="kecamatan" class="form-label">Kecamatan</label>
+                            <div class="input-group mb-3">
+                                <select class="form-select" name="kecamatan" id="kecamatan-select">
+
+                                    <option value="">Pilih Kecamatan</option>
+
+
+                                </select>
+
+                            </div>
+
+                            <!-- KELURAHAN -->
+                            <label for="kelurahan" class="form-label">Kelurahan</label>
+                            <div class="input-group mb-3">
+                                <select class="form-select" name="idKelurahan" id="kelurahan-select">
+                                    <option value="">Pilih Kelurahan</option>
+                                </select>
+
+                            </div>
+           
+                <br>
+                <button name="btnAdd" class="btn btn-primary">Add</button>
      
-            <br>
-            <form class="form-group" action="inserting_event.php" method="post">
-                <!--insert nama event-->
-                <label for="namaEvent">Nama Event: </label>
-                <input type="text" class="form-control" name="namaEvent">
-                <br>
-                <!--insert tanggal event-->
-                <label for="tanggalEvent">Tanggal Event:</label>
-                <input type="date" class="form-control" name="tanggal_event" id="tanggalEvent">
-                <br>
-                <label for="waktuEventMulai">Waktu Event:</label>
-                <div class="form-inline">
-                    <input type="time" class="form-control" name="waktu_event_mulai" id="waktuEventMulai">
-                    <label for="waktuEventAkhir">&nbsp;-&nbsp;</label>
-                    <input type="time" class="form-control" name="waktu_event_akhir" id="waktuEventAkhir">
-                </div>
-                <br>
-                <label for="lokasiEvent">Lokasi Event</label>
-                <br>
-                <select name="select_box" class="form-select" id="select_box">
-                    <option value="">Select Location</option>
-                    <?php
-                    while ($row = $hasilLokasi->fetch_assoc()) {
-                        $id = $row['id_lokasi'];
-                        $lokasi = "SELECT * FROM lokasi WHERE id_lokasi=$id";
-                        $simpan = mysqli_query($conn, $lokasi);
-                        $hasil1 = $simpan->fetch_assoc();
-                        $hasil = $hasil1['nama_lokasi'];
-                        //ambil id kelurahan dari table lokasi untuk tahu nama kelurahan
-                        $idKelurahan = $hasil1['id_kelurahan'];
-                        $kelurahan = mysqli_query($conn, "SELECT * FROM kelurahan WHERE id_kelurahan =$idKelurahan");
-                        $hasilKelurahan = $kelurahan->fetch_assoc();
-
-                        //ambil id kecamatan dari table kelurahan untuk tahu nama kecamatan
-                        $idKecamatan = $hasilKelurahan['id_kecamatan'];
-                        $kecamatan = mysqli_query($conn, "SELECT * FROM kecamatan WHERE id_kecamatan = $idKecamatan");
-                        $hasilKecamatan = $kecamatan->fetch_assoc();
-
-                        //ambil id kota dari table kecamatan untuk tahu nama kota
-                        $idKota = $hasilKecamatan['id_kota'];
-                        $kota = mysqli_query($conn, "SELECT * FROM kota WHERE id_kota = $idKota");
-                        $hasilKota = $kota->fetch_assoc();
-
-                        echo "<option name='pilihan' value='" . $id . "'>" . $row['nama_lokasi'] . ", " . $hasilKelurahan['nama_kelurahan'] . ", " . $hasilKecamatan['nama_kecamatan'] . ", " . $hasilKota['nama_kota'] . "</option>";
-                    }
-                    mysqli_close($conn);
-                    ?>
-                </select>
-                <a href="insertLokasi.php"><small>Create location</small></a>
-                <br>
-                <br>
-                <input class="btn btn-primary" type="submit" value="Add">
             </form>
         </div>
+        </div>
             </div>
-            </div>
-    </div>
+        </div>
+        </div>
+        <script src='https://code.jquery.com/jquery-3.6.1.min.js'></script>
+    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js'></script>
+        <script>
+        $(function() {
+            $('#kota-select').change(function() {
+                const id_kota = $(this).val();
 
-    <script>
-    </script>
-</body>
+                $.ajax({
+                    url: 'insertLokasi.php',
+                    type: 'POST',
+                    data: 'data_json=kecamatan&id_kota=' + id_kota,
+                    success: function(e) {
+                        $('#kecamatan-select').append(e)
+                    }
+                })
+            });
 
+            $('#kecamatan-select').change(function() {
+                const id_kecamatan = $(this).val();
+
+                $.ajax({
+                    url: 'insertLokasi.php',
+                    type: 'POST',
+                    data: 'data_json=kelurahan&id_kecamatan=' + id_kecamatan,
+                    success: function(e) {
+                        $('#kelurahan-select').append(e)
+                    }
+                })
+
+            })
+
+
+        });
+        </script>
+    </body>
 </html>
+
