@@ -62,7 +62,6 @@ if (isset($_SESSION["rec"])) {
                     <input type="submit" class="btn btn-primary" name="submit" value="Broadcast" id="btn_broadcast">
                 </form>
             </div>
-            <?php //echo "Weights =  Rec: ".$_SESSION["rec"]." Freq: ".$_SESSION["freq"]." Mon: ".$_SESSION["mon"]?>
         </div>
     </div>
     <script>
@@ -72,13 +71,25 @@ if (isset($_SESSION["rec"])) {
                     .attr('id', 'filters2')
                     .appendTo('.rfm_table thead');
 
-            
+            $('.rfm_table tbody').append($(".rfm_table tbody tr:last").clone());
+            $('.rfm_table tbody tr:last :checkbox').attr('checked', false);
+            $('.rfm_table tbody tr:last td:first').html($('#row').val());
+
+            $('.rfm_table tr').prepend($("<td>"));
+            $('.rfm_table thead tr>td:first-child').html($('#col').val());
+            $('.rfm_table tbody tr').each(function() {
+                $(this).children('td:first-child').append($('<input type="checkbox" class="checkbox" name="check_list[]" value="">'))
+            });
 
             var table = $('.rfm_table').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
                     'copy', 'csv', 'excel', 'pdf', 'print'
                 ], 
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All'],
+                ],
                 initComplete: function () {
                 this.api()
                     .columns()
@@ -98,23 +109,12 @@ if (isset($_SESSION["rec"])) {
                             .sort()
                             .each(function (d, j) {
                                 select.append('<option value="' + d + '">' + d + '</option>');
-                                // alert("appended");
                             });
                     });
             },
                 });
                 
-                // table.buttons().container().appendTo( '.tablealb_wrapper .col-md-6:eq(0)' );
-
-                $('.rfm_table tbody').append($(".rfm_table tbody tr:last").clone());
-            $('.rfm_table tbody tr:last :checkbox').attr('checked', false);
-            $('.rfm_table tbody tr:last td:first').html($('#row').val());
-
-            $('.rfm_table tr').prepend($("<td>"));
-            $('.rfm_table thead tr>td:first-child').html($('#col').val());
-            $('.rfm_table tbody tr').each(function() {
-                $(this).children('td:first-child').append($('<input type="checkbox" class="checkbox" name="check_list[]" value="">'))
-            });
+                table.buttons().container().appendTo( '.tablealb_wrapper .col-md-6:eq(0)' );
         });
         
 
