@@ -77,3 +77,14 @@ function tambah($data)
 
     return mysqli_affected_rows($conn);
 }
+function addLokasi($data){
+    global $conn;
+
+    $namaLokasi = $data['namaLokasi'];
+    $id_kelurahan = $data['idKelurahan'];
+
+    mysqli_query($conn, "INSERT INTO lokasi VALUES(NULL, '$namaLokasi', '$id_kelurahan')");
+    
+    return mysqli_affected_rows($conn);
+
+}
