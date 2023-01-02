@@ -26,7 +26,7 @@ from sklearn.preprocessing import StandardScaler
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='donor_darah5',
+                                         database='database',
                                          user='root',
                                          password='')
     if connection.is_connected():
@@ -110,7 +110,7 @@ try:
         else:
             for i in recency_array:
                 if (i is not None):
-                    normalized_recency_arr.append(6-((i-recency_min)/(recency_max - recency_min)*4+1))
+                    normalized_recency_arr.append(round(6-((i-recency_min)/(recency_max - recency_min)*4+1)))
                 else:
                     normalized_recency_arr.append(1.0)
 
@@ -142,7 +142,7 @@ try:
         else:
             for i in frequency_array:
                 if (i is not None):
-                    normalized_frequency_arr.append((i-frequency_min)/(frequency_max - frequency_min)*4+1)
+                    normalized_frequency_arr.append(round((i-frequency_min)/(frequency_max - frequency_min)*4+1))
                 else:
                     normalized_frequency_arr.append(1.0)
 
@@ -174,7 +174,8 @@ try:
         else:
             for i in monetary_array:
                 if (i is not None):
-                    normalized_monetary_arr.append((i-monetary_min)/(monetary_max - monetary_min)*4+1)
+                    normalized_monetary_arr.append(round((i-monetary_min)/(monetary_max - monetary_min)*4+1))
+                    # print("mon", round((i-monetary_min)/(monetary_max - monetary_min)*4+1))
                 else:
                     normalized_monetary_arr.append(1.0)
 
