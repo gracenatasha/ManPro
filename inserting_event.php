@@ -54,7 +54,6 @@
         <?php
             // Proses nama
             if (!empty($namaEvent)) {
-                // Ambil nrp limit 1 saja, jika memang ada 1 saja nama yang sama maka langsung tidak diinput
                 $kalimatquery1 = "SELECT nama_event FROM event WHERE nama_event = '$namaEvent' ";
                 $hasilquery1 = $conn->query($kalimatquery1);
 
@@ -65,8 +64,8 @@
                 // Jika nama event belum ada
                 else{
                     // Prepare sql statement, values jadiin tanda tanya
-                    $kalimatquery = $conn->prepare("INSERT INTO event (nama_event,tanggal_event,waktu_mulai_event,id_lokasi_event) VALUES (?,?,?,?)");
-                    $kalimatquery->bind_param ("sssi",$namaEvent, $tgl, $waktu, $simpanLokasi);
+                    $kalimatquery = $conn->prepare("INSERT INTO event (nama_event,tanggal_event,waktu_event_mulai,waktu_event_selesai,id_lokasi) VALUES (?,?,?,?,?)");
+                    $kalimatquery->bind_param("ssssi", $namaEvent, $tgl, $waktuMulai, $waktuSelesai, $simpanLokasi);
                     $kalimatquery->execute();
                     header("Location:displayAllEvent.php");
                 }
