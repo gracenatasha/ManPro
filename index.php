@@ -48,6 +48,7 @@
         <br>
         Subject
         <input type="text" name="subject" style="width:400px;" value=""> <br>
+        Message
         <br>
         <textarea name="message" cols="51" rows="5"></textarea>
         <br>
