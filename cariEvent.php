@@ -92,8 +92,8 @@ $lokasi = query("SELECT * FROM lokasi")[1];
                         <td><?= $row["id_event"]; ?></td>
                         <td><?= $row["nama_event"]; ?></td>
                         <td><?= $row["tanggal_event"]; ?></td>
-                        <td><?= $row["waktu_mulai_event"]; ?></td>
-                        <td><?= $row["waktu_akhir_event"]; ?></td>
+                        <td><?= $row["waktu_event_mulai"]; ?></td>
+                        <td><?= $row["waktu_event_selesai"]; ?></td>
                         <td><?= $row["id_lokasi"]; ?></td>
                         <td><a href="inputDonor.php?id=<?php echo $row["id_event"]; ?>">Input Donor</a></td>
                     </tr>
