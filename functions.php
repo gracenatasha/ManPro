@@ -51,7 +51,7 @@ function registrasi($data)
 
 //cari
 function cari($keyword){
-    $query = "SELECT * FROM event
+    $query = "SELECT * FROM event e join lokasi l on  e.id_lokasi = l.id_lokasi
                 WHERE 
                 nama_event LIKE '%$keyword%' OR
                 id_event LIKE '%$keyword%'

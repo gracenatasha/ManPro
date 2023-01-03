@@ -67,7 +67,7 @@
                     $kalimatquery = $conn->prepare("INSERT INTO event (nama_event,tanggal_event,waktu_event_mulai,waktu_event_selesai,id_lokasi) VALUES (?,?,?,?,?)");
                     $kalimatquery->bind_param("ssssi", $namaEvent, $tgl, $waktuMulai, $waktuSelesai, $simpanLokasi);
                     $kalimatquery->execute();
-                    header("Location:displayAllEvent.php");
+                    header("Location:cariEvent.php");
                 }
             } else {
                 echo "$errNamaEvent <br>";

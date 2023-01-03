@@ -50,7 +50,7 @@ include 'links.php';
         <h1 style="text-align: center; margin-top: 100px;">EVENTS</h1>
         <div class="row justify-content-center">
             <div class="col-6 col-md-4 col-lg-2">
-                <a type="button" class="btn btn-dark mt-5" href="insertevent.php" style="width: 100%;">+ Create Event</a>
+                <!-- <a type="button" class="btn btn-dark mt-5" href="insertevent.php" style="width: 100%;">+ Create Event</a> -->
             </div>
         </div>
 

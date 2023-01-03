@@ -7,7 +7,7 @@ $totalData = count(query("SELECT * FROM event"));
 $pageCount = ceil($totalData / $dataPerPage);
 $activePage = (isset($_GET["page"])) ? $_GET["page"] : 1;
 $begin = ($dataPerPage * $activePage) - $dataPerPage;
-$dataEvent = query("SELECT * FROM event LIMIT $begin, $dataPerPage");
+$dataEvent = query("SELECT * FROM event e join lokasi l on e.id_lokasi = l.id_lokasi ORDER by id_event LIMIT $begin, $dataPerPage");
 
 //tombol cari ditekan
 if (isset($_POST["btnSubmit"])) {
@@ -94,7 +94,7 @@ $lokasi = query("SELECT * FROM lokasi")[1];
                         <td><?= $row["tanggal_event"]; ?></td>
                         <td><?= $row["waktu_event_mulai"]; ?></td>
                         <td><?= $row["waktu_event_selesai"]; ?></td>
-                        <td><?= $row["id_lokasi"]; ?></td>
+                        <td><?= $row["nama_lokasi"]; ?></td>
                         <td><a href="inputDonor.php?id=<?php echo $row["id_event"]; ?>">Input Donor</a></td>
                     </tr>
                     <?php $i++; ?>
