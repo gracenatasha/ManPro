@@ -26,7 +26,7 @@ from sklearn.preprocessing import StandardScaler
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='ini_donor',
+                                         database='donor_darah7',
                                          user='root',
                                          password='')
     if connection.is_connected():
@@ -259,6 +259,7 @@ try:
         plt.xlabel("Number of Clusters")
         plt.ylabel("Silhouette Score Values")
         plt.savefig('silhouette.png')
+        # plt.show()
 
         
         Optimal_NumberOf_Components=NumberOfClusters[silhouette_score_values.index(max(silhouette_score_values))]
@@ -280,6 +281,7 @@ try:
             random_state=42
         )
         # kmeans.inertia_
+        # print("elbow", kl.elbow)
 
         def euclidean(r1, f1, m1, r2, f2, m2):
             temp = (pow(r1-r2, 2)+pow(f1-f2, 2)+pow(m1-m2, 2))**0.5
