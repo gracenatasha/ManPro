@@ -40,7 +40,7 @@ if (isset($_POST["generate"])) {
     echo "Freq1: " . $freq1 . " Freq2: " . $freq2 . " Freq 3: " . $freq3 . " Freq All: " . $freqall;
     echo "Mon1: " . $mon1 . " Mon2: " . $mon2 . " Mon 3: " . $mon3 . " Mon All: " . $monall;
     echo "Rec = ".$_SESSION["rec"];*/
-    $output = shell_exec("/usr/local/bin/python3 $command $rec $freq $mon $freq1 $freq2 $freq3 $freqall $mon1 $mon2 $mon3 $monall");
+    $output = shell_exec("python $command $rec $freq $mon $freq1 $freq2 $freq3 $freqall $mon1 $mon2 $mon3 $monall");
 } elseif (isset($_SESSION["rec"])) {
     $rec = $_SESSION["rec"];
     $freq = $_SESSION["freq"];

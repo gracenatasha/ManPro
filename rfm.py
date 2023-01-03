@@ -26,7 +26,7 @@ from sklearn.preprocessing import StandardScaler
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='database',
+                                         database='ini_donor',
                                          user='root',
                                          password='')
     if connection.is_connected():

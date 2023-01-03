@@ -7,9 +7,9 @@ if (isset($_SESSION["rec"])) {
     $freq = $_SESSION["freq"];
     $mon = $_SESSION["mon"];
 
-    $output = shell_exec("/usr/local/bin/python3 $command $rec $freq $mon");
+    $output = shell_exec("python $command $rec $freq $mon");
 } else {
-    $output = shell_exec("/usr/local/bin/python3 $command");
+    $output = shell_exec("python $command");
 }
 
 ?>
