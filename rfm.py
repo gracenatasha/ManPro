@@ -22,6 +22,7 @@ from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.preprocessing import StandardScaler
+import sys
 
 
 try:
@@ -83,7 +84,7 @@ try:
 
 
         # coba fetch data pendonor
-        sql_pendonor = "SELECT * FROM `pendonor`"
+        sql_pendonor = "SELECT id_pendonor, nama_pendonor, tanggal_lahir, jenis_kelamin, golongan_darah, rhesus, alamat_rumah, id_kelurahan_rumah, alamat_kantor, id_kelurahan_kantor, no_telp, email FROM `pendonor`"
         cursor.execute(sql_pendonor)
         data_pendonor = cursor.fetchall()
         df_pendonor = pd.DataFrame(data_pendonor)
@@ -181,26 +182,35 @@ try:
 
 
         # RFM TOTAL-----------------------------------------
+        if len(sys.argv) <= 1:
+            #print('No arguments')
+            r_weight = f_weight = m_weight = 1/3
+        elif len(sys.argv) == 4:
+            #print('3 arguments')
+            r_weight = float(sys.argv[1])
+            f_weight = float(sys.argv[2])
+            m_weight = float(sys.argv[3])
+            #print(r_weight, " ",f_weight," ",m_weight)
+
         rfm_total_arr = []
         for i in range(len(monetary_array)):
             if (normalized_recency_arr[i] is None):
                 rfm_total_arr.append(0)
             else:
                 rfm_total_arr.append(
-                    normalized_recency_arr[i]+normalized_frequency_arr[i]+normalized_monetary_arr[i])
+                    round(normalized_recency_arr[i]*r_weight+normalized_frequency_arr[i]*f_weight+normalized_monetary_arr[i]*m_weight, 2))
+                
 
-
+        #print(rfm_total_arr)
         #RFM------------------------------------------
         rfm_arr = []
         for i in range(len(monetary_array)): 
-            rfm_arr.append(int(normalized_recency_arr[i]*100 + normalized_frequency_arr[i]*10 + normalized_monetary_arr[i]))
-
+            rfm_arr.append(int(normalized_recency_arr[i]*100 + normalized_frequency_arr[i]*10 + normalized_monetary_arr[i]*1))
 
         #CLUSTERING-------------------------------------------
         list = []
         for i in range(len(normalized_recency_arr)): 
             list.append([normalized_recency_arr[i], normalized_frequency_arr[i], normalized_monetary_arr[i]])
-
 
         data = np.asarray(list)
 
@@ -240,7 +250,6 @@ try:
             range(1, 11), sse, curve="convex", direction="decreasing"
         )
         
-        
         #silhouette index
         # obs = np.concatenate( (np.random.randn(100, 2) , 20 + np.random.randn(300, 2) , -15+np.random.randn(200, 2)))
         obs = data
@@ -269,10 +278,9 @@ try:
         centers = kmeans.cluster_centers_
         score = silhouette_score(data, preds)
         # print("For n_clusters = {}, silhouette score is {})".format(k, score))
-        print(score)
+        #print(score)
 
-
-        #CLUSTERING K-MEANS-----------------------------------------
+        """ #CLUSTERING K-MEANS-----------------------------------------
         kmeans = KMeans(
             init="random",
             n_clusters=kl.elbow,
@@ -288,7 +296,8 @@ try:
             return temp
 
         nocluster = kl.elbow
-        centroid = kmeans.cluster_centers_
+        centroid = kmeans.cluster_centers_ #ini yg error
+        
         cluster = []
         for i in range(len(normalized_frequency_arr)): 
             temp = []
@@ -297,6 +306,7 @@ try:
             minIndex = temp.index(min(temp))
             cluster.append([minIndex, [normalized_recency_arr[i], normalized_frequency_arr[i], normalized_monetary_arr[i]]])
 
+
         clustered = [] #hasil clustering, tapi masih belum urut index nya (dari data paling bagus ke paling jelek masih acak)
         for i in range(nocluster): 
             temp = []
@@ -304,7 +314,6 @@ try:
                 if(cluster[j][0] == i): 
                     temp.append(cluster[j][1])
             clustered.append(temp)
-
 
         #mengurutkan hasil clustering dari data paling jelek ke paling bagus
         avg = []
@@ -390,7 +399,7 @@ try:
         # tight layout
         fig.update_layout(margin=dict(l=0, r=0, b=0, t=0))
         fig.write_html("clustering.html")
-        fig.show()
+        fig.show() """
         
         # NEW -- Add RFM Columns to Initial DataFrame
         df_pendonor.columns = ['ID', 'Nama Pendonor', 'Tanggal Lahir', 'Jenis Kelamin', 'Golongan Darah',

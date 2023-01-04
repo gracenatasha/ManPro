@@ -2,15 +2,17 @@
 session_start();
 $command = escapeshellcmd('rfm.py');
 $rec = $freq = $mon = "";
-if (isset($_SESSION["rec"])) {
+if ($_SESSION["rec"] != "") {
     $rec = $_SESSION["rec"];
     $freq = $_SESSION["freq"];
     $mon = $_SESSION["mon"];
 
-    $output = shell_exec("python $command $rec $freq $mon");
+    $output = shell_exec("/usr/local/bin/python3 $command $rec $freq $mon");
 } else {
-    $output = shell_exec("python $command");
+    $_SESSION["rec"] = $_SESSION["freq"] = $_SESSION["mon"] = "";
+    $output = shell_exec("/usr/local/bin/python3 $command");
 }
+echo "$output";
 
 ?>
 <!DOCTYPE html>
@@ -63,6 +65,7 @@ if (isset($_SESSION["rec"])) {
                 </form>
             </div>
         </div>
+        <?php echo "Weights =  Rec: ".$_SESSION["rec"]." Freq: ".$_SESSION["freq"]." Mon: ".$_SESSION["mon"]?>
     </div>
     <script>
         $(document).ready(function() {
