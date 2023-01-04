@@ -20,11 +20,11 @@
 session_start();
 
 $command = escapeshellcmd('rfmmodif.py');
-//$_SESSION["rec"] = $_SESSION["freq"] = $_SESSION["mon"] = $_SESSION["freq1"] = $_SESSION["freq2"] = $_SESSION["freq3"] = $_SESSION["freqall"] = $_SESSION["mon1"] = $_SESSION["mon2"] = $_SESSION["mon3"] = $_SESSION["monall"] = "";
+
 $rec = $freq = $mon = $freq1 = $freq2 = $freq3 = $freqall = $mon1 = $mon2 = $mon3 = $monall = "";
 include 'links.php';
 
-if (isset($_POST["generate"])) {
+if (isset($_POST["generate"])) { //kalo dipencet Generate
     $rec = $_SESSION["rec"] = $_POST["recency"];
     $freq = $_SESSION["freq"] = $_POST["frequency"];
     $mon = $_SESSION["mon"] = $_POST["monetary"];
@@ -40,8 +40,8 @@ if (isset($_POST["generate"])) {
     echo "Freq1: " . $freq1 . " Freq2: " . $freq2 . " Freq 3: " . $freq3 . " Freq All: " . $freqall;
     echo "Mon1: " . $mon1 . " Mon2: " . $mon2 . " Mon 3: " . $mon3 . " Mon All: " . $monall;
     echo "Rec = ".$_SESSION["rec"];*/
-    $output = shell_exec("python $command $rec $freq $mon $freq1 $freq2 $freq3 $freqall $mon1 $mon2 $mon3 $monall");
-} elseif (isset($_SESSION["rec"])) {
+    $output = shell_exec("/usr/local/bin/python3 $command $rec $freq $mon $freq1 $freq2 $freq3 $freqall $mon1 $mon2 $mon3 $monall");
+} elseif ($_SESSION["rec"] != "") { //kalo sebelumnya udah ada Session
     $rec = $_SESSION["rec"];
     $freq = $_SESSION["freq"];
     $mon = $_SESSION["mon"];
@@ -52,10 +52,12 @@ if (isset($_POST["generate"])) {
     $mon1 = $_SESSION["mon1"];
     $mon2 = $_SESSION["mon2"];
     $mon3 = $_SESSION["mon3"];
-    $monall = $_SESSION["monall"];
+    $monall = $_SESSION["monall"]; 
+    
     $output = shell_exec("/usr/local/bin/python3 $command $rec $freq $mon $freq1 $freq2 $freq3 $freqall $mon1 $mon2 $mon3 $monall");
 } 
-else {
+else { //kalo weightnya kosong
+    $_SESSION["rec"] = $_SESSION["freq"] = $_SESSION["mon"] = $_SESSION["freq1"] = $_SESSION["freq2"] = $_SESSION["freq3"] = $_SESSION["freqall"] = $_SESSION["mon1"] = $_SESSION["mon2"] = $_SESSION["mon3"] = $_SESSION["monall"] = "";
     $output = shell_exec("/usr/local/bin/python3 $command");
 }
 
@@ -173,13 +175,65 @@ else {
             </div>
         </div>
     </div>
-    <div class="container-lg mt-3 px-auto float-center">
-        <?php echo "Weights =  Rec: " . $_SESSION["rec"] . " Freq: " . $_SESSION["freq"] . " Mon: " . $_SESSION["mon"] ?>
-        <!--<img src="silhouette_plot.png" alt="" width="800px"> NANTI TUNGGU SILHOUETTE INDEX-->
+    <div class="container-lg mt-5 px-auto float-center">
+        
+        <img src="silhouette2.png" alt="" width="800px">
     </div>
+    <?php echo "Weights =  Rec: ".$_SESSION["rec"]." Freq: ".$_SESSION["freq"]." Mon: ".$_SESSION["mon"]?>
 
     <script>
         $(document).ready(function() {
+            $('.rfm_table thead tr')
+                    .clone(true)
+                    .attr('id', 'filters2')
+                    .appendTo('.rfm_table thead');
+
+            $('.rfm_table tbody').append($(".rfm_table tbody tr:last").clone());
+            $('.rfm_table tbody tr:last :checkbox').attr('checked', false);
+            $('.rfm_table tbody tr:last td:first').html($('#row').val());
+
+            $('.rfm_table tr').prepend($("<td>"));
+            $('.rfm_table thead tr>td:first-child').html($('#col').val());
+            $('.rfm_table tbody tr').each(function() {
+                $(this).children('td:first-child').append($('<input type="checkbox" class="checkbox" name="check_list[]" value="">'))
+            });
+
+            var table = $('.rfm_table').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ], 
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, 'All'],
+                ],
+                initComplete: function () {
+                this.api()
+                    .columns()
+                    .every(function () {
+                        var column = this;
+                        // alert(column);
+                        var select = $('<select><option value=""></option></select>')
+                            .appendTo($(column.header()).empty())
+                            .on('change', function () {
+                                var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                                column.search(val ? '^' + val + '$' : '', true, false).draw();
+                            });
+    
+                        column
+                            .data()
+                            .unique()
+                            .sort()
+                            .each(function (d, j) {
+                                select.append('<option value="' + d + '">' + d + '</option>');
+                            });
+                    });
+            },
+                });
+                
+                table.buttons().container().appendTo( '.tablealb_wrapper .col-md-6:eq(0)' );
+        });
+        /* $(document).ready(function() {
             var table = $('.rfm_table').DataTable({
                 buttons: [{
                         extend: 'createState',
@@ -207,7 +261,7 @@ else {
 
             table.buttons().container()
                 .appendTo('#example_wrapper .col-md-6:eq(0)');
-        });
+        }); */
     </script>
 </body>
 

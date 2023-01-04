@@ -29,7 +29,8 @@ from statistics import mean
 
 try:
     connection = mysql.connector.connect(host='localhost',
-                                         database='ini_donor',
+                                        #  database='donor_darah',
+                                        database='ini_donor',
                                          user='root',
                                          password='')
     if connection.is_connected():
@@ -94,11 +95,11 @@ try:
         # print(all_id)
 
         # coba fetch data pendonor
-        sql_pendonor = "SELECT * FROM `pendonor`"
+        sql_pendonor = "SELECT id_pendonor, nama_pendonor, tanggal_lahir, jenis_kelamin, golongan_darah, rhesus, alamat_rumah, id_kelurahan_rumah, alamat_kantor, id_kelurahan_kantor, no_telp, email FROM `pendonor`"
         cursor.execute(sql_pendonor)
         data_pendonor = cursor.fetchall()
         df_pendonor = pd.DataFrame(data_pendonor)
-        # print(df_pendonor)
+        #print(df_pendonor)
 
         # get max recency
         recency_max = 0
@@ -162,6 +163,7 @@ try:
                 frequency3_min = i[2]
             if (i[3] < frequencyall_min):
                 frequencyall_min = i[3]
+
           
         # SILHOUETTE INDEX 
         freq_sil_var = []
@@ -324,6 +326,7 @@ try:
             f1_weight = f2_weight = f3_weight = fall_weight = 0.25
             m1_weight = m2_weight = m3_weight = mall_weight = 0.25
         else:
+            #print('All arguments')
             r_weight = float(sys.argv[1])
             f_weight = float(sys.argv[2])
             m_weight = float(sys.argv[3])
@@ -342,10 +345,11 @@ try:
 
             frequency_val = f1_weight*normalized_frequency_arr[i][0] + f2_weight*normalized_frequency_arr[i][1] + f3_weight*normalized_frequency_arr[i][2] + fall_weight*normalized_frequency_arr[i][3]
             monetary_val = m1_weight*normalized_monetary_arr[i][0] + m2_weight*normalized_monetary_arr[i][1] + m3_weight*normalized_monetary_arr[i][2] + mall_weight*normalized_monetary_arr[i][3]
-            rfm_val = r_weight*recency_val + f_weight*frequency_val + m_weight*monetary_val
+            rfm_val = round(r_weight*recency_val + f_weight*frequency_val + m_weight*monetary_val, 2)
             rfm_arr.append(rfm_val)
 
         #print("rfm: ", rfm_arr)
+
 
         # NEW -- Add RFM Columns to Initial DataFrame
         df_pendonor.columns = ['ID', 'Nama Pendonor', 'Tanggal Lahir', 'Jenis Kelamin', 'Golongan Darah',
@@ -373,8 +377,9 @@ try:
                 ax[q][mod].set_title("Silhouette Plot with n={} Cluster".format(_))
                 sv.fit(data)
             fig.tight_layout()
-            fig.show()
             fig.savefig("silhouette_plot.png")
+            fig.show()
+            
 
             # ELBOW
 
@@ -384,7 +389,6 @@ try:
                 kmeans = KMeans(n_clusters=n, random_state=42)
                 kmeans.fit(data)
                 inertia_list.append(kmeans.inertia_)
-                
             # plotting
             fig = plt.figure(figsize=figsize)
             ax = fig.add_subplot(111)
@@ -392,8 +396,8 @@ try:
             ax.set_xlabel("Cluster")
             ax.set_ylabel("Inertia")
             ax.set_xticks(list(range_))
-            fig.show()
             fig.savefig("elbow_plot.png")
+            fig.show()
 
         def findOptimalEps(n_neighbors, data):
             neigh = NearestNeighbors(n_neighbors=n_neighbors)
@@ -446,14 +450,15 @@ try:
             # BUAT STANDARDISASI DATA
         scaler = SS()
         # print("before")
-        # print(df_pendonor['RFM'])
+        #print(df_pendonor['RFM'])
         DNP_authors_standardized = scaler.fit_transform(df_pendonor[['RFM']])
-        # print("after")
+        #print("after")
         df_authors_standardized = pd.DataFrame(DNP_authors_standardized, columns=["RFM"])
         df_authors_standardized = df_authors_standardized.set_index(df_pendonor.index)
         selected_features = progressiveFeatureSelection(df_authors_standardized, max_features=1, n_clusters=3)
         df_standardized_sliced = df_authors_standardized[selected_features]
         elbowPlot(range(1,11), df_standardized_sliced)
+        print("hello")
         silhouettePlot(range(3,9), df_standardized_sliced)
         print(df_pendonor["RFM"])
 
@@ -485,6 +490,8 @@ try:
         obs = data
         # print("obs: ", obs)
         silhouette_score_values=[]
+
+        
         
         NumberOfClusters=range(2,11)
         plt.clf()
@@ -505,11 +512,10 @@ try:
         # score = silhouette_score(data, preds)
         # # print("For n_clusters = {}, silhouette score is {})".format(k, score))
         # print(score)
+        
 
        # Nyambungin ke PHP/HTML
         html_table = df_pendonor.to_html(classes='table table-striped rfm_table', index=False)
-        #print(html_table) #ini yg hrsnya di outputin ke sblh
-        # kalo ga bisa, coba write html to file
         text_file = open("table_data_modif.php", "w")
         text_file.write(html_table)
         text_file.close()
