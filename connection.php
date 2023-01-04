@@ -10,9 +10,9 @@
     //     die("ERROR: Could not connect. " .mysqli_connect_error());
     // }
     $servername = "localhost";
-    $username = "admin";
-    $password = "admin";
-    $dbname = "donor_darah";
+    $username = "root";
+    $password = "";
+    $dbname = "ini_donor";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

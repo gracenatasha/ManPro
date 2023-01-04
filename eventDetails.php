@@ -32,7 +32,7 @@ $_SESSION['eventId'] = $_GET['eventId'];
                     <?php
                         //ambil waktu event dari table event
                         echo '<h3>Time&#9200;  </h3></div>';
-                        echo '<div class="row"><p>'.$hasil['waktu_mulai_event'].'  -  '.$hasil['waktu_akhir_event'].'</p></div><br>';
+                        echo '<div class="row"><p>'.$hasil['waktu_event_mulai'].'  -  '.$hasil['waktu_event_selesai'].'</p></div><br>';
                         //ambil lokasi id dari table event untuk tahu nama lokasi
                         $idLokasi = $hasil['id_lokasi']; #ganti bentar
                         $lokasi = mysqli_query($conn,"SELECT * FROM lokasi WHERE id_lokasi =$idLokasi");
@@ -72,7 +72,7 @@ $_SESSION['eventId'] = $_GET['eventId'];
                 <br>
                 <div class="row">
                     <div class="col mx-4">
-                        <a type="button" class="btn btn-primary" href="broadcast.php">Sent Broadcast</a>
+                        <!-- <a type="button" class="btn btn-primary" href="broadcast.php">Sent Broadcast</a> -->
                         <a class="btn" href="displayAllEvent.php">Back</a>
                     <!-- <a type="button" class="btn btn-secondary" href="insertevent.php">Duplicate</a> -->
                     </div>

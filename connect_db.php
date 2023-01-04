@@ -1,4 +1,4 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "", "db_manpro");
+$conn = mysqli_connect("localhost", "root", "", "ini_donor");
 
 //nama database tolong disesuaikan

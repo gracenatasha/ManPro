@@ -6,8 +6,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = $_POST['email'];
     $pass = $_POST['password'];
 
+
     //$sql = "SELECT * From `pendonor` WHERE `email` = '$email' AND `password`=PASSWORD('$pass')";
     $sql = "SELECT * From `pendonor` WHERE `email` = '$email' AND `password`= '$pass'";
+
     $result = mysqli_query($conn, $sql);
 
     if ($result->num_rows > 0) {
