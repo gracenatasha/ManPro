@@ -1,60 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap5.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-        <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">    
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.bootstrap5.min.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    
-    <title>Send email</title>
-</head>
-<body>
-    
-   
-    <div class="container">
-    <form class="" action="send.php" method="post">
-        <label for="Email">Email:</label>
-        <br>
-    <?php
-        include 'connect.php';
-
-        if (isset($_POST['submit'])){
-             if(!empty($_POST['check_list'])){
-                foreach($_POST['check_list'] as $key => $value){
-                    $sql = "SELECT * FROM pendonor";
-                    $result = mysqli_query($conn, $sql);
-                    while($row = mysqli_fetch_array($result)) {
-                        if ($row['id_pendonor'] == $_POST['check_list'][$key]){
-                            echo '-<input type="email" name="email[]" value="'.$row['email'].'" readonly> : ';
-                            echo '<input type="text" name="nama[]" value="'.$row['nama_pendonor'].'" readonly>';
-                      }  
-                      } 
-                      echo '<br>';
-                }
-            }
+    <title>Welcome to Website Donor Darah</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style type="text/css">
+        .card-body {
+            text-align: center;
+            align-items: center;
         }
-    ?>
-        <br>
-        Subject
-        <input type="text" name="subject" style="width:400px;" value=""> <br>
-        Message
-        <br>
-        <textarea name="message" cols="51" rows="5"></textarea>
-        <br>
-        <button type="submit" class="btn btn-primary" name="submit" value="">send</button>
-        <!-- <input class="btn btn-success" type="submit" name="send" value="send"> -->
-    </form>
+        .card-header{
+            background-color: #880002;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+
+            <div class="card mx-auto my-auto">
+                <div class="card-header justify-content-center">
+                    <img src="assets/pmi_logo.png" width="300px">
+                </div>
+                <div class="card-body align-items-center">
+                    <h3>Welcome to Donor Darah Online</h3>
+                    <h5>Login as...</h5>
+                    <a class="btn btn-primary mt-3 d-block" href="login.php">User</a>
+                    <!--nti diganti halaman loginnya tiff-->
+                    <a class="btn btn-primary mt-3 mb-3 d-block" href="cariEvent.php">Admin</a>
+                    <small>Don't have an account yet? <a href="registration.php">Register Now</a></small>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </body>
+
 </html>

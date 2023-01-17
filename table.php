@@ -59,7 +59,7 @@ echo "$output";
     <div class="container">
         <div class="table-responsive">
             <div style="overflow-x: auto;">
-                <form action="index.php" method="post">
+                <form action="email.php" method="post">
                     <?php include 'table_data.php'; ?>
                     <input type="submit" class="btn btn-primary" name="submit" value="Broadcast" id="btn_broadcast">
                 </form>
